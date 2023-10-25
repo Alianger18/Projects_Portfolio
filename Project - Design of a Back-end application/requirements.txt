@@ -1,0 +1,3 @@
+questionary
+pandas
+sqlite3
