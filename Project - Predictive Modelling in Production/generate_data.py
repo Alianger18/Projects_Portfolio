@@ -2,6 +2,7 @@ import time
 import random
 import pandas as pd
 
+
 # Function to generate simulated sensor data
 def generate_sensor_data():
     temperature = random.uniform(20, 30)
@@ -12,7 +13,7 @@ def generate_sensor_data():
 
 
 # Simulate continuous data stream
-while True:
+while input("Do you want to?") == "Yes":
     sensor_data = generate_sensor_data()
     # Assuming you have a function to update BI dashboard data source
     # update_dashboard(sensor_data)

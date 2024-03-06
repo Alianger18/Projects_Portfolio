@@ -1,6 +1,6 @@
 # Importing the required libraries
 import pickle
-
+from generate_data import generate_sensor_data
 import numpy as np
 from flask import Flask, request, json
 
@@ -9,6 +9,7 @@ model = pickle.load(open('model_1.pkl', 'rb'))
 
 # Initiating the flask app
 app = Flask(__name__)
+
 
 @app.route('/predict', methods=['POST'])
 def predict():
