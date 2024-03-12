@@ -46,7 +46,7 @@ for name, metrics in results.items():
     print(f"MSE: {metrics['MSE']}")
     print(f"MAE: {metrics['MAE']}")
     print(f"R-squared: {metrics['R-squared']}")
-    print()
+
 
 # Saving the best model (based on R-squared) in a pickle format
 best_model_name = max(results, key=lambda x: results[x]['R-squared'])
