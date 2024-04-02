@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1712011931458
+current_stage: None
+description: null
+last_updated_timestamp: 1712011931458
+name: Random Forest
+run_id: 766b2158c6654cbab44893845b782684
+run_link: null
+source: file:C:\Users\Dell\Desktop\MTP01/mlruns/416404968967720279/766b2158c6654cbab44893845b782684/artifacts/model
+status: READY
+status_message: null
+storage_location: file:C:\Users\Dell\Desktop\MTP01/mlruns/416404968967720279/766b2158c6654cbab44893845b782684/artifacts/model
+user_id: null
+version: 1

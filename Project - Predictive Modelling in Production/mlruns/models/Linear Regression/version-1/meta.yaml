@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1712011922878
+current_stage: None
+description: null
+last_updated_timestamp: 1712011922878
+name: Linear Regression
+run_id: c52bf52c846444de9649af54422dfec8
+run_link: null
+source: file:C:\Users\Dell\Desktop\MTP01/mlruns/416404968967720279/c52bf52c846444de9649af54422dfec8/artifacts/model
+status: READY
+status_message: null
+storage_location: file:C:\Users\Dell\Desktop\MTP01/mlruns/416404968967720279/c52bf52c846444de9649af54422dfec8/artifacts/model
+user_id: null
+version: 1

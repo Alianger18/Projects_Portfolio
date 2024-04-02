@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1712011926352
+current_stage: None
+description: null
+last_updated_timestamp: 1712011926352
+name: Decision Tree
+run_id: 74326f6a8d5644adad2dd0090a34df67
+run_link: null
+source: file:C:\Users\Dell\Desktop\MTP01/mlruns/416404968967720279/74326f6a8d5644adad2dd0090a34df67/artifacts/model
+status: READY
+status_message: null
+storage_location: file:C:\Users\Dell\Desktop\MTP01/mlruns/416404968967720279/74326f6a8d5644adad2dd0090a34df67/artifacts/model
+user_id: null
+version: 1

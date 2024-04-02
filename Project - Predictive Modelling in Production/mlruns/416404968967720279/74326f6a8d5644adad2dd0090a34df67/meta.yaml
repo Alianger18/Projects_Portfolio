@@ -1,0 +1,15 @@
+artifact_uri: file:C:\Users\Dell\Desktop\MTP01/mlruns/416404968967720279/74326f6a8d5644adad2dd0090a34df67/artifacts
+end_time: 1712011926381
+entry_point_name: ''
+experiment_id: '416404968967720279'
+lifecycle_stage: active
+run_id: 74326f6a8d5644adad2dd0090a34df67
+run_name: Training Decision Tree
+run_uuid: 74326f6a8d5644adad2dd0090a34df67
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712011922925
+status: 3
+tags: []
+user_id: Dell

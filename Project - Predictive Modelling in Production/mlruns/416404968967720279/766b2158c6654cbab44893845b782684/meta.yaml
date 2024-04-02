@@ -1,0 +1,15 @@
+artifact_uri: file:C:\Users\Dell\Desktop\MTP01/mlruns/416404968967720279/766b2158c6654cbab44893845b782684/artifacts
+end_time: 1712011931492
+entry_point_name: ''
+experiment_id: '416404968967720279'
+lifecycle_stage: active
+run_id: 766b2158c6654cbab44893845b782684
+run_name: Training Random Forest
+run_uuid: 766b2158c6654cbab44893845b782684
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712011926405
+status: 3
+tags: []
+user_id: Dell
