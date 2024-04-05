@@ -10,13 +10,12 @@ aspects of the platform.
 ### Requirements
 To use this database simulation, you will need to have a PostgreSQL server 
 installed on your machine. You can download and install PostgreSQL from the 
-official website: https://www.postgresql.org/download/.
+official website [Here](https://www.postgresql.org/download/).
 
 ### Recommendation
 The use of DataGrip is totally optional yet it turns up to be one of the 
 best if not the best IDE for databases and it's free for students. You can 
-download and install DataGrip from the official website: 
-https://www.jetbrains.com/datagrip/download.
+download and install DataGrip from the official website [Here](https://www.jetbrains.com/datagrip/download).
 
 Once you have PostgreSQL installed, you will need to create a new database 
 in which to run the simulation. You can do this by running the following 
