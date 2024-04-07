@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/343267411917962239/7a33166a5d314c5f927ec9fa60a2e937/artifacts
+end_time: 1712170929007
+entry_point_name: ''
+experiment_id: '343267411917962239'
+lifecycle_stage: active
+run_id: 7a33166a5d314c5f927ec9fa60a2e937
+run_name: wise-lamb-392
+run_uuid: 7a33166a5d314c5f927ec9fa60a2e937
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712170928938
+status: 3
+tags: []
+user_id: Dell

@@ -1,5 +1,6 @@
-aliases: {}
+aliases:
+  production: '1'
 creation_timestamp: 1712011922871
 description: null
-last_updated_timestamp: 1712011922878
+last_updated_timestamp: 1712167315021
 name: Linear Regression

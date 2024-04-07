@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manufacturing Dashboard</title>
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> <!-- Include Plotly library -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -37,12 +37,12 @@
 
         .table-container {
             flex: 1; /* Take up half of the content width */
-            padding: 20px;
+            padding: 15px;
         }
 
         .line-plot {
             width: 100%;
-            height: 400px; /* Adjust height as needed */
+            height: 700px; /* Adjust height as needed */
             background-color: #7ea0c5;
             border: 1px solid #1d3461;
             border-radius: 5px;
@@ -93,7 +93,7 @@
                     <th>Sound</th>
                     <th>Temperature</th>
                     <th>Humidity</th>
-                    <th>Predicted Score</th>
+                    <th>Score</th>
                 </tr>
             </thead>
             <tbody id="table-body">
@@ -107,6 +107,38 @@
     <p><b>Wind</b>. Means the world to us. </p>
     <p>&copy; 2024 <b>VESTAS</b> .Inc </p>
 </footer>
+
+<script>
+    // Function to fetch data and update the table
+    function updateTable() {
+        // Fetch data from backend API
+        fetch('/api/data')
+            .then(response => response.json())
+            .then(data => {
+                // Clear existing table rows
+                document.getElementById('table-body').innerHTML = '';
+
+                // Display only the last 17 rows of data
+                const last17Rows = data.slice(-17);
+                last17Rows.forEach(row => {
+                    // Create a new table row
+                    const newRow = document.createElement('tr');
+                    newRow.innerHTML = `
+                        <td>${row.timestamp}</td>
+                        <td>${row.sound}</td>
+                        <td>${row.temperature}</td>
+                        <td>${row.humidity}</td>
+                        <td>${row.score}</td>
+                    `;
+                    // Append the new row to the table body
+                    document.getElementById('table-body').appendChild(newRow);
+                });
+            });
+    }
+
+    // Call updateTable function when the page loads
+    window.onload = updateTable;
+</script>
 
 </body>
 </html>

@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/343267411917962239/f273dcb79f0041be95592b1109b7c7e3/artifacts
+end_time: 1712170961457
+entry_point_name: ''
+experiment_id: '343267411917962239'
+lifecycle_stage: active
+run_id: f273dcb79f0041be95592b1109b7c7e3
+run_name: nebulous-shoat-300
+run_uuid: f273dcb79f0041be95592b1109b7c7e3
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712170961170
+status: 3
+tags: []
+user_id: Dell

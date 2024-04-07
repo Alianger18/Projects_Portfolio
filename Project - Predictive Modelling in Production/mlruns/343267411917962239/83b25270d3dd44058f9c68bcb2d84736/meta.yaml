@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/343267411917962239/83b25270d3dd44058f9c68bcb2d84736/artifacts
+end_time: 1712170942549
+entry_point_name: ''
+experiment_id: '343267411917962239'
+lifecycle_stage: active
+run_id: 83b25270d3dd44058f9c68bcb2d84736
+run_name: efficient-sponge-11
+run_uuid: 83b25270d3dd44058f9c68bcb2d84736
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712170942470
+status: 3
+tags: []
+user_id: Dell

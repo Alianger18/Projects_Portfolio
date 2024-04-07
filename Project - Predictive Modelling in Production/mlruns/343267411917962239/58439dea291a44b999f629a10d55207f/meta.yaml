@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/343267411917962239/58439dea291a44b999f629a10d55207f/artifacts
+end_time: 1712170956630
+entry_point_name: ''
+experiment_id: '343267411917962239'
+lifecycle_stage: active
+run_id: 58439dea291a44b999f629a10d55207f
+run_name: capable-gnu-792
+run_uuid: 58439dea291a44b999f629a10d55207f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712170956501
+status: 3
+tags: []
+user_id: Dell

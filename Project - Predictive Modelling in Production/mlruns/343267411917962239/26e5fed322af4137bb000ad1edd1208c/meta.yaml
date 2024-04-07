@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/343267411917962239/26e5fed322af4137bb000ad1edd1208c/artifacts
+end_time: 1712170939150
+entry_point_name: ''
+experiment_id: '343267411917962239'
+lifecycle_stage: active
+run_id: 26e5fed322af4137bb000ad1edd1208c
+run_name: adaptable-ray-307
+run_uuid: 26e5fed322af4137bb000ad1edd1208c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712170939069
+status: 3
+tags: []
+user_id: Dell
