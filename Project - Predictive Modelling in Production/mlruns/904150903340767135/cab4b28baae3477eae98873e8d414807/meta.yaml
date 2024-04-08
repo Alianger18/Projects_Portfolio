@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/cab4b28baae3477eae98873e8d414807/artifacts
+end_time: 1712597161658
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: cab4b28baae3477eae98873e8d414807
+run_name: casual-rook-389
+run_uuid: cab4b28baae3477eae98873e8d414807
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597161148
+status: 3
+tags: []
+user_id: Dell

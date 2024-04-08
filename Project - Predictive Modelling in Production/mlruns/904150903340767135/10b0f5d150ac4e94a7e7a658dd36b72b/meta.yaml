@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/10b0f5d150ac4e94a7e7a658dd36b72b/artifacts
+end_time: 1712597264665
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 10b0f5d150ac4e94a7e7a658dd36b72b
+run_name: rumbling-cod-311
+run_uuid: 10b0f5d150ac4e94a7e7a658dd36b72b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597262710
+status: 3
+tags: []
+user_id: Dell

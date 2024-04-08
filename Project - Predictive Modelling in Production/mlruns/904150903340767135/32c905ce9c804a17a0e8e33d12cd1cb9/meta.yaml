@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/32c905ce9c804a17a0e8e33d12cd1cb9/artifacts
+end_time: 1712597966115
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 32c905ce9c804a17a0e8e33d12cd1cb9
+run_name: worried-bird-218
+run_uuid: 32c905ce9c804a17a0e8e33d12cd1cb9
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597965994
+status: 3
+tags: []
+user_id: Dell

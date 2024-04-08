@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/fb0111dcba384b448286b0634b63efb7/artifacts
+end_time: 1712598012261
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: fb0111dcba384b448286b0634b63efb7
+run_name: bedecked-yak-720
+run_uuid: fb0111dcba384b448286b0634b63efb7
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712598012139
+status: 3
+tags: []
+user_id: Dell

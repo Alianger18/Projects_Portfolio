@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/5be2a88021ee42a98d424ff4350c49e1/artifacts
+end_time: 1712597951211
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 5be2a88021ee42a98d424ff4350c49e1
+run_name: learned-smelt-407
+run_uuid: 5be2a88021ee42a98d424ff4350c49e1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597950971
+status: 3
+tags: []
+user_id: Dell

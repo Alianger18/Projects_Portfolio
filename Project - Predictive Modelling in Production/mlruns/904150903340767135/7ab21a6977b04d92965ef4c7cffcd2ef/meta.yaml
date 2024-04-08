@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/7ab21a6977b04d92965ef4c7cffcd2ef/artifacts
+end_time: 1712597796067
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 7ab21a6977b04d92965ef4c7cffcd2ef
+run_name: gregarious-bass-869
+run_uuid: 7ab21a6977b04d92965ef4c7cffcd2ef
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597795423
+status: 3
+tags: []
+user_id: Dell

@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/5dfd85da1baa421eabf1cdfa3930a6df/artifacts
+end_time: 1712598032881
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 5dfd85da1baa421eabf1cdfa3930a6df
+run_name: dashing-perch-279
+run_uuid: 5dfd85da1baa421eabf1cdfa3930a6df
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712598032752
+status: 3
+tags: []
+user_id: Dell

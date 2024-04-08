@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/d49f1a37b66f416b84e48880095a1d98/artifacts
+end_time: 1712597292803
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: d49f1a37b66f416b84e48880095a1d98
+run_name: clean-goat-230
+run_uuid: d49f1a37b66f416b84e48880095a1d98
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597292614
+status: 3
+tags: []
+user_id: Dell

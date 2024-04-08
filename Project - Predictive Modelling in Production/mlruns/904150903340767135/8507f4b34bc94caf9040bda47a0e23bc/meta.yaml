@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/8507f4b34bc94caf9040bda47a0e23bc/artifacts
+end_time: 1712598038941
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 8507f4b34bc94caf9040bda47a0e23bc
+run_name: luminous-grub-14
+run_uuid: 8507f4b34bc94caf9040bda47a0e23bc
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712598038796
+status: 3
+tags: []
+user_id: Dell

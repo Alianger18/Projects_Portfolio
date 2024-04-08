@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/cf4cbfa1b2724a3fa9f81c75659d23ee/artifacts
+end_time: 1712597621386
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: cf4cbfa1b2724a3fa9f81c75659d23ee
+run_name: shivering-goat-574
+run_uuid: cf4cbfa1b2724a3fa9f81c75659d23ee
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597620999
+status: 3
+tags: []
+user_id: Dell

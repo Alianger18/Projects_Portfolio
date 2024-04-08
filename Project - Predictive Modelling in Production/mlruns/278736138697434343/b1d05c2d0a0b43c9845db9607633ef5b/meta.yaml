@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/278736138697434343/b1d05c2d0a0b43c9845db9607633ef5b/artifacts
+end_time: 1712596895095
+entry_point_name: ''
+experiment_id: '278736138697434343'
+lifecycle_stage: active
+run_id: b1d05c2d0a0b43c9845db9607633ef5b
+run_name: salty-gull-176
+run_uuid: b1d05c2d0a0b43c9845db9607633ef5b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712596894839
+status: 3
+tags: []
+user_id: Dell

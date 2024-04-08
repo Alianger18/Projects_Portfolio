@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/a8ef2a96fee64c44a39338219b7a96cc/artifacts
+end_time: 1712597667019
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: a8ef2a96fee64c44a39338219b7a96cc
+run_name: luminous-bird-897
+run_uuid: a8ef2a96fee64c44a39338219b7a96cc
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597666623
+status: 3
+tags: []
+user_id: Dell

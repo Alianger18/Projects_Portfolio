@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/ee70bbc1da894da6a92906a25067e16e/artifacts
+end_time: 1712597735131
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: ee70bbc1da894da6a92906a25067e16e
+run_name: spiffy-owl-552
+run_uuid: ee70bbc1da894da6a92906a25067e16e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597734307
+status: 3
+tags: []
+user_id: Dell

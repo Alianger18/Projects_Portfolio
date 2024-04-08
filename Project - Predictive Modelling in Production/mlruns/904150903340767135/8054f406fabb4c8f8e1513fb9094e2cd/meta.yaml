@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/8054f406fabb4c8f8e1513fb9094e2cd/artifacts
+end_time: 1712597548525
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 8054f406fabb4c8f8e1513fb9094e2cd
+run_name: sassy-mule-682
+run_uuid: 8054f406fabb4c8f8e1513fb9094e2cd
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597548159
+status: 3
+tags: []
+user_id: Dell

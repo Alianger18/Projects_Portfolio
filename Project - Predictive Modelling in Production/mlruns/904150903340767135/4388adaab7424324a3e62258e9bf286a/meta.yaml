@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/4388adaab7424324a3e62258e9bf286a/artifacts
+end_time: 1712598065571
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 4388adaab7424324a3e62258e9bf286a
+run_name: awesome-chimp-419
+run_uuid: 4388adaab7424324a3e62258e9bf286a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712598065458
+status: 3
+tags: []
+user_id: Dell

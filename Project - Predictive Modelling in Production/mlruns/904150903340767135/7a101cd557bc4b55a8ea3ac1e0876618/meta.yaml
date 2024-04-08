@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/7a101cd557bc4b55a8ea3ac1e0876618/artifacts
+end_time: 1712597304721
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 7a101cd557bc4b55a8ea3ac1e0876618
+run_name: welcoming-squid-326
+run_uuid: 7a101cd557bc4b55a8ea3ac1e0876618
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597304584
+status: 3
+tags: []
+user_id: Dell

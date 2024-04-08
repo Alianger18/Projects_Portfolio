@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/cdfc5fcfed084613b5f674c1c00ef6c9/artifacts
+end_time: 1712597732568
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: cdfc5fcfed084613b5f674c1c00ef6c9
+run_name: rumbling-bee-691
+run_uuid: cdfc5fcfed084613b5f674c1c00ef6c9
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597731495
+status: 3
+tags: []
+user_id: Dell

@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/a96c99257cad4beeb8eb5cdfffb1f5b5/artifacts
+end_time: 1712597652716
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: a96c99257cad4beeb8eb5cdfffb1f5b5
+run_name: dashing-stoat-620
+run_uuid: a96c99257cad4beeb8eb5cdfffb1f5b5
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597652384
+status: 3
+tags: []
+user_id: Dell

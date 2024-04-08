@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/f282599d9a8b4729a073e17e44cafd79/artifacts
+end_time: 1712597545226
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: f282599d9a8b4729a073e17e44cafd79
+run_name: silent-gull-386
+run_uuid: f282599d9a8b4729a073e17e44cafd79
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597544520
+status: 3
+tags: []
+user_id: Dell

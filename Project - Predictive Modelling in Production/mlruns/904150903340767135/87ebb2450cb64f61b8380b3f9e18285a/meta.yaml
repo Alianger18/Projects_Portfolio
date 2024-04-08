@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/87ebb2450cb64f61b8380b3f9e18285a/artifacts
+end_time: 1712597699055
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 87ebb2450cb64f61b8380b3f9e18285a
+run_name: orderly-stoat-892
+run_uuid: 87ebb2450cb64f61b8380b3f9e18285a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597698614
+status: 3
+tags: []
+user_id: Dell

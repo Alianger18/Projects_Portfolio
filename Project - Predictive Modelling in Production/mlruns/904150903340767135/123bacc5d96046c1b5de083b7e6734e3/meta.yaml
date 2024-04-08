@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/123bacc5d96046c1b5de083b7e6734e3/artifacts
+end_time: 1712598031673
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 123bacc5d96046c1b5de083b7e6734e3
+run_name: gregarious-skink-318
+run_uuid: 123bacc5d96046c1b5de083b7e6734e3
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712598031539
+status: 3
+tags: []
+user_id: Dell

@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/e1a692c57d5c4bdda51cf31b58245bdb/artifacts
+end_time: 1712597749722
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: e1a692c57d5c4bdda51cf31b58245bdb
+run_name: thundering-fish-438
+run_uuid: e1a692c57d5c4bdda51cf31b58245bdb
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597748578
+status: 3
+tags: []
+user_id: Dell

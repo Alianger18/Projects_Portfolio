@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/eed7dc4c8107421c878454802319d7be/artifacts
+end_time: 1712597585381
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: eed7dc4c8107421c878454802319d7be
+run_name: lyrical-moose-24
+run_uuid: eed7dc4c8107421c878454802319d7be
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597584514
+status: 3
+tags: []
+user_id: Dell

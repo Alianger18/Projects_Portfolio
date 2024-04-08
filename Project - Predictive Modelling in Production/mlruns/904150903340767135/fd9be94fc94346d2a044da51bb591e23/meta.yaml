@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/fd9be94fc94346d2a044da51bb591e23/artifacts
+end_time: 1712597412435
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: fd9be94fc94346d2a044da51bb591e23
+run_name: resilient-snake-883
+run_uuid: fd9be94fc94346d2a044da51bb591e23
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597411479
+status: 3
+tags: []
+user_id: Dell

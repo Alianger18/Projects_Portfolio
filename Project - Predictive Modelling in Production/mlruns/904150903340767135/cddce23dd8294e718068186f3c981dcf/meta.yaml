@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/cddce23dd8294e718068186f3c981dcf/artifacts
+end_time: 1712598087568
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: cddce23dd8294e718068186f3c981dcf
+run_name: able-croc-28
+run_uuid: cddce23dd8294e718068186f3c981dcf
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712598087389
+status: 3
+tags: []
+user_id: Dell

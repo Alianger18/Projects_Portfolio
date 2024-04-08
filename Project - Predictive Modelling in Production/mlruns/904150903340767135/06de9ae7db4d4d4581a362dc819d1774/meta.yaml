@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/06de9ae7db4d4d4581a362dc819d1774/artifacts
+end_time: 1712598167941
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 06de9ae7db4d4d4581a362dc819d1774
+run_name: awesome-koi-987
+run_uuid: 06de9ae7db4d4d4581a362dc819d1774
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712598167753
+status: 3
+tags: []
+user_id: Dell

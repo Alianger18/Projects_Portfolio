@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/0db349db09a946e780f5b01a8d36aa2d/artifacts
+end_time: 1712597931961
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 0db349db09a946e780f5b01a8d36aa2d
+run_name: rebellious-frog-481
+run_uuid: 0db349db09a946e780f5b01a8d36aa2d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597931670
+status: 3
+tags: []
+user_id: Dell

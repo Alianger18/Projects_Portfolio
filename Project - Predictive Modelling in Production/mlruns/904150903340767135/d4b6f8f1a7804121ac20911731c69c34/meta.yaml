@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/d4b6f8f1a7804121ac20911731c69c34/artifacts
+end_time: 1712598078900
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: d4b6f8f1a7804121ac20911731c69c34
+run_name: zealous-robin-270
+run_uuid: d4b6f8f1a7804121ac20911731c69c34
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712598078783
+status: 3
+tags: []
+user_id: Dell

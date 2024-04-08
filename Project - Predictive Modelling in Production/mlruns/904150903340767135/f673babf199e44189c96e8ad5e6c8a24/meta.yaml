@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/f673babf199e44189c96e8ad5e6c8a24/artifacts
+end_time: 1712598089999
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: f673babf199e44189c96e8ad5e6c8a24
+run_name: nimble-ram-518
+run_uuid: f673babf199e44189c96e8ad5e6c8a24
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712598089865
+status: 3
+tags: []
+user_id: Dell

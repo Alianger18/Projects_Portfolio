@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/2854d31e4ce942398d85cdfdb1840557/artifacts
+end_time: 1712597378940
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 2854d31e4ce942398d85cdfdb1840557
+run_name: gaudy-sloth-695
+run_uuid: 2854d31e4ce942398d85cdfdb1840557
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597378727
+status: 3
+tags: []
+user_id: Dell

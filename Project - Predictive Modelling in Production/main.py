@@ -1,12 +1,11 @@
 # Importing the required libraries
-from helping_functions import pre_processing, check_experiment, run_gunicorn
-from flask import Flask, request, render_template, jsonify
+from helping_functions import pre_processing, check_experiment
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime as dt
+from flask import Flask, request
 from pathlib import Path
 import numpy as np
 import warnings
-import sqlite3
 import mlflow
 
 # Ignore the warnings
@@ -23,6 +22,7 @@ model = mlflow.sklearn.load_model(f"{path}/models/Linear Regression")
 # Start Tracking
 experiment_name = check_experiment("Linear Regression")
 mlflow.create_experiment(experiment_name)
+
 
 # Initiating the flask app
 app = Flask(__name__)
@@ -55,7 +55,7 @@ class Storage(db.Model):
 # The index route
 @app.route('/', methods=['GET'])
 def index():
-    return render_template(template_name_or_list='index.html')
+    return "This is my 1st Flask app, and it's working!"
 
 # The STORE route
 @app.route('/store', methods=['GET'])
@@ -104,37 +104,10 @@ def predict():
     response = f'The predicted value for these measures is : {np.round(output_data[0], decimals=2)}'
     return response
 
-# The UPDATE route
-@app.route('/api/data', methods=['GET'])
-def update():
-    """
-    This endpoint is used to update the dashboard with data from the database
-    :return: json response with 17 rows from the updated database
-    """
-    # Connecting and fetching the last 17 rows
-    with sqlite3.connect('main.db') as connection:
-        cursor = connection.cursor()
-        cursor.execute("SELECT * FROM RECORDS ORDER BY TIMESTAMP DESC LIMIT 17")
-        data = cursor.fetchall()
-
-    # Return response with 17 rows of data
-    return jsonify(
-        [
-            {'timestamp': row[1],
-             'sound': row[2],
-             'temperature': row[3],
-             'humidity': row[4],
-             'score': row[5]
-             } for row in data
-        ]
-    )
-
 
 # Launching the flask app
 if __name__ == "__main__":
-    # Create the Flask application context
-    with app.app_context():
-        # Create all database tables
-        db.create_all()
     # Run the Flask application
+    with app.app_context():
+        db.create_all()
     app.run(debug=True)

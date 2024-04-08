@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/68c26d9326c24e4d9c1fadf8acf71e84/artifacts
+end_time: 1712598025606
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 68c26d9326c24e4d9c1fadf8acf71e84
+run_name: receptive-bat-954
+run_uuid: 68c26d9326c24e4d9c1fadf8acf71e84
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712598025487
+status: 3
+tags: []
+user_id: Dell

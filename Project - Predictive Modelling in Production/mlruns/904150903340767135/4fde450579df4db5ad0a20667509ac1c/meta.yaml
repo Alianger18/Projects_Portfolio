@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/4fde450579df4db5ad0a20667509ac1c/artifacts
+end_time: 1712597495910
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 4fde450579df4db5ad0a20667509ac1c
+run_name: big-steed-663
+run_uuid: 4fde450579df4db5ad0a20667509ac1c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597495271
+status: 3
+tags: []
+user_id: Dell

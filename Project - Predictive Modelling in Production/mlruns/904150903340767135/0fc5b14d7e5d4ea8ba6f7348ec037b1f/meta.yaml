@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/0fc5b14d7e5d4ea8ba6f7348ec037b1f/artifacts
+end_time: 1712598017163
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 0fc5b14d7e5d4ea8ba6f7348ec037b1f
+run_name: rebellious-mink-476
+run_uuid: 0fc5b14d7e5d4ea8ba6f7348ec037b1f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712598017014
+status: 3
+tags: []
+user_id: Dell

@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/2ec62de329f34fcf82f11550e7f7349d/artifacts
+end_time: 1712597432854
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 2ec62de329f34fcf82f11550e7f7349d
+run_name: rumbling-stoat-312
+run_uuid: 2ec62de329f34fcf82f11550e7f7349d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597432311
+status: 3
+tags: []
+user_id: Dell

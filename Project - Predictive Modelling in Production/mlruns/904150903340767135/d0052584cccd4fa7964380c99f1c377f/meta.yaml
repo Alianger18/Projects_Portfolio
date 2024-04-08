@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/d0052584cccd4fa7964380c99f1c377f/artifacts
+end_time: 1712598106009
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: d0052584cccd4fa7964380c99f1c377f
+run_name: whimsical-skunk-416
+run_uuid: d0052584cccd4fa7964380c99f1c377f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712598105892
+status: 3
+tags: []
+user_id: Dell

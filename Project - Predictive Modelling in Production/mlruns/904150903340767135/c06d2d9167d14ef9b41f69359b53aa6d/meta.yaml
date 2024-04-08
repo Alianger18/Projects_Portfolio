@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/c06d2d9167d14ef9b41f69359b53aa6d/artifacts
+end_time: 1712597354222
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: c06d2d9167d14ef9b41f69359b53aa6d
+run_name: smiling-stag-547
+run_uuid: c06d2d9167d14ef9b41f69359b53aa6d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597353865
+status: 3
+tags: []
+user_id: Dell

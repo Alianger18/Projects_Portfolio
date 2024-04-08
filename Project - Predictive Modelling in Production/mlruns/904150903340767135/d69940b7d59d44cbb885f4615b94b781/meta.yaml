@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/d69940b7d59d44cbb885f4615b94b781/artifacts
+end_time: 1712597317294
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: d69940b7d59d44cbb885f4615b94b781
+run_name: suave-goose-791
+run_uuid: d69940b7d59d44cbb885f4615b94b781
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597316831
+status: 3
+tags: []
+user_id: Dell

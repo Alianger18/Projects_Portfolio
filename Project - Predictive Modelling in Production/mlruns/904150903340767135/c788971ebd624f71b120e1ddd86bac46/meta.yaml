@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/c788971ebd624f71b120e1ddd86bac46/artifacts
+end_time: 1712597552808
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: c788971ebd624f71b120e1ddd86bac46
+run_name: bald-shrew-45
+run_uuid: c788971ebd624f71b120e1ddd86bac46
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597551935
+status: 3
+tags: []
+user_id: Dell

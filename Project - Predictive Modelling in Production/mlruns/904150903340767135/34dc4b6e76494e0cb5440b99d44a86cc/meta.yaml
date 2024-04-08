@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/34dc4b6e76494e0cb5440b99d44a86cc/artifacts
+end_time: 1712597372312
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 34dc4b6e76494e0cb5440b99d44a86cc
+run_name: burly-mink-587
+run_uuid: 34dc4b6e76494e0cb5440b99d44a86cc
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597372130
+status: 3
+tags: []
+user_id: Dell

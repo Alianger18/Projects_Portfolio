@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/e3376e0c925f4035aab0789a7aedc005/artifacts
+end_time: 1712597986624
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: e3376e0c925f4035aab0789a7aedc005
+run_name: popular-bird-881
+run_uuid: e3376e0c925f4035aab0789a7aedc005
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597986503
+status: 3
+tags: []
+user_id: Dell

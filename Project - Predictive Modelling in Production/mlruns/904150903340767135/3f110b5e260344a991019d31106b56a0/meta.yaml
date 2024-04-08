@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/3f110b5e260344a991019d31106b56a0/artifacts
+end_time: 1712597595955
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 3f110b5e260344a991019d31106b56a0
+run_name: omniscient-bug-204
+run_uuid: 3f110b5e260344a991019d31106b56a0
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597595475
+status: 3
+tags: []
+user_id: Dell

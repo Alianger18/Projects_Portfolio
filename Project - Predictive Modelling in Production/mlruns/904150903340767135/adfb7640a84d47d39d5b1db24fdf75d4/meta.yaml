@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/adfb7640a84d47d39d5b1db24fdf75d4/artifacts
+end_time: 1712597295394
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: adfb7640a84d47d39d5b1db24fdf75d4
+run_name: grandiose-rook-284
+run_uuid: adfb7640a84d47d39d5b1db24fdf75d4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597295206
+status: 3
+tags: []
+user_id: Dell

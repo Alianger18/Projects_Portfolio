@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/278736138697434343/43e2df1c5dd14228ab20ace809ab6835/artifacts
+end_time: 1712596902089
+entry_point_name: ''
+experiment_id: '278736138697434343'
+lifecycle_stage: active
+run_id: 43e2df1c5dd14228ab20ace809ab6835
+run_name: smiling-lamb-618
+run_uuid: 43e2df1c5dd14228ab20ace809ab6835
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712596901973
+status: 3
+tags: []
+user_id: Dell

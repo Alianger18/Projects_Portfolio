@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/ce38f0d5aab04aaabb6602d33a89bf79/artifacts
+end_time: 1712597624887
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: ce38f0d5aab04aaabb6602d33a89bf79
+run_name: awesome-duck-125
+run_uuid: ce38f0d5aab04aaabb6602d33a89bf79
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597624455
+status: 3
+tags: []
+user_id: Dell

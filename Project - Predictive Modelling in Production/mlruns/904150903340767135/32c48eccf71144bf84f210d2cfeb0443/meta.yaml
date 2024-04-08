@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/32c48eccf71144bf84f210d2cfeb0443/artifacts
+end_time: 1712597743148
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 32c48eccf71144bf84f210d2cfeb0443
+run_name: nimble-sheep-926
+run_uuid: 32c48eccf71144bf84f210d2cfeb0443
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597742752
+status: 3
+tags: []
+user_id: Dell

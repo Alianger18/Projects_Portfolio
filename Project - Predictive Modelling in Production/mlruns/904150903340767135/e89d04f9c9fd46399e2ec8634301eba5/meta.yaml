@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/e89d04f9c9fd46399e2ec8634301eba5/artifacts
+end_time: 1712597444800
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: e89d04f9c9fd46399e2ec8634301eba5
+run_name: omniscient-toad-695
+run_uuid: e89d04f9c9fd46399e2ec8634301eba5
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597444135
+status: 3
+tags: []
+user_id: Dell

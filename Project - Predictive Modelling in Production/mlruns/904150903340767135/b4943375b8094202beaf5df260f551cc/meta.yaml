@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/b4943375b8094202beaf5df260f551cc/artifacts
+end_time: 1712597578763
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: b4943375b8094202beaf5df260f551cc
+run_name: aged-gull-801
+run_uuid: b4943375b8094202beaf5df260f551cc
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597578367
+status: 3
+tags: []
+user_id: Dell

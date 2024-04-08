@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/d2287c1c6e324ee2a9a44355ae49e096/artifacts
+end_time: 1712598171689
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: d2287c1c6e324ee2a9a44355ae49e096
+run_name: mercurial-hog-565
+run_uuid: d2287c1c6e324ee2a9a44355ae49e096
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712598171546
+status: 3
+tags: []
+user_id: Dell

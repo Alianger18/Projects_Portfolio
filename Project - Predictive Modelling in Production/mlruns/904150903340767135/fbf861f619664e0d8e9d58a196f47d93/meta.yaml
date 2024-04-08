@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/fbf861f619664e0d8e9d58a196f47d93/artifacts
+end_time: 1712597846458
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: fbf861f619664e0d8e9d58a196f47d93
+run_name: rogue-crow-182
+run_uuid: fbf861f619664e0d8e9d58a196f47d93
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597845798
+status: 3
+tags: []
+user_id: Dell

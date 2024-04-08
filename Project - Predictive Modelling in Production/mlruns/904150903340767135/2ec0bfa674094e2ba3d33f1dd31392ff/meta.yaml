@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/2ec0bfa674094e2ba3d33f1dd31392ff/artifacts
+end_time: 1712598132023
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 2ec0bfa674094e2ba3d33f1dd31392ff
+run_name: silent-newt-596
+run_uuid: 2ec0bfa674094e2ba3d33f1dd31392ff
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712598131884
+status: 3
+tags: []
+user_id: Dell

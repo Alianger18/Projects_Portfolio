@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/580ce0e3c7534f319dc898a14c893095/artifacts
+end_time: 1712598187343
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 580ce0e3c7534f319dc898a14c893095
+run_name: peaceful-bird-750
+run_uuid: 580ce0e3c7534f319dc898a14c893095
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712598187203
+status: 3
+tags: []
+user_id: Dell

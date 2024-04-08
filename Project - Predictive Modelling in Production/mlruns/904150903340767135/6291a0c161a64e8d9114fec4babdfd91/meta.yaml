@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/6291a0c161a64e8d9114fec4babdfd91/artifacts
+end_time: 1712598231571
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 6291a0c161a64e8d9114fec4babdfd91
+run_name: merciful-cow-773
+run_uuid: 6291a0c161a64e8d9114fec4babdfd91
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712598231253
+status: 3
+tags: []
+user_id: Dell

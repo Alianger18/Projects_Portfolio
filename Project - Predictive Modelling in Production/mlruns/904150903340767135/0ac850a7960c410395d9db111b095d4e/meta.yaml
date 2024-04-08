@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/0ac850a7960c410395d9db111b095d4e/artifacts
+end_time: 1712598230030
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 0ac850a7960c410395d9db111b095d4e
+run_name: efficient-jay-867
+run_uuid: 0ac850a7960c410395d9db111b095d4e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712598229701
+status: 3
+tags: []
+user_id: Dell

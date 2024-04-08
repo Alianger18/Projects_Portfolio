@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/17c092742f5446f886780c7a9cdff27a/artifacts
+end_time: 1712598092496
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 17c092742f5446f886780c7a9cdff27a
+run_name: amazing-carp-842
+run_uuid: 17c092742f5446f886780c7a9cdff27a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712598092367
+status: 3
+tags: []
+user_id: Dell

@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/a63acfab94e0452e9c36f68c1e58d2a1/artifacts
+end_time: 1712597125956
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: a63acfab94e0452e9c36f68c1e58d2a1
+run_name: masked-flea-218
+run_uuid: a63acfab94e0452e9c36f68c1e58d2a1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597124881
+status: 3
+tags: []
+user_id: Dell

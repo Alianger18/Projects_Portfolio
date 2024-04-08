@@ -30,15 +30,16 @@ This project runs on a simulated measurements of the data. To run this stream ex
 python3 data_stream.py
 ```
 
-### View the application 
+### Launch the model as a service (MAAS) 
 After setting the data stream, launch the app :
 ```shell 
-gunicorn 
+python3 main.py
 ```
 
-### Screenshots
+### View the dashboard 
+After setting the data stream and launching the app, the dashboard dash application is singularizing real time data :
 ```shell 
-python3 data_stream.py
+python3 dashboard.py
 ```
 
 ### Creating the model
@@ -54,10 +55,6 @@ For tracking purposes, consult the mlflow UI portal by executing the following c
 mlflow ui -p 1234
 ```
 
-### Recommendation
-The system is designed to run on UNIX-like servers, therefore some dependencies Such as __Gunicorn__ and __Nginx__, 
-are not available in Windows servers. Otherwise, the system must work just fine if the missing dependencies are handled 
-properly.
 
 ## Contributing
 

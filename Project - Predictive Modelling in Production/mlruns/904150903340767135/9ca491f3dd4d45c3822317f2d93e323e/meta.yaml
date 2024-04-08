@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/9ca491f3dd4d45c3822317f2d93e323e/artifacts
+end_time: 1712597471165
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 9ca491f3dd4d45c3822317f2d93e323e
+run_name: polite-conch-562
+run_uuid: 9ca491f3dd4d45c3822317f2d93e323e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597470999
+status: 3
+tags: []
+user_id: Dell

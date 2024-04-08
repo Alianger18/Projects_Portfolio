@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/38a9736cf34b45ab8ab8243027e81505/artifacts
+end_time: 1712597221394
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 38a9736cf34b45ab8ab8243027e81505
+run_name: crawling-bat-109
+run_uuid: 38a9736cf34b45ab8ab8243027e81505
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597220744
+status: 3
+tags: []
+user_id: Dell

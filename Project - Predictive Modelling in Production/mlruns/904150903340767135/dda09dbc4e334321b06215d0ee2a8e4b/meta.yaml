@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/dda09dbc4e334321b06215d0ee2a8e4b/artifacts
+end_time: 1712597052645
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: dda09dbc4e334321b06215d0ee2a8e4b
+run_name: luminous-pig-862
+run_uuid: dda09dbc4e334321b06215d0ee2a8e4b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597052395
+status: 3
+tags: []
+user_id: Dell

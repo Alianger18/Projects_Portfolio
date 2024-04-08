@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/db65a1d74bdc4e07b97b3d72c9c5f8d3/artifacts
+end_time: 1712597715171
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: db65a1d74bdc4e07b97b3d72c9c5f8d3
+run_name: masked-fish-50
+run_uuid: db65a1d74bdc4e07b97b3d72c9c5f8d3
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597714732
+status: 3
+tags: []
+user_id: Dell

@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/dfed70ad2fb04ddab88ed208ab33fc2a/artifacts
+end_time: 1712598219763
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: dfed70ad2fb04ddab88ed208ab33fc2a
+run_name: gentle-foal-119
+run_uuid: dfed70ad2fb04ddab88ed208ab33fc2a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712598219629
+status: 3
+tags: []
+user_id: Dell

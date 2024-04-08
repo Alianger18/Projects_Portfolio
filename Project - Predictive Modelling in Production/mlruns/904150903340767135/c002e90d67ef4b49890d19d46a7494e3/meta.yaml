@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/c002e90d67ef4b49890d19d46a7494e3/artifacts
+end_time: 1712597137010
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: c002e90d67ef4b49890d19d46a7494e3
+run_name: sneaky-smelt-996
+run_uuid: c002e90d67ef4b49890d19d46a7494e3
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597136668
+status: 3
+tags: []
+user_id: Dell

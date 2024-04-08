@@ -22,9 +22,9 @@ while True:
     }
 
     # Ensure values stay within a reasonable range (optional)
-    sound = max(60, min(72, sound))
-    temperature = max(68, min(75, temperature))
-    humidity = max(40, min(50, humidity))
+    sound = max(61, min(72, sound))
+    temperature = max(69, min(75, temperature))
+    humidity = max(41, min(50, humidity))
 
     # Sending the data stream
     requests.post('http://127.0.0.1:5000/predict', json=data)

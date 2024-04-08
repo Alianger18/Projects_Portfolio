@@ -1,6 +1,6 @@
 # Importing the required libraries
+import pandas as pd
 import mlflow
-import subprocess
 
 
 def pre_processing(dictionary):
@@ -39,15 +39,18 @@ def check_experiment(prospected_experiment_name):
     return experiment_name
 
 
-def run_gunicorn():
-    # Define the Gunicorn command
-    gunicorn_command = [
-        'gunicorn',
-        '-w', '4',            # Number of worker processes
-        '-b', 'dashboard.vestas.com:8000',  # Bind address and port
-        'main:app'             # Flask application module and instance
-    ]
+def fetch_data(connection):
+    """
+    Fetch data from the database and return it as a pandas dataframe
+    :param connection: a database connection
+    :return: pandas dataframe
+    """
+    # Query the data
+    query = "SELECT * FROM Records ORDER BY TIMESTAMP DESC LIMIT 16"
 
-    # Run Gunicorn using subprocess
-    subprocess.Popen(gunicorn_command)
+    # Store the data into a pandas dataframe
+    df = pd.read_sql(query, connection)
+
+    # Return the dataframe
+    return df
 

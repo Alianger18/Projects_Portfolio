@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/92d5b6c8640e4a2081069c8ef36c4e01/artifacts
+end_time: 1712597619713
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 92d5b6c8640e4a2081069c8ef36c4e01
+run_name: intelligent-goose-52
+run_uuid: 92d5b6c8640e4a2081069c8ef36c4e01
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597619331
+status: 3
+tags: []
+user_id: Dell

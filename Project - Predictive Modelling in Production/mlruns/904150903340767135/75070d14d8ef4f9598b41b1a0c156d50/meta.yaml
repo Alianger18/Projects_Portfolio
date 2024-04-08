@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/75070d14d8ef4f9598b41b1a0c156d50/artifacts
+end_time: 1712597352581
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 75070d14d8ef4f9598b41b1a0c156d50
+run_name: angry-dolphin-422
+run_uuid: 75070d14d8ef4f9598b41b1a0c156d50
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597352132
+status: 3
+tags: []
+user_id: Dell

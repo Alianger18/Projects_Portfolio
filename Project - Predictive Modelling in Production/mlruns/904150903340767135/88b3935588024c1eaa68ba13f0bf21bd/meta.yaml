@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/88b3935588024c1eaa68ba13f0bf21bd/artifacts
+end_time: 1712597390842
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 88b3935588024c1eaa68ba13f0bf21bd
+run_name: capricious-conch-211
+run_uuid: 88b3935588024c1eaa68ba13f0bf21bd
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597390672
+status: 3
+tags: []
+user_id: Dell

@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/c8f17c611c6a4c53b59f8fe25df6ee7a/artifacts
+end_time: 1712598242645
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: c8f17c611c6a4c53b59f8fe25df6ee7a
+run_name: silent-cod-324
+run_uuid: c8f17c611c6a4c53b59f8fe25df6ee7a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712598241940
+status: 3
+tags: []
+user_id: Dell

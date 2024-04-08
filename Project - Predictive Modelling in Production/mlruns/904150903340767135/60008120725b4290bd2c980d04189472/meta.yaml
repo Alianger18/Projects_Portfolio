@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/60008120725b4290bd2c980d04189472/artifacts
+end_time: 1712597535572
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 60008120725b4290bd2c980d04189472
+run_name: ambitious-smelt-195
+run_uuid: 60008120725b4290bd2c980d04189472
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597534530
+status: 3
+tags: []
+user_id: Dell

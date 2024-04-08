@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/999dee54d3e84852a4f78d74dc5fdf5b/artifacts
+end_time: 1712597401076
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 999dee54d3e84852a4f78d74dc5fdf5b
+run_name: placid-worm-273
+run_uuid: 999dee54d3e84852a4f78d74dc5fdf5b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597400640
+status: 3
+tags: []
+user_id: Dell

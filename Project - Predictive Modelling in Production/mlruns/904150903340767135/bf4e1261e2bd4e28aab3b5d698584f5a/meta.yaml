@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/bf4e1261e2bd4e28aab3b5d698584f5a/artifacts
+end_time: 1712597442605
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: bf4e1261e2bd4e28aab3b5d698584f5a
+run_name: stylish-ray-508
+run_uuid: bf4e1261e2bd4e28aab3b5d698584f5a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597441841
+status: 3
+tags: []
+user_id: Dell

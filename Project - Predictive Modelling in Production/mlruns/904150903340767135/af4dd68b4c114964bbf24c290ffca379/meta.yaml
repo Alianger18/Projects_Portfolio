@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/af4dd68b4c114964bbf24c290ffca379/artifacts
+end_time: 1712597307411
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: af4dd68b4c114964bbf24c290ffca379
+run_name: puzzled-trout-637
+run_uuid: af4dd68b4c114964bbf24c290ffca379
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597307178
+status: 3
+tags: []
+user_id: Dell

@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/278736138697434343/a92b1c82f7224ec382a28faf3e11f076/artifacts
+end_time: 1712596899480
+entry_point_name: ''
+experiment_id: '278736138697434343'
+lifecycle_stage: active
+run_id: a92b1c82f7224ec382a28faf3e11f076
+run_name: crawling-penguin-616
+run_uuid: a92b1c82f7224ec382a28faf3e11f076
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712596899331
+status: 3
+tags: []
+user_id: Dell

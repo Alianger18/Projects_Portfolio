@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/2f32c3e155ba4768b56cb58056140193/artifacts
+end_time: 1712597101727
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 2f32c3e155ba4768b56cb58056140193
+run_name: thundering-gull-214
+run_uuid: 2f32c3e155ba4768b56cb58056140193
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597101209
+status: 3
+tags: []
+user_id: Dell

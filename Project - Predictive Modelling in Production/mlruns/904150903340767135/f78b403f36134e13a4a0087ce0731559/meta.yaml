@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/f78b403f36134e13a4a0087ce0731559/artifacts
+end_time: 1712598213267
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: f78b403f36134e13a4a0087ce0731559
+run_name: resilient-ray-641
+run_uuid: f78b403f36134e13a4a0087ce0731559
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712598213011
+status: 3
+tags: []
+user_id: Dell

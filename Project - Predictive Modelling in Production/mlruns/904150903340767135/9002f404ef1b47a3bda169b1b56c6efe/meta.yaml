@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/9002f404ef1b47a3bda169b1b56c6efe/artifacts
+end_time: 1712597682195
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 9002f404ef1b47a3bda169b1b56c6efe
+run_name: sassy-mole-909
+run_uuid: 9002f404ef1b47a3bda169b1b56c6efe
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597681826
+status: 3
+tags: []
+user_id: Dell

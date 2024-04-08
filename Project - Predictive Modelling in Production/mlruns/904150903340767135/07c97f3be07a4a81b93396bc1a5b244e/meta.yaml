@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/07c97f3be07a4a81b93396bc1a5b244e/artifacts
+end_time: 1712598047404
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 07c97f3be07a4a81b93396bc1a5b244e
+run_name: classy-grouse-189
+run_uuid: 07c97f3be07a4a81b93396bc1a5b244e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712598047282
+status: 3
+tags: []
+user_id: Dell

@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/2aa6f885b85d49fe9e357326fe70f30d/artifacts
+end_time: 1712598192981
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 2aa6f885b85d49fe9e357326fe70f30d
+run_name: sneaky-cod-615
+run_uuid: 2aa6f885b85d49fe9e357326fe70f30d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712598192417
+status: 3
+tags: []
+user_id: Dell

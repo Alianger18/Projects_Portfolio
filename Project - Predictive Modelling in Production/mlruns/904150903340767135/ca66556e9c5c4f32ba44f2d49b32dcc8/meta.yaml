@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/ca66556e9c5c4f32ba44f2d49b32dcc8/artifacts
+end_time: 1712597482667
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: ca66556e9c5c4f32ba44f2d49b32dcc8
+run_name: big-hawk-260
+run_uuid: ca66556e9c5c4f32ba44f2d49b32dcc8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597482257
+status: 3
+tags: []
+user_id: Dell

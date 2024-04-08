@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/75ef60485f194163bd2bc0cf53e6b742/artifacts
+end_time: 1712598006127
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 75ef60485f194163bd2bc0cf53e6b742
+run_name: gregarious-fawn-607
+run_uuid: 75ef60485f194163bd2bc0cf53e6b742
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712598006005
+status: 3
+tags: []
+user_id: Dell

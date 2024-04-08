@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/a14510d49d1d4db4a939eba6ad47f9d1/artifacts
+end_time: 1712597087024
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: a14510d49d1d4db4a939eba6ad47f9d1
+run_name: bustling-stag-619
+run_uuid: a14510d49d1d4db4a939eba6ad47f9d1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597086095
+status: 3
+tags: []
+user_id: Dell

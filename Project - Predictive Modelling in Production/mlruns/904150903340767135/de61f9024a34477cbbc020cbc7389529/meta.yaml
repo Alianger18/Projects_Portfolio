@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/de61f9024a34477cbbc020cbc7389529/artifacts
+end_time: 1712597755927
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: de61f9024a34477cbbc020cbc7389529
+run_name: big-pig-866
+run_uuid: de61f9024a34477cbbc020cbc7389529
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597755501
+status: 3
+tags: []
+user_id: Dell

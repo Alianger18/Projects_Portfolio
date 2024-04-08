@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/1c20fb0e2e6a41b99c5a5bced250f08d/artifacts
+end_time: 1712597933715
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 1c20fb0e2e6a41b99c5a5bced250f08d
+run_name: fearless-duck-406
+run_uuid: 1c20fb0e2e6a41b99c5a5bced250f08d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597933454
+status: 3
+tags: []
+user_id: Dell

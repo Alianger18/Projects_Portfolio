@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/5e649fdb3d6041a6abdbc3b1cd5fb6f3/artifacts
+end_time: 1712597096098
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 5e649fdb3d6041a6abdbc3b1cd5fb6f3
+run_name: casual-turtle-746
+run_uuid: 5e649fdb3d6041a6abdbc3b1cd5fb6f3
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597094677
+status: 3
+tags: []
+user_id: Dell

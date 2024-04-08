@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/3c7f1a30bcfb485b9e0f90c314f4bf61/artifacts
+end_time: 1712597860238
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 3c7f1a30bcfb485b9e0f90c314f4bf61
+run_name: grandiose-conch-811
+run_uuid: 3c7f1a30bcfb485b9e0f90c314f4bf61
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597859740
+status: 3
+tags: []
+user_id: Dell

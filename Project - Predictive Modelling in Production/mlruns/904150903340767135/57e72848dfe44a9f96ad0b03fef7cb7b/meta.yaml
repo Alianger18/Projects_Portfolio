@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/57e72848dfe44a9f96ad0b03fef7cb7b/artifacts
+end_time: 1712597659047
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 57e72848dfe44a9f96ad0b03fef7cb7b
+run_name: masked-ram-822
+run_uuid: 57e72848dfe44a9f96ad0b03fef7cb7b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597658210
+status: 3
+tags: []
+user_id: Dell

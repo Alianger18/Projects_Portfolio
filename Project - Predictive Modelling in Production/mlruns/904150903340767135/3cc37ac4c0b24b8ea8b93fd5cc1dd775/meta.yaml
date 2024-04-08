@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/3cc37ac4c0b24b8ea8b93fd5cc1dd775/artifacts
+end_time: 1712597688671
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 3cc37ac4c0b24b8ea8b93fd5cc1dd775
+run_name: bedecked-wren-949
+run_uuid: 3cc37ac4c0b24b8ea8b93fd5cc1dd775
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597687528
+status: 3
+tags: []
+user_id: Dell

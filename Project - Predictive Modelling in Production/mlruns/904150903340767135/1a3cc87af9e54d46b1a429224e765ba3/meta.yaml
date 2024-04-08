@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/1a3cc87af9e54d46b1a429224e765ba3/artifacts
+end_time: 1712598122685
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 1a3cc87af9e54d46b1a429224e765ba3
+run_name: trusting-eel-138
+run_uuid: 1a3cc87af9e54d46b1a429224e765ba3
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712598122534
+status: 3
+tags: []
+user_id: Dell

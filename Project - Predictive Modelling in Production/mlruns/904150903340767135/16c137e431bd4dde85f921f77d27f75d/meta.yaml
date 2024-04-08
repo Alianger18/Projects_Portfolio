@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/16c137e431bd4dde85f921f77d27f75d/artifacts
+end_time: 1712597674731
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 16c137e431bd4dde85f921f77d27f75d
+run_name: silent-ant-151
+run_uuid: 16c137e431bd4dde85f921f77d27f75d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597674193
+status: 3
+tags: []
+user_id: Dell

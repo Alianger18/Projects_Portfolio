@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/e5ee8e2bc7f34b5d8ca12c4176df2cd9/artifacts
+end_time: 1712598008610
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: e5ee8e2bc7f34b5d8ca12c4176df2cd9
+run_name: unique-calf-489
+run_uuid: e5ee8e2bc7f34b5d8ca12c4176df2cd9
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712598008471
+status: 3
+tags: []
+user_id: Dell

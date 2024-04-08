@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/8d746ecbbae244ac99ff8a5d65cc5f43/artifacts
+end_time: 1712597894163
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 8d746ecbbae244ac99ff8a5d65cc5f43
+run_name: crawling-sloth-762
+run_uuid: 8d746ecbbae244ac99ff8a5d65cc5f43
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597893570
+status: 3
+tags: []
+user_id: Dell

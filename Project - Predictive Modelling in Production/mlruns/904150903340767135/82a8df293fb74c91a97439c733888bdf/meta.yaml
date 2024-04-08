@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/82a8df293fb74c91a97439c733888bdf/artifacts
+end_time: 1712598145960
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 82a8df293fb74c91a97439c733888bdf
+run_name: traveling-ray-447
+run_uuid: 82a8df293fb74c91a97439c733888bdf
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712598145747
+status: 3
+tags: []
+user_id: Dell

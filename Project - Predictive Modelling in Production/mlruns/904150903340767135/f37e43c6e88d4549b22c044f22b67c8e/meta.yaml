@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/f37e43c6e88d4549b22c044f22b67c8e/artifacts
+end_time: 1712597153048
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: f37e43c6e88d4549b22c044f22b67c8e
+run_name: debonair-ram-450
+run_uuid: f37e43c6e88d4549b22c044f22b67c8e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597152660
+status: 3
+tags: []
+user_id: Dell

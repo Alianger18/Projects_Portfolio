@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/c4ee63b21b374c0bb1179a85fad8dd5f/artifacts
+end_time: 1712597809758
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: c4ee63b21b374c0bb1179a85fad8dd5f
+run_name: kindly-bat-111
+run_uuid: c4ee63b21b374c0bb1179a85fad8dd5f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597809161
+status: 3
+tags: []
+user_id: Dell

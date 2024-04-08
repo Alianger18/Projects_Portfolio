@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/a517eb017df34db4aa95733bb15a7628/artifacts
+end_time: 1712597725096
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: a517eb017df34db4aa95733bb15a7628
+run_name: nervous-elk-859
+run_uuid: a517eb017df34db4aa95733bb15a7628
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597724484
+status: 3
+tags: []
+user_id: Dell

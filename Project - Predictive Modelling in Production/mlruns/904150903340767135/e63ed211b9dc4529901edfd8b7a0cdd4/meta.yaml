@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/e63ed211b9dc4529901edfd8b7a0cdd4/artifacts
+end_time: 1712597206473
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: e63ed211b9dc4529901edfd8b7a0cdd4
+run_name: dapper-moth-541
+run_uuid: e63ed211b9dc4529901edfd8b7a0cdd4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597205924
+status: 3
+tags: []
+user_id: Dell

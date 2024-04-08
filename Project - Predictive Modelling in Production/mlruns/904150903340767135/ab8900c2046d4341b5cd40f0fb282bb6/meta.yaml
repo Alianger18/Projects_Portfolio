@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/ab8900c2046d4341b5cd40f0fb282bb6/artifacts
+end_time: 1712597386893
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: ab8900c2046d4341b5cd40f0fb282bb6
+run_name: calm-ape-802
+run_uuid: ab8900c2046d4341b5cd40f0fb282bb6
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597386710
+status: 3
+tags: []
+user_id: Dell

@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/1f5753f30379442e87c2ff418427bf10/artifacts
+end_time: 1712597598572
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 1f5753f30379442e87c2ff418427bf10
+run_name: judicious-mink-829
+run_uuid: 1f5753f30379442e87c2ff418427bf10
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597597690
+status: 3
+tags: []
+user_id: Dell

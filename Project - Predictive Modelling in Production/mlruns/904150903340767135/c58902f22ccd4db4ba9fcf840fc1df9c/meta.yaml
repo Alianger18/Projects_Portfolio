@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/c58902f22ccd4db4ba9fcf840fc1df9c/artifacts
+end_time: 1712597571656
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: c58902f22ccd4db4ba9fcf840fc1df9c
+run_name: lyrical-fly-341
+run_uuid: c58902f22ccd4db4ba9fcf840fc1df9c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597571041
+status: 3
+tags: []
+user_id: Dell

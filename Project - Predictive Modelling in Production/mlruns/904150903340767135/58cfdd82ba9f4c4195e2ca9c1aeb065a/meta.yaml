@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/58cfdd82ba9f4c4195e2ca9c1aeb065a/artifacts
+end_time: 1712597837460
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 58cfdd82ba9f4c4195e2ca9c1aeb065a
+run_name: learned-perch-248
+run_uuid: 58cfdd82ba9f4c4195e2ca9c1aeb065a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597837079
+status: 3
+tags: []
+user_id: Dell

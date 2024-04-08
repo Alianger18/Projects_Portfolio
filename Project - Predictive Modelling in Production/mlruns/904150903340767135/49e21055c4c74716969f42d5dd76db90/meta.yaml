@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/49e21055c4c74716969f42d5dd76db90/artifacts
+end_time: 1712597341932
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 49e21055c4c74716969f42d5dd76db90
+run_name: bald-worm-341
+run_uuid: 49e21055c4c74716969f42d5dd76db90
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597341588
+status: 3
+tags: []
+user_id: Dell

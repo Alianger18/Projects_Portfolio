@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/8b028cb8d6d04c319ce6477db1b20b9f/artifacts
+end_time: 1712597143632
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 8b028cb8d6d04c319ce6477db1b20b9f
+run_name: silent-seal-336
+run_uuid: 8b028cb8d6d04c319ce6477db1b20b9f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597142836
+status: 3
+tags: []
+user_id: Dell

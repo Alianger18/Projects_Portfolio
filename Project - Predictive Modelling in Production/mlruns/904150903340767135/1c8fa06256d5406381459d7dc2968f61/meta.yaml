@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/1c8fa06256d5406381459d7dc2968f61/artifacts
+end_time: 1712598209760
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 1c8fa06256d5406381459d7dc2968f61
+run_name: luminous-shoat-95
+run_uuid: 1c8fa06256d5406381459d7dc2968f61
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712598209326
+status: 3
+tags: []
+user_id: Dell

@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/876b5a5ba4504016984d7072c8209d9a/artifacts
+end_time: 1712597523675
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 876b5a5ba4504016984d7072c8209d9a
+run_name: melodic-duck-79
+run_uuid: 876b5a5ba4504016984d7072c8209d9a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597522986
+status: 3
+tags: []
+user_id: Dell

@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/a6a8d85db09442c4b8f7633f0b1f536c/artifacts
+end_time: 1712597454597
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: a6a8d85db09442c4b8f7633f0b1f536c
+run_name: skillful-rat-883
+run_uuid: a6a8d85db09442c4b8f7633f0b1f536c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597454362
+status: 3
+tags: []
+user_id: Dell

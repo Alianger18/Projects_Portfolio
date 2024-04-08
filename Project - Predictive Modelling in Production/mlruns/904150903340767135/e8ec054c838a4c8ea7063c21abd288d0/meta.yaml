@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/e8ec054c838a4c8ea7063c21abd288d0/artifacts
+end_time: 1712597061267
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: e8ec054c838a4c8ea7063c21abd288d0
+run_name: sassy-bird-19
+run_uuid: e8ec054c838a4c8ea7063c21abd288d0
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597060736
+status: 3
+tags: []
+user_id: Dell

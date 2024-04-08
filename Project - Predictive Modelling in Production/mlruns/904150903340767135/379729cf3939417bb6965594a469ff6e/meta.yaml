@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/379729cf3939417bb6965594a469ff6e/artifacts
+end_time: 1712597529758
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 379729cf3939417bb6965594a469ff6e
+run_name: whimsical-snake-235
+run_uuid: 379729cf3939417bb6965594a469ff6e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597529346
+status: 3
+tags: []
+user_id: Dell

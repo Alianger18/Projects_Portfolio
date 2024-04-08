@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/278736138697434343/051ae9dbae7b47708455919fcbb3b280/artifacts
+end_time: 1712596904872
+entry_point_name: ''
+experiment_id: '278736138697434343'
+lifecycle_stage: active
+run_id: 051ae9dbae7b47708455919fcbb3b280
+run_name: omniscient-horse-714
+run_uuid: 051ae9dbae7b47708455919fcbb3b280
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712596904731
+status: 3
+tags: []
+user_id: Dell

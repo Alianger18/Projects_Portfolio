@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/e5a407f4324e446b9a0e96a4b655ff15/artifacts
+end_time: 1712597176006
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: e5a407f4324e446b9a0e96a4b655ff15
+run_name: placid-koi-494
+run_uuid: e5a407f4324e446b9a0e96a4b655ff15
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597175546
+status: 3
+tags: []
+user_id: Dell

@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/50a73d79523344c0bb62371f1433d52e/artifacts
+end_time: 1712598110857
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 50a73d79523344c0bb62371f1433d52e
+run_name: rare-lark-907
+run_uuid: 50a73d79523344c0bb62371f1433d52e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712598110720
+status: 3
+tags: []
+user_id: Dell

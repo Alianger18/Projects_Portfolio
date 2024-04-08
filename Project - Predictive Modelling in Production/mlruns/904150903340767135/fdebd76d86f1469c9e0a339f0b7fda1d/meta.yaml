@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/fdebd76d86f1469c9e0a339f0b7fda1d/artifacts
+end_time: 1712598200469
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: fdebd76d86f1469c9e0a339f0b7fda1d
+run_name: useful-kit-841
+run_uuid: fdebd76d86f1469c9e0a339f0b7fda1d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712598200148
+status: 3
+tags: []
+user_id: Dell

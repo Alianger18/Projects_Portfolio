@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/3756bb73e0654421baa7185193473cfd/artifacts
+end_time: 1712597739711
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 3756bb73e0654421baa7185193473cfd
+run_name: peaceful-quail-468
+run_uuid: 3756bb73e0654421baa7185193473cfd
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597739016
+status: 3
+tags: []
+user_id: Dell

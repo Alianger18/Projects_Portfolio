@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/99e3d954b7704ff2b8907a9b5b93e6df/artifacts
+end_time: 1712597569573
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 99e3d954b7704ff2b8907a9b5b93e6df
+run_name: bedecked-swan-107
+run_uuid: 99e3d954b7704ff2b8907a9b5b93e6df
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597568120
+status: 3
+tags: []
+user_id: Dell

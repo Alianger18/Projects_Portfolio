@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/91486da1452c4c14bb54a18a9d00d25f/artifacts
+end_time: 1712597656346
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 91486da1452c4c14bb54a18a9d00d25f
+run_name: dashing-wren-499
+run_uuid: 91486da1452c4c14bb54a18a9d00d25f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597655851
+status: 3
+tags: []
+user_id: Dell

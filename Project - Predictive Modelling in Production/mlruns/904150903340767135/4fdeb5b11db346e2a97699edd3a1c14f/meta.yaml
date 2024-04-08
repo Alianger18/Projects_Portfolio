@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/4fdeb5b11db346e2a97699edd3a1c14f/artifacts
+end_time: 1712597330448
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 4fdeb5b11db346e2a97699edd3a1c14f
+run_name: big-shrike-96
+run_uuid: 4fdeb5b11db346e2a97699edd3a1c14f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597329626
+status: 3
+tags: []
+user_id: Dell

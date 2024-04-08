@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/1a8f229cfc3242d88fedba806dc60975/artifacts
+end_time: 1712598197249
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 1a8f229cfc3242d88fedba806dc60975
+run_name: nervous-bear-20
+run_uuid: 1a8f229cfc3242d88fedba806dc60975
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712598196753
+status: 3
+tags: []
+user_id: Dell

@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/b2aa64c1950b4b949dfd00464d861254/artifacts
+end_time: 1712597298040
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: b2aa64c1950b4b949dfd00464d861254
+run_name: welcoming-horse-840
+run_uuid: b2aa64c1950b4b949dfd00464d861254
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597297858
+status: 3
+tags: []
+user_id: Dell

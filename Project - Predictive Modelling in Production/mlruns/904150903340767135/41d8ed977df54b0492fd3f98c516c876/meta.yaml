@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/41d8ed977df54b0492fd3f98c516c876/artifacts
+end_time: 1712598198978
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 41d8ed977df54b0492fd3f98c516c876
+run_name: rogue-squid-591
+run_uuid: 41d8ed977df54b0492fd3f98c516c876
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712598198664
+status: 3
+tags: []
+user_id: Dell

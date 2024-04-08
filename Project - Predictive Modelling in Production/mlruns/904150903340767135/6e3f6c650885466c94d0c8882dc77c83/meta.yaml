@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/6e3f6c650885466c94d0c8882dc77c83/artifacts
+end_time: 1712597610751
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 6e3f6c650885466c94d0c8882dc77c83
+run_name: bittersweet-doe-713
+run_uuid: 6e3f6c650885466c94d0c8882dc77c83
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597610248
+status: 3
+tags: []
+user_id: Dell

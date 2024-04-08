@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/7eb6ff597f5d48f79677773c76732a81/artifacts
+end_time: 1712598161644
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 7eb6ff597f5d48f79677773c76732a81
+run_name: sedate-trout-681
+run_uuid: 7eb6ff597f5d48f79677773c76732a81
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712598161400
+status: 3
+tags: []
+user_id: Dell

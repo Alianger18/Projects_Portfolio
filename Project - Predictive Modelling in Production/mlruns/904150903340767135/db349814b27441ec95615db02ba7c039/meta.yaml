@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/db349814b27441ec95615db02ba7c039/artifacts
+end_time: 1712597361966
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: db349814b27441ec95615db02ba7c039
+run_name: nebulous-calf-619
+run_uuid: db349814b27441ec95615db02ba7c039
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597361832
+status: 3
+tags: []
+user_id: Dell

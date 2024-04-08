@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/660007b845bc4ccca78b7d9bb5fea37c/artifacts
+end_time: 1712597079087
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 660007b845bc4ccca78b7d9bb5fea37c
+run_name: silent-finch-541
+run_uuid: 660007b845bc4ccca78b7d9bb5fea37c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597078437
+status: 3
+tags: []
+user_id: Dell

@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/1a77e45e724e4e879ef70be2a0d58565/artifacts
+end_time: 1712597517524
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 1a77e45e724e4e879ef70be2a0d58565
+run_name: resilient-mouse-911
+run_uuid: 1a77e45e724e4e879ef70be2a0d58565
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597517155
+status: 3
+tags: []
+user_id: Dell

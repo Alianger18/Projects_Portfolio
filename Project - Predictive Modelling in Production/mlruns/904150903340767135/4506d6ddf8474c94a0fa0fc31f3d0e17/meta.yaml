@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/4506d6ddf8474c94a0fa0fc31f3d0e17/artifacts
+end_time: 1712597759545
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 4506d6ddf8474c94a0fa0fc31f3d0e17
+run_name: upset-boar-198
+run_uuid: 4506d6ddf8474c94a0fa0fc31f3d0e17
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597758983
+status: 3
+tags: []
+user_id: Dell

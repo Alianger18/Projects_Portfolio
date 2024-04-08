@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/67f96b9cd1ba400ab64790119b2c6178/artifacts
+end_time: 1712597069621
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 67f96b9cd1ba400ab64790119b2c6178
+run_name: merciful-eel-288
+run_uuid: 67f96b9cd1ba400ab64790119b2c6178
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597068491
+status: 3
+tags: []
+user_id: Dell

@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/bb045ff9c5514a7fb5e3f1e08456605c/artifacts
+end_time: 1712598217166
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: bb045ff9c5514a7fb5e3f1e08456605c
+run_name: burly-ox-986
+run_uuid: bb045ff9c5514a7fb5e3f1e08456605c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712598217013
+status: 3
+tags: []
+user_id: Dell

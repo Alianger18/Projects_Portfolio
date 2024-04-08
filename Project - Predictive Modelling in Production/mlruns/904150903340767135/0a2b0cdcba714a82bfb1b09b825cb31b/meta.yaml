@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/0a2b0cdcba714a82bfb1b09b825cb31b/artifacts
+end_time: 1712598120008
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 0a2b0cdcba714a82bfb1b09b825cb31b
+run_name: mercurial-ape-830
+run_uuid: 0a2b0cdcba714a82bfb1b09b825cb31b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712598119134
+status: 3
+tags: []
+user_id: Dell

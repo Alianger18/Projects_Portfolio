@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/c89f02f0d5b947d0ae225b0a1f1d3f9b/artifacts
+end_time: 1712597981809
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: c89f02f0d5b947d0ae225b0a1f1d3f9b
+run_name: clean-ant-848
+run_uuid: c89f02f0d5b947d0ae225b0a1f1d3f9b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597981693
+status: 3
+tags: []
+user_id: Dell

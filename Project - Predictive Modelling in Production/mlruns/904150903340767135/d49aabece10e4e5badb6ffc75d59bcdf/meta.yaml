@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/d49aabece10e4e5badb6ffc75d59bcdf/artifacts
+end_time: 1712598091264
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: d49aabece10e4e5badb6ffc75d59bcdf
+run_name: efficient-ant-346
+run_uuid: d49aabece10e4e5badb6ffc75d59bcdf
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712598091079
+status: 3
+tags: []
+user_id: Dell

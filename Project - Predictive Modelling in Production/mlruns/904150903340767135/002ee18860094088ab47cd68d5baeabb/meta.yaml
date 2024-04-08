@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/002ee18860094088ab47cd68d5baeabb/artifacts
+end_time: 1712598083823
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 002ee18860094088ab47cd68d5baeabb
+run_name: stately-pig-402
+run_uuid: 002ee18860094088ab47cd68d5baeabb
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712598083687
+status: 3
+tags: []
+user_id: Dell

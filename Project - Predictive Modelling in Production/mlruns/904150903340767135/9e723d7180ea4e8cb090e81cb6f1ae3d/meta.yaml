@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/9e723d7180ea4e8cb090e81cb6f1ae3d/artifacts
+end_time: 1712598024406
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 9e723d7180ea4e8cb090e81cb6f1ae3d
+run_name: melodic-lark-789
+run_uuid: 9e723d7180ea4e8cb090e81cb6f1ae3d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712598024275
+status: 3
+tags: []
+user_id: Dell

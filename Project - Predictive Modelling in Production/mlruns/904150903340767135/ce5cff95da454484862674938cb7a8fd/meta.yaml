@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/ce5cff95da454484862674938cb7a8fd/artifacts
+end_time: 1712597178899
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: ce5cff95da454484862674938cb7a8fd
+run_name: calm-skink-353
+run_uuid: ce5cff95da454484862674938cb7a8fd
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597177943
+status: 3
+tags: []
+user_id: Dell

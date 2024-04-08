@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/8869eebcdfe645c59da820a8eda70f6a/artifacts
+end_time: 1712598020778
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 8869eebcdfe645c59da820a8eda70f6a
+run_name: awesome-gull-754
+run_uuid: 8869eebcdfe645c59da820a8eda70f6a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712598020664
+status: 3
+tags: []
+user_id: Dell

@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/bcb4826c762f4b09a65836ebf26580b0/artifacts
+end_time: 1712597406024
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: bcb4826c762f4b09a65836ebf26580b0
+run_name: dapper-whale-845
+run_uuid: bcb4826c762f4b09a65836ebf26580b0
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597405659
+status: 3
+tags: []
+user_id: Dell

@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/1417286b38c040538fb70ece7f0162c8/artifacts
+end_time: 1712598124051
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 1417286b38c040538fb70ece7f0162c8
+run_name: sedate-ox-355
+run_uuid: 1417286b38c040538fb70ece7f0162c8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712598123815
+status: 3
+tags: []
+user_id: Dell

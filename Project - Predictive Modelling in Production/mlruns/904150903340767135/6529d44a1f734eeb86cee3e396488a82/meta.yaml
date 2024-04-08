@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/6529d44a1f734eeb86cee3e396488a82/artifacts
+end_time: 1712598228434
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 6529d44a1f734eeb86cee3e396488a82
+run_name: smiling-kite-50
+run_uuid: 6529d44a1f734eeb86cee3e396488a82
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712598228087
+status: 3
+tags: []
+user_id: Dell

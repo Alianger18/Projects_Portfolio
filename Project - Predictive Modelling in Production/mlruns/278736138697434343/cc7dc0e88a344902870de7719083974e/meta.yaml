@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/278736138697434343/cc7dc0e88a344902870de7719083974e/artifacts
+end_time: 1712596908798
+entry_point_name: ''
+experiment_id: '278736138697434343'
+lifecycle_stage: active
+run_id: cc7dc0e88a344902870de7719083974e
+run_name: judicious-foal-364
+run_uuid: cc7dc0e88a344902870de7719083974e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712596908646
+status: 3
+tags: []
+user_id: Dell

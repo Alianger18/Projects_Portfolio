@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/ec9fe7a25e34455d8a0cbbed03570ddd/artifacts
+end_time: 1712598186122
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: ec9fe7a25e34455d8a0cbbed03570ddd
+run_name: suave-lamb-707
+run_uuid: ec9fe7a25e34455d8a0cbbed03570ddd
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712598185959
+status: 3
+tags: []
+user_id: Dell

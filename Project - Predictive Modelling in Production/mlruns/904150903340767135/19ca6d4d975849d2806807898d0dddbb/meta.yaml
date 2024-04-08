@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/19ca6d4d975849d2806807898d0dddbb/artifacts
+end_time: 1712597798263
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 19ca6d4d975849d2806807898d0dddbb
+run_name: nimble-shrike-729
+run_uuid: 19ca6d4d975849d2806807898d0dddbb
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597797601
+status: 3
+tags: []
+user_id: Dell

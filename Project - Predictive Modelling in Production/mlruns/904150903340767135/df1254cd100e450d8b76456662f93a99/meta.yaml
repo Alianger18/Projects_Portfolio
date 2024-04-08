@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/df1254cd100e450d8b76456662f93a99/artifacts
+end_time: 1712597512579
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: df1254cd100e450d8b76456662f93a99
+run_name: suave-asp-475
+run_uuid: df1254cd100e450d8b76456662f93a99
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597511716
+status: 3
+tags: []
+user_id: Dell

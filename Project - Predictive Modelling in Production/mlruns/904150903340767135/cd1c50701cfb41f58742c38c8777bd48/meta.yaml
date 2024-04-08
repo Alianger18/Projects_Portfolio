@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/cd1c50701cfb41f58742c38c8777bd48/artifacts
+end_time: 1712597980607
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: cd1c50701cfb41f58742c38c8777bd48
+run_name: gaudy-finch-807
+run_uuid: cd1c50701cfb41f58742c38c8777bd48
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597980484
+status: 3
+tags: []
+user_id: Dell

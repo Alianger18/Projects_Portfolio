@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/278736138697434343/82c3b9e3fe664c7387b9dedc3c5e235f/artifacts
+end_time: 1712596898031
+entry_point_name: ''
+experiment_id: '278736138697434343'
+lifecycle_stage: active
+run_id: 82c3b9e3fe664c7387b9dedc3c5e235f
+run_name: nervous-lynx-453
+run_uuid: 82c3b9e3fe664c7387b9dedc3c5e235f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712596897801
+status: 3
+tags: []
+user_id: Dell

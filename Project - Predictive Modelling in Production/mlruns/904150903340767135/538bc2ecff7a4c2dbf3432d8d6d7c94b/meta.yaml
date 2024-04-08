@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/538bc2ecff7a4c2dbf3432d8d6d7c94b/artifacts
+end_time: 1712598069203
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: 538bc2ecff7a4c2dbf3432d8d6d7c94b
+run_name: lyrical-auk-243
+run_uuid: 538bc2ecff7a4c2dbf3432d8d6d7c94b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712598069087
+status: 3
+tags: []
+user_id: Dell

@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/904150903340767135/e61caa1565b6425e9fb4c15e9194e86b/artifacts
+end_time: 1712597166777
+entry_point_name: ''
+experiment_id: '904150903340767135'
+lifecycle_stage: active
+run_id: e61caa1565b6425e9fb4c15e9194e86b
+run_name: gaudy-boar-553
+run_uuid: e61caa1565b6425e9fb4c15e9194e86b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712597166364
+status: 3
+tags: []
+user_id: Dell
