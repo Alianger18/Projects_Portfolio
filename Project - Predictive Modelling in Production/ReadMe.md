@@ -5,18 +5,19 @@
 
 ### Overview
 This project is an __Anomaly detection__ system, designed to provide a real-time score for measurements of data gathered 
-from sensors of the manufacturing machines for one of VESTAS .inc sites based in _, Denmark_. The system is 
+from sensors of the manufacturing machines for one of VESTAS .inc sites based in __Travemünde, Denmark__. The system is 
 designed to avoid latency in production lines and manufacturing faulty items through immediate intervention in the 
 production site based on the score given by the model. 
 
-The score is based on 3 parameters : Sound, Temperature, and Humidity. The score is from 1 to 10 with 1 being the lowest
-and 10 the highest. The more the parameters are in the lower end of their normal range the higher is the score and the 
-more parameters are in the higher end of their normal range the lower is the score.
-
-The normal ranges of the parameters are :
+The score is based on 3 parameters : Sound, Temperature, and Humidity. The normal ranges of the parameters are :
 - **Sound**,        measured in deciBell (dB)       : 60 dB to 85 dB.
 - **Temperature**,  measured in Fahrenheit (°F)     : 68°F  to 86°F
 - **Humidity**,     measured in Relative Humidity   : 40%   to 60% of RH
+
+The score is from 1 to 10 with 1 being the lowest and 10 the highest. The more the parameters are in the lower end of 
+their normal range the higher is the score and the more parameters are in the higher end of their normal range the lower
+is the score.
+
 
 ### Requirements
 Use this prompt to install dependencies :
@@ -46,7 +47,7 @@ python3 dashboard.py
 Linear Regression is the model used for inference. Launch the notebook for more information on the model's choice, 
 training, testing, and evaluation.
 ```shell 
-jupyter ///notebooks/MTP01\ -\ Model\ Creation.ipynb
+jupyter ///notebooks/MTP01/Model_creation.ipynb
 ```
 
 ### Monitoring the model
