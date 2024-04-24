@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/Dell/Desktop/MTP01/mlruns/297772865189215319/152c09a209c449fc9152d881ff661e96/artifacts
+end_time: 1713503951100
+entry_point_name: ''
+experiment_id: '297772865189215319'
+lifecycle_stage: active
+run_id: 152c09a209c449fc9152d881ff661e96
+run_name: secretive-moth-543
+run_uuid: 152c09a209c449fc9152d881ff661e96
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713503950996
+status: 3
+tags: []
+user_id: Dell

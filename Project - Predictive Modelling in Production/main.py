@@ -1,5 +1,5 @@
 # Importing the required libraries
-from helping_functions import pre_processing, check_experiment
+from helping_functions import pre_processing, validation, check_experiment, store_data
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime as dt
 from flask import Flask, request
@@ -10,7 +10,6 @@ import mlflow
 
 # Ignore the warnings
 warnings.filterwarnings("ignore")
-
 
 # Loading and tracking the runs of the model inside mlflow experiments
 # Creating the path for the model
@@ -23,17 +22,16 @@ model = mlflow.sklearn.load_model(f"{path}/models/Linear Regression")
 experiment_name = check_experiment("Linear Regression")
 mlflow.create_experiment(experiment_name)
 
-
 # Initiating the flask app
 app = Flask(__name__)
-
 
 # Configuring the database and its models
 # Setting our storage with SQLite
 app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{path}/main.db'
 db = SQLAlchemy(app)
 
-# Creating Records class, the default database
+
+# Creating Storage class, the default database
 class Storage(db.Model):
     __tablename__ = 'RECORDS'
     id = db.Column(db.Integer, primary_key=True)
@@ -55,25 +53,7 @@ class Storage(db.Model):
 # The index route
 @app.route('/', methods=['GET'])
 def index():
-    return "This is my 1st Flask app, and it's working!"
-
-# The STORE route
-@app.route('/store', methods=['GET'])
-def store(input_measurements, output_score):
-    # Adjusting values
-    sound = input_measurements[0][0]
-    temperature = input_measurements[0][1]
-    humidity = input_measurements[0][2]
-    score = np.round(output_score[0], decimals=2)
-
-    # Creating a record using these values
-    record = Storage(sound=sound, temperature=temperature, humidity=humidity, score=score)
-
-    # Add the record to the database
-    db.session.add(record)
-    db.session.commit()
-
-    return None
+    return "Provide Documentation here!"
 
 # The PREDICT route
 @app.route('/predict', methods=['POST'])
@@ -81,28 +61,34 @@ def predict():
     # Getting the actual data
     input_data = pre_processing(request.get_json())
 
-    # Set the experiment as the default experiment
-    mlflow.set_experiment(f"{experiment_name}")
+    # Validating the data
+    if validation(input_data):
+        # Set the experiment as the default experiment
+        mlflow.set_experiment(f"{experiment_name}")
 
-    # Generating the prediction
-    with mlflow.start_run():
-        # Getting model predictions
-        output_data = model.predict(input_data)
+        # Starting a new run
+        with mlflow.start_run():
+            # Getting model predictions
+            output_data = model.predict(input_data)
 
-        # Logging inputs
-        mlflow.log_params({"Sound": input_data[0][0]})
-        mlflow.log_params({"Temperature": input_data[0][1]})
-        mlflow.log_params({"Humidity": input_data[0][2]})
+            # Logging inputs
+            mlflow.log_params({"Sound": input_data[0][0]})
+            mlflow.log_params({"Temperature": input_data[0][1]})
+            mlflow.log_params({"Humidity": input_data[0][2]})
 
-        # Logging output
-        mlflow.log_params({"Score": np.round(output_data[0], decimals=2)})
+            # Logging output
+            mlflow.log_params({"Score": np.round(output_data[0], decimals=2)})
 
-    # Storing the data
-    store(input_data, output_data)
+        # Storing the data
+        store_data(db, Storage, input_data, output_data)
 
-    # Returning the values
-    response = f'The predicted value for these measures is : {np.round(output_data[0], decimals=2)}'
-    return response
+        # Returning the values
+        response = f'The predicted value for these measures is : {np.round(output_data[0], decimals=2)}'
+
+        return response
+
+    else:
+        return "The input data is not valid"
 
 
 # Launching the flask app
