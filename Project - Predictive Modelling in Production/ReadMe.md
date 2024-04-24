@@ -28,26 +28,26 @@ pip install -r requirments.txt
 ### Data Stream
 This project runs on a simulated measurements of the data. To run this stream execute the following script :
 ```shell 
-python3 data_stream.py
+python data_stream.py
 ```
 
 ### Launch the model as a service (MAAS) 
 After setting the data stream, launch the app :
 ```shell 
-python3 main.py
+python main.py
 ```
 
 ### View the dashboard 
 After setting the data stream and launching the app, the dashboard dash application is singularizing real time data :
 ```shell 
-python3 dashboard.py
+python dashboard.py
 ```
 
 ### Creating the model
 Linear Regression is the model used for inference. Launch the notebook for more information on the model's choice, 
 training, testing, and evaluation.
 ```shell 
-jupyter ///notebooks/MTP01/Model_creation.ipynb
+jupyter notebook notebooks/Model_creation.ipynb
 ```
 
 ### Monitoring the model
