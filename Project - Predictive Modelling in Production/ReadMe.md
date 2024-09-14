@@ -1,4 +1,4 @@
-# Predictive Modelling in Production
+# Predictive Modeling in Production
 
 
 ## Getting Started
@@ -9,14 +9,14 @@ from sensors of the manufacturing machines for one of VESTAS .inc sites based in
 designed to avoid latency in production lines and manufacturing faulty items through immediate intervention in the 
 production site based on the score given by the model. 
 
-The score is based on 3 parameters : Sound, Temperature, and Humidity. The normal ranges of the parameters are :
-- **Sound**,        measured in deciBell (dB)       : 60 dB to 85 dB.
-- **Temperature**,  measured in Fahrenheit (°F)     : 68°F  to 86°F
-- **Humidity**,     measured in Relative Humidity   : 40%   to 60% of RH
+The score is based on three parameters: Sound, Temperature, and Humidity. The normal ranges of the parameters are :
+- **Sound** measured in deciBell (dB) — 60 dB to 85 dB.
+- **Temperature** measured in Fahrenheit (°F) — 68°F  to 86°F
+- **Humidity** measured in Relative Humidity — 40% to 60% of RH
 
-The score is from 1 to 10 with 1 being the lowest and 10 the highest. The more the parameters are in the lower end of 
-their normal range the higher is the score and the more parameters are in the higher end of their normal range the lower
-is the score.
+The score is from 1 to 10 with 1 being the lowest and 10 the highest.
+The more the parameters are at the lower end of their normal range, the higher is the score, and the more parameters are
+at the higher end of their normal range, the lower is the score.
 
 
 ### Requirements
@@ -26,7 +26,7 @@ pip install -r requirments.txt
 ```
 
 ### Data Stream
-This project runs on a simulated measurements of the data. To run this stream execute the following script :
+This project runs on a simulated measurements of the data. To run this stream, execute the following script :
 ```shell 
 python data_stream.py
 ```
@@ -65,6 +65,6 @@ feature requests, and code improvements.
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License — see the LICENSE file for details.
 
 
