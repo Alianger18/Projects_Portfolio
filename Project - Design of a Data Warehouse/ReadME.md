@@ -34,7 +34,7 @@ pip install -r requirements.txt
 
 To install the database on PostgreSQL 
 ```shell
-psql -U username -d database_name -f /main_db.sql
+psql -U username -d database_name -f main_db.sql
 ```
 
 To launch the notebook
