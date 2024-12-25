@@ -1,0 +1,12 @@
+yellowbrick
+matplotlib
+ipywidgets
+kagglehub
+notebook
+jupyter
+seaborn
+pathlib
+pandas
+prince
+numpy
+umap
