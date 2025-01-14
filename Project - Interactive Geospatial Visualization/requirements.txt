@@ -1,0 +1,10 @@
+matplotlib
+geopandas
+notebook
+seaborn
+folium
+plotly
+pandas
+geopy
+numpy
+dash
