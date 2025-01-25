@@ -177,7 +177,7 @@ def create_choropleth(map_data: pd.DataFrame, airport_data: pd.DataFrame, select
         color='Flights',
         hover_data=['StateName', 'Flights'],
         locationmode='USA-states',
-        color_continuous_scale='GnBu',
+        color_continuous_scale='YlOrRd',
         range_color=[0, map_data['Flights'].max()],
         title="Choropleth Map of US States by Flights",
         labels={
@@ -192,6 +192,7 @@ def create_choropleth(map_data: pd.DataFrame, airport_data: pd.DataFrame, select
 
         # Get the state data
         state_data = states_coords_df[states_coords_df['Abbreviation'] == selected_state]
+        state_name = state_data.iloc[0]['State']
 
         # Update the map layout with the selected state
         if not state_data.empty:
@@ -244,6 +245,9 @@ def create_choropleth(map_data: pd.DataFrame, airport_data: pd.DataFrame, select
                 name="Flight Volume"
             )
         )
+
+        # Update the title
+        fig.update_layout(title_text=f"Choropleth Map of {state_name}, US by Flights")
 
     # Return the figure
     return fig
