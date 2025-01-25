@@ -1,10 +1,6 @@
-# Introducing Betto
-Betto is your personal tool for tracking progress, staying on target, and achieving your goals!
-With easy-to-use features and customizable options, you'll be able to track your habits and make 
-meaningful progress towards the life you want. Say goodbye to the stress and frustration of 
-habit-building, and hello to a happier, healthier you with our Habit Tracker app.
-
-Betto, your journey to GREATNESS starts here.
+# Tidying up data
+In a world where data is the new oil, it is important to ensure that the data is clean, the data is tidy, and the data 
+is ready for analysis. This project is a collection of scripts that help in tidying up data. 
 
 ## What is it ?
 
@@ -23,27 +19,6 @@ and prioritizing tasks. It provides accountability, support, and positive reinfo
 and reminders, creating a sense of accomplishment and boosting self-esteem. Additionally, it can improve
 health and wellness by helping users develop healthy habits, track progress, and set goals.
 
-
-## Installation
-
-```shell 
-pip install -r requirements.txt
-```
-
-
-## Usage 
-
-Start 
-```shell
-python install main.py
-```
-and follow the instruction on the screen.
-
-## Testing 
-
-```Shell 
-python -m tests discover
-```
 
 ## Contributing
 
