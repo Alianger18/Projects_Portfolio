@@ -193,8 +193,8 @@ def update_dashboard(map_click_data, tree_click_data, last_clicked_state, last_c
     )
 
     line_fig = px.line(
-        line_data, x='Month', y='AirTime', color='Reporting_Airline',
-        title='Average Monthly Flight Time per airline in the US'
+        line_data.groupby(["Reporting_Airline", "Month"])["AirTime"].sum().reset_index(), x='Month', y='AirTime',
+        color='Reporting_Airline',  title='Average Monthly Flight Time per airline in the US'
     )
 
     # Determine which input triggered the callback
@@ -230,7 +230,9 @@ def update_dashboard(map_click_data, tree_click_data, last_clicked_state, last_c
                 )
 
                 line_fig = px.line(
-                    line_data[line_data['StateCode'] == clicked_state], x='Month', y='AirTime',
+                    line_data[line_data['StateCode'] == clicked_state].groupby(
+                        ["Reporting_Airline", "Month"]
+                    )["AirTime"].sum().reset_index(), x='Month', y='AirTime',
                     color='Reporting_Airline', title=f'Average Monthly Flight Time per airline in {state_name}, US'
                 )
 
@@ -264,8 +266,12 @@ def update_dashboard(map_click_data, tree_click_data, last_clicked_state, last_c
                 )
 
                 line_fig = px.line(
-                    line_data[line_data['Origin'] == clicked_airport], x='Month', y='AirTime',
-                    color='Reporting_Airline',
+                    line_data[
+                        (line_data['Origin'] == clicked_airport)
+                        &
+                        (line_data['StateCode'] == clicked_state)
+                        ].groupby(["Reporting_Airline", "Month"])["AirTime"].sum().reset_index(),
+                    x='Month', y='AirTime', color='Reporting_Airline',
                     title=f'Average Monthly Flight Time per airline at {clicked_airport} airport in {state_name}, US'
                 )
 

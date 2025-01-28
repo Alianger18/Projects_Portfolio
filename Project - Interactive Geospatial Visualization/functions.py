@@ -96,7 +96,7 @@ def get_sunburst_data(dataframe: pd.DataFrame) -> pd.DataFrame:
     Returns:
     Dataframe containing the sunburst data.
     """
-    # Prepare the cancelled data
+    # Prepare the canceled data
     cancelled = dataframe[dataframe['Cancelled'] == 1].groupby(
         ["Reporting_Airline", "CancellationCode"]
     )["Flights"].sum().reset_index()
@@ -162,10 +162,10 @@ def create_choropleth(map_data: pd.DataFrame, airport_data: pd.DataFrame, select
     """
     Create a choropleth map of US states by flights with airport markers.
 
-    :param map_data: the data for the map
-    :param airport_data: the data for the airports
-    :param selected_state: the selected state
-    :param zoom_level: the zoom level
+    :param map_data: The data for the map
+    :param airport_data: The data for the airports
+    :param selected_state: The selected state
+    :param zoom_level: The zoom level
 
     :return:
     Plotly figure object
@@ -252,28 +252,3 @@ def create_choropleth(map_data: pd.DataFrame, airport_data: pd.DataFrame, select
     # Return the figure
     return fig
 
-def compute_average_data(dataframe: pd.DataFrame):
-    """
-    Compute graph data for creating the yearly airline DELAY report.
-    This function takes in airline data and selected year as an input
-    and performs computation for creating charts and plots.
-
-    Arguments:
-
-    dataframe: Filtered dataframe.
-
-    Returns:
-    Computed average dataframes for carrier delay, weather delay, NAS delay, security delay, and late aircraft delay
-    """
-    # Compute delay averages
-    avg_car = dataframe.groupby(['Month', 'Reporting_Airline'])['CarrierDelay'].mean().reset_index()
-
-    avg_weather = dataframe.groupby(['Month', 'Reporting_Airline'])['WeatherDelay'].mean().reset_index()
-
-    avg_nas = dataframe.groupby(['Month', 'Reporting_Airline'])['NASDelay'].mean().reset_index()
-
-    avg_sec = dataframe.groupby(['Month', 'Reporting_Airline'])['SecurityDelay'].mean().reset_index()
-
-    avg_late = dataframe.groupby(['Month', 'Reporting_Airline'])['LateAircraftDelay'].mean().reset_index()
-
-    return avg_car, avg_weather, avg_nas, avg_sec, avg_late
