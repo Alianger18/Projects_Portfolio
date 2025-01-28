@@ -30,7 +30,7 @@ pip install -r requirements.txt
 
 Then, launch the jupyter notebook
 ```Shell 
-jupyter notebook data/notebook.ipynb
+jupyter notebook notebook/notebook.ipynb
 
 ```
 
