@@ -2,30 +2,38 @@
 In a world where data is the new oil, it is important to ensure that the data is clean, the data is tidy, and the data 
 is ready for analysis. This project is a collection of scripts that help in tidying up data. 
 
-## What is it ?
+## About the project
 
-It's a python application uses a "while loop" and a library called "questionnary" to interact 
-with the user Creates habits based on its name and frequency as an object from a class called
-"Tracker". The application allows the user to analyse, create, increment, edit, reset, and 
-delete their habits, and commit those changes directly to the database. 
-
-Habits are considered active if the user has incremented them within the specified time frame, 
-otherwise, the application uses a breaking habit test function to classify them as "broken."
+In this project, we tackle the challenges associated with analyzing real-world and messy datasets. Recognizing the 
+inherent difficulties in seamlessly transitioning from hypothesis formulation to data analysis, this work emphasizes the
+importance of data cleaning, reshaping, and tidying as foundational steps in the analytical process. By applying Data 
+Wrangling techniques and Quality methods, we aim to uncover patterns and insights, despite the noisy and incomplete 
+nature of the data. This analysis not only highlights the relationships and trends within the dataset but also 
+demonstrates the ability to effectively manage and interpret unstructured data, ultimately supporting informed 
+decision-making. This project will be based on this quantitative analysis 
+of [data](https://www.kaggle.com/datasets/osmi/mental-health-in-tech-2016/) resulting from anonymous surveys from 
+people working in IT-related companies around the world.
 
 
 ## Why ?
-The aim is to help users stay focused on their goals by tracking progress, identifying productive times, 
-and prioritizing tasks. It provides accountability, support, and positive reinforcement through rewards 
-and reminders, creating a sense of accomplishment and boosting self-esteem. Additionally, it can improve
-health and wellness by helping users develop healthy habits, track progress, and set goals.
+Using Data Wrangling techniques and Quality methods allows us to uncover hidden patterns and trends, even in noisy 
+datasets. The ability to manage and interpret unstructured data is crucial for deriving insights that support informed 
+decision-making. Through the analysis of anonymous survey data from IT professionals worldwide, this project 
+demonstrates the practical application of these techniques in a real-world context.
 
+## Installation
 
-## Contributing
+Start by installing project's requirements
+```shell 
+pip install -r requirements.txt
+```
 
-If you would like to contribute to this project, please feel free to submit a 
-pull request. We welcome contributions of all kinds, including bug fixes, 
-feature requests, and code improvements.
+Then, launch the jupyter notebook
+```Shell 
+jupyter notebook data/notebook.ipynb
+
+```
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License—see the LICENSE file for details.
