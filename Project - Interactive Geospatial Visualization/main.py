@@ -1,6 +1,6 @@
 # Import the required libraries
+from functions import create_choropleth, create_line
 from dash.dependencies import Input, Output, State
-from functions import create_choropleth
 from dash import dcc, html, Dash
 from pathlib import Path
 import plotly.express as px
@@ -192,10 +192,7 @@ def update_dashboard(map_click_data, tree_click_data, last_clicked_state, last_c
         title="Airlines performances in the US",
     )
 
-    line_fig = px.line(
-        line_data.groupby(["Reporting_Airline", "Month"])["AirTime"].sum().reset_index(), x='Month', y='AirTime',
-        color='Reporting_Airline',  title='Average Monthly Flight Time per airline in the US'
-    )
+    line_fig = create_line(line_data)
 
     # Determine which input triggered the callback
     ctx = dash.callback_context
@@ -217,7 +214,7 @@ def update_dashboard(map_click_data, tree_click_data, last_clicked_state, last_c
 
                 tree_fig = px.treemap(
                     tree_data[tree_data['StateCode'] == clicked_state],
-                    color='Total Flights per state', values='Flights',
+                    color='Flights', values='Flights',
                     path=['StateCode', 'Origin', 'Reporting_Airline'], color_continuous_scale='YlOrRd',
                     title=f'Flights distribution across airports in {state_name}, US'
                 )
@@ -229,12 +226,7 @@ def update_dashboard(map_click_data, tree_click_data, last_clicked_state, last_c
                     title=f'Airlines performances in {state_name}, US'
                 )
 
-                line_fig = px.line(
-                    line_data[line_data['StateCode'] == clicked_state].groupby(
-                        ["Reporting_Airline", "Month"]
-                    )["AirTime"].sum().reset_index(), x='Month', y='AirTime',
-                    color='Reporting_Airline', title=f'Average Monthly Flight Time per airline in {state_name}, US'
-                )
+                line_fig = create_line(line_data, clicked_state)
 
         # If the treemap was clicked
         elif trigger == "plot1" and tree_click_data:
@@ -253,7 +245,7 @@ def update_dashboard(map_click_data, tree_click_data, last_clicked_state, last_c
 
                 tree_fig = px.treemap(
                     tree_data[tree_data['Origin'] == clicked_airport],
-                    color='Total Flights per state', values='Flights',
+                    color='Flights', values='Flights',
                     path=['StateCode', 'Origin', 'Reporting_Airline'], color_continuous_scale='YlOrRd',
                     title=f'Flights distribution per airline at the {clicked_airport} airport in {state_name}, US'
                 )
@@ -265,15 +257,7 @@ def update_dashboard(map_click_data, tree_click_data, last_clicked_state, last_c
                     title=f'Airlines performances at the {clicked_airport} airport in {state_name}, US',
                 )
 
-                line_fig = px.line(
-                    line_data[
-                        (line_data['Origin'] == clicked_airport)
-                        &
-                        (line_data['StateCode'] == clicked_state)
-                        ].groupby(["Reporting_Airline", "Month"])["AirTime"].sum().reset_index(),
-                    x='Month', y='AirTime', color='Reporting_Airline',
-                    title=f'Average Monthly Flight Time per airline at {clicked_airport} airport in {state_name}, US'
-                )
+                line_fig = create_line(line_data, clicked_state, clicked_airport)
 
     # Adjust layouts
     map_fig.update_layout(geo_scope='usa', autosize=True)
