@@ -1,9 +1,8 @@
 # Import the required libraries
-from functions import create_choropleth, create_line
 from dash.dependencies import Input, Output, State
 from dash import dcc, html, Dash
+from functions import *
 from pathlib import Path
-import plotly.express as px
 import pandas as pd
 import dash
 
@@ -138,144 +137,169 @@ app.layout = html.Div(
 
         # Stores for Clicked Data
         dcc.Store(id="last-clicked-state", data=None),
-        dcc.Store(id="last-clicked-airport", data=None)
+        dcc.Store(id="last-clicked-airport", data=None),
+        dcc.Store(id="last-clicked-airline", data=None)
     ]
 )
 
 
-# Callback to create and update the dashboard based on user interactions
 @app.callback(
     [
-        Output("plot1", "figure"),  # Update the treemap
-        Output("plot2", "figure"),  # Update the map
-        Output("plot3", "figure"),  # Update the sunburst
-        Output("plot4", "figure"),  # Update the line chart
-        Output("last-clicked-state", "data"),  # Store clicked state
-        Output("last-clicked-airport", "data")  # Store clicked airport
+        Output("plot1", "figure"),                  # Update the treemap
+        Output("plot2", "figure"),                  # Update the map
+        Output("plot3", "figure"),                  # Update the sunburst
+        Output("plot4", "figure"),                  # Update the line chart
+        Output("last-clicked-state", "data"),       # Store clicked state
+        Output("last-clicked-airport", "data"),     # Store clicked airport
+        Output("last-clicked-airline", "data")      # Store clicked airline
     ],
     [
-        Input("plot2", "clickData"),  # Clicks on the map
-        Input("plot1", "clickData")  # Clicks on the treemap
+        Input("plot2", "clickData"),                # Clicks on the map
+        Input("plot1", "clickData"),                # Clicks on the treemap
+        Input("plot3", "clickData")                 # Clicks on the sunburst
     ],
     [
-        State("last-clicked-state", "data"),  # Previous clicked state
-        State("last-clicked-airport", "data")  # Previous clicked airport
+        State("last-clicked-state", "data"),        # Previous clicked state
+        State("last-clicked-airport", "data"),      # Previous clicked airport
+        State("last-clicked-airline", "data")       # Previous clicked airline
     ]
 )
-def update_dashboard(map_click_data, tree_click_data, last_clicked_state, last_clicked_airport):
+def update_dashboard(map_click_data,
+                     tree_click_data,
+                     sunburst_click_data,
+                     last_clicked_state,
+                     last_clicked_airport,
+                     last_clicked_airline):
     """
-    Update the dashboard based on user interactions.
-    :param map_click_data: Click data from the map.
-    :param tree_click_data: Click data from the treemap.
-    :param last_clicked_state: The last clicked state.
-    :param last_clicked_airport: The last clicked airport.
-    :return: Updated figures based on chosen states and airports.
+    Update the dashboard based on user interactions
+    :param map_click_data: Click data from the map
+    :param tree_click_data: Click data from the treemap
+    :param sunburst_click_data: Click data from the sunburst
+    :param last_clicked_state: Last clicked state
+    :param last_clicked_airport: Last clicked airport
+    :param last_clicked_airline: Last clicked airline
+    :return: Custom figures based on the user preferences
     """
     # Default clicked values
     clicked_state = last_clicked_state
     clicked_airport = last_clicked_airport
+    clicked_airline = last_clicked_airline
 
     # Create the initial figures
     map_fig = create_choropleth(map_data, airport_data)
 
-    tree_fig = px.treemap(
-        tree_data, color='Total Flights per state', values='Flights',
-        path=['StateCode', 'Origin', 'Reporting_Airline'],
-        color_continuous_scale='YlOrRd',
-        title='Flights distribution across airports in the US'
-    )
+    tree_fig = create_tree_map(tree_data)
 
-    sunburst_fig = px.sunburst(
-        sunburst_data, values="Flights", color="Status",
-        path=["Reporting_Airline", "Status", "Detail"],
-        color_discrete_map={"Cancelled": "red", "Delayed": "orange", "On-Time": "green"},
-        title="Airlines performances in the US",
-    )
+    sunburst_fig = create_sunburst(sunburst_data)
 
     line_fig = create_line(line_data)
 
     # Determine which input triggered the callback
     ctx = dash.callback_context
 
+    # If the callback was triggered
     if ctx.triggered:
+
+        #
         trigger = ctx.triggered[0]["prop_id"].split(".")[0]
 
         # If the map was clicked
         if trigger == "plot2" and map_click_data:
 
-            # Extract the clicked state
+            # Get the clicked state
             clicked_state = map_click_data["points"][0]["location"]
-            state_name = map_data[map_data['StateCode'] == clicked_state]['StateName'].values[0]
 
-            # Check if the clicked state is different from the last clicked state
+            # Update only the figures if the clicked state is different from the last clicked state
             if clicked_state != last_clicked_state:
-                # Update the figures
+
+                # Update all figures with the clicked state
                 map_fig = create_choropleth(map_data, airport_data, selected_state=clicked_state, zoom_level=4)
 
-                tree_fig = px.treemap(
-                    tree_data[tree_data['StateCode'] == clicked_state],
-                    color='Flights', values='Flights',
-                    path=['StateCode', 'Origin', 'Reporting_Airline'], color_continuous_scale='YlOrRd',
-                    title=f'Flights distribution across airports in {state_name}, US'
-                )
+                tree_fig = create_tree_map(tree_data, clicked_state)
 
-                sunburst_fig = px.sunburst(
-                    sunburst_data[sunburst_data['StateCode'] == clicked_state], color="Status", values="Flights",
-                    path=["Reporting_Airline", "Status", "Detail"],
-                    color_discrete_map={"Cancelled": "red", "Delayed": "orange", "On-Time": "green"},
-                    title=f'Airlines performances in {state_name}, US'
-                )
+                sunburst_fig = create_sunburst(sunburst_data, clicked_state)
 
                 line_fig = create_line(line_data, clicked_state)
+
+            else:
+
+                # Return to the initial state
+                map_fig = create_choropleth(map_data, airport_data)
+
+                tree_fig = create_tree_map(tree_data)
+
+                sunburst_fig = create_sunburst(sunburst_data)
+
+                line_fig = create_line(line_data)
 
         # If the treemap was clicked
         elif trigger == "plot1" and tree_click_data:
 
-            # Extract the clicked state and airport
+            # Get the clicked airport, state code and name
             clicked_state = tree_click_data["points"][0]["parent"]
             clicked_airport = tree_click_data["points"][0]["label"]
 
-            # Extract the state name
-            state_name = tree_data[tree_data['StateCode'] == clicked_state]['StateName'].values[0]
+            # Update the map with the clicked state
+            map_fig = create_choropleth(map_data, airport_data, selected_state=clicked_state, zoom_level=4)
 
-            # Check if the clicked airport is different from the last clicked airport
+            # Update only the figures if the clicked airport is different from the last clicked airport
             if clicked_airport != last_clicked_airport:
-                # Update the figures
-                map_fig = create_choropleth(map_data, airport_data, selected_state=clicked_state, zoom_level=4)
 
-                tree_fig = px.treemap(
-                    tree_data[tree_data['Origin'] == clicked_airport],
-                    color='Flights', values='Flights',
-                    path=['StateCode', 'Origin', 'Reporting_Airline'], color_continuous_scale='YlOrRd',
-                    title=f'Flights distribution per airline at the {clicked_airport} airport in {state_name}, US'
-                )
+                # Update all figures with the clicked airport
+                tree_fig = create_tree_map(tree_data, clicked_state, clicked_airport)
 
-                sunburst_fig = px.sunburst(
-                    sunburst_data[sunburst_data['Origin'] == clicked_airport], color="Status", values="Flights",
-                    path=["Reporting_Airline", "Status", "Detail"],
-                    color_discrete_map={"Cancelled": "red", "Delayed": "orange", "On-Time": "green"},
-                    title=f'Airlines performances at the {clicked_airport} airport in {state_name}, US',
-                )
+                sunburst_fig = create_sunburst(sunburst_data, clicked_state, clicked_airport)
+
+                line_fig = create_line(line_data, clicked_state, clicked_airport)
+
+            else:
+                # Return to the initial state
+                tree_fig = create_tree_map(tree_data, clicked_state)
+
+                sunburst_fig = create_sunburst(sunburst_data, clicked_state)
+
+                line_fig = create_line(line_data, clicked_state)
+
+        # If the sunburst was clicked
+        elif trigger == "plot3" and sunburst_click_data:
+
+            # Determine the clicked airline
+            clicked_airline = sunburst_click_data["points"][0]["label"]
+
+            # Update the map with the last clicked state
+            map_fig = create_choropleth(map_data, airport_data, selected_state=last_clicked_state, zoom_level=4)
+
+            tree_fig = create_tree_map(tree_data, clicked_state, clicked_airport)
+
+            # Update only the figures if the clicked airline is different from the last clicked airline
+            if clicked_airline != last_clicked_airline or clicked_airline is None:
+
+                # Update all figures with the clicked airline
+                sunburst_fig = create_sunburst(sunburst_data, clicked_state, clicked_airport, clicked_airline)
+
+                line_fig = create_line(line_data, clicked_state, clicked_airport, clicked_airline)
+
+            else:
+                # Return to the initial state
+                sunburst_fig = create_sunburst(sunburst_data, clicked_state, clicked_airport)
 
                 line_fig = create_line(line_data, clicked_state, clicked_airport)
 
     # Adjust layouts
     map_fig.update_layout(geo_scope='usa', autosize=True)
-
     tree_fig.update_layout(autosize=True, margin=dict(l=20, r=0, t=80, b=20))
-
     sunburst_fig.update_layout(autosize=True, margin=dict(l=20, r=20, t=80, b=50))
-
     line_fig.update_layout(autosize=True)
 
-    # Return updated figures and clicked values
+    # Return the results
     return [
         tree_fig,
         map_fig,
         sunburst_fig,
         line_fig,
         clicked_state,
-        clicked_airport
+        clicked_airport,
+        clicked_airline
     ]
 
 
