@@ -1,54 +1,54 @@
-,StateCode,StateName,Flights
-7,DE,Delaware,17
-43,TT,U.S. Pacific Trust Territories and Possessions,59
-51,WV,West Virginia,850
-47,VI,U.S. Virgin Islands,891
-48,VT,Vermont,1201
-52,WY,Wyoming,1651
-41,SD,South Dakota,2009
-20,ME,Maine,2139
-27,ND,North Dakota,2379
-15,KS,Kansas,2499
-29,NH,New Hampshire,2981
-24,MS,Mississippi,3360
-25,MT,Montana,3982
-11,IA,Iowa,4333
-39,RI,Rhode Island,4590
-12,ID,Idaho,4654
-28,NE,Nebraska,5332
-38,PR,Puerto Rico,5804
-2,AR,Arkansas,5982
-6,CT,Connecticut,6134
-31,NM,New Mexico,7216
-1,AL,Alabama,7790
-40,SC,South Carolina,7928
-0,AK,Alaska,8624
-35,OK,Oklahoma,9338
-14,IN,Indiana,10553
-50,WI,Wisconsin,11170
-36,OR,Oregon,14431
-17,LA,Louisiana,14699
-10,HI,Hawaii,18821
-16,KY,Kentucky,21220
-19,MD,Maryland,21396
-34,OH,Ohio,24213
-45,UT,Utah,25455
-42,TN,Tennessee,25827
-18,MA,Massachusetts,26561
-49,WA,Washington,27328
-30,NJ,New Jersey,28232
-23,MO,Missouri,30382
-22,MN,Minnesota,30619
-37,PA,Pennsylvania,36070
-21,MI,Michigan,37385
-32,NV,Nevada,38059
-3,AZ,Arizona,43635
-46,VA,Virginia,44119
-26,NC,North Carolina,44453
-5,CO,Colorado,49428
-33,NY,New York,62603
-9,GA,Georgia,83986
-13,IL,Illinois,90504
-8,FL,Florida,95226
-44,TX,Texas,154262
-4,CA,California,164497
+StateCode,StateName,Flights
+AK,Alaska,8624
+AL,Alabama,7790
+AR,Arkansas,5982
+AZ,Arizona,43635
+CA,California,164497
+CO,Colorado,49428
+CT,Connecticut,6134
+DE,Delaware,17
+FL,Florida,95226
+GA,Georgia,83986
+HI,Hawaii,18821
+IA,Iowa,4333
+ID,Idaho,4654
+IL,Illinois,90504
+IN,Indiana,10553
+KS,Kansas,2499
+KY,Kentucky,21220
+LA,Louisiana,14699
+MA,Massachusetts,26561
+MD,Maryland,21396
+ME,Maine,2139
+MI,Michigan,37385
+MN,Minnesota,30619
+MO,Missouri,30382
+MS,Mississippi,3360
+MT,Montana,3982
+NC,North Carolina,44453
+ND,North Dakota,2379
+NE,Nebraska,5332
+NH,New Hampshire,2981
+NJ,New Jersey,28232
+NM,New Mexico,7216
+NV,Nevada,38059
+NY,New York,62603
+OH,Ohio,24213
+OK,Oklahoma,9338
+OR,Oregon,14431
+PA,Pennsylvania,36070
+PR,Puerto Rico,5804
+RI,Rhode Island,4590
+SC,South Carolina,7928
+SD,South Dakota,2009
+TN,Tennessee,25827
+TT,U.S. Pacific Trust Territories and Possessions,59
+TX,Texas,154262
+UT,Utah,25455
+VA,Virginia,44119
+VI,U.S. Virgin Islands,891
+VT,Vermont,1201
+WA,Washington,27328
+WI,Wisconsin,11170
+WV,West Virginia,850
+WY,Wyoming,1651
