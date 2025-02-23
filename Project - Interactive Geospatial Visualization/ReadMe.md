@@ -12,7 +12,7 @@ flights over the passed two-decade data in a more intuitive way.
 The tool is designed to be interactive and explanatory, 
 i.e., the user will be helped while using the tool to filter the number of flights per state, 
 per airport in that state, per airline in the selected airport and state. 
-The Airlines' performances are put into the sword by being examined to see the number of on-line, delayed, and canceled 
+The Airlines' performances are put into the sword by being examined to see the number of on-time, delayed, and canceled 
 flights. 
 Eventually, the air time of the flights is also examined to see the overall performance of the airlines.
 
