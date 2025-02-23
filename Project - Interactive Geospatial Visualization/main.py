@@ -42,7 +42,7 @@ app.layout = html.Div(
                 'margin-bottom': '20px'
             },
             children=html.H1(
-                "US Domestic Airline Dashboard",
+                "US Domestic Airlines Dashboard",
                 style={
                     'font-size': '36px',
                     'margin': '0',
@@ -132,7 +132,7 @@ app.layout = html.Div(
                 'font-size': '14px',
                 'border-top': '2px solid #555'
             },
-            children="© 2025 US Domestic Airline Dashboard. All rights reserved."
+            children="© 2025 US Domestic Airlines Dashboard. All rights reserved."
         ),
 
         # Stores for Clicked Data
