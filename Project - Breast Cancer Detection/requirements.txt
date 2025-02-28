@@ -1,7 +1,9 @@
+sickit-learn
 matplotlib
 notebook
 jupyter
 seaborn
 pathlib
 pandas
+mlflow
 numpy

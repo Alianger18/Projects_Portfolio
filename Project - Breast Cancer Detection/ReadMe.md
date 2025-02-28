@@ -1,23 +1,26 @@
-# Predictive Modeling in Production
+# Data Science in Health Care: Breast Cancer Detection
 
 
 ## Getting Started
 
 ### Overview
-This project is an __Anomaly detection__ system, designed to provide a real-time score for measurements of data gathered 
-from sensors of the manufacturing machines for one of VESTAS .inc sites based in __Travemünde, Denmark__. The system is 
-designed to avoid latency in production lines and manufacturing faulty items through immediate intervention in the 
-production site based on the score given by the model. 
+This project is basically an __Anomaly detection__ system, designed to provide a real-time score of data gathered to 
+detect breast cancer in patients. The model beforehand is trained on the data to predict the likelihood of a patient. 
+The data is collected from the __Wisconsin Breast Cancer Dataset__. The model is then deployed as-a-service to provide 
+real-time predictions on new data.
 
-The score is based on three parameters: Sound, Temperature, and Humidity. The normal ranges of the parameters are :
-- **Sound** measured in deciBell (dB) — 60 dB to 85 dB.
-- **Temperature** measured in Fahrenheit (°F) — 68°F  to 86°F
-- **Humidity** measured in Relative Humidity — 40% to 60% of RH
+### Aim
+We know that early detection of breast cancer is crucial for the patient's survival. The aim of this project is to 
+assist oncologists in detecting breast cancer in patients as early as possible. Besides delivering a high-accuracy, 
+reliable, and efficient model, the project is a part of a case study designed to reinforce the trust in AI models and 
+their applications in the health sector.
 
-The score is from 1 to 10 with 1 being the lowest and 10 the highest.
-The more the parameters are at the lower end of their normal range, the higher is the score, and the more parameters are
-at the higher end of their normal range, the lower is the score.
-
+### About the Data
+The data used in this project is the Wisconsin Breast Cancer Dataset. It is a dataset of breast cancer patients' 
+measurements. The features are computed from a digitized image of a fine needle aspirate (FNA) of a breast mass. 
+They describe characteristics of the cell nuclei present in the image. The target variable is the diagnosis of the 
+patient, which can be either malignant or benign. More on the data can be found 
+[here](https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+(Diagnostic)).
 
 ### Requirements
 Use this prompt to install dependencies :
@@ -26,12 +29,8 @@ pip install -r requirments.txt
 ```
 
 ### Data Stream
-This project runs on a simulated measurements of the data. To run this stream, execute the following script :
-```shell 
-python data_stream.py
-```
 
-### Launch the model as a service (MAAS) 
+### Launch the model as a service (MaaS) 
 After setting the data stream, launch the app :
 ```shell 
 python main.py
@@ -59,9 +58,8 @@ mlflow ui -p 1234
 
 ## Contributing
 
-If you would like to contribute to this project, please feel free to submit a 
-pull request. We welcome contributions of all kinds, including bug fixes, 
-feature requests, and code improvements.
+If you would like to contribute to this project, please feel free to submit a pull request. We welcome contributions of 
+all kinds, including bug fixes, feature requests, and code improvements.
 
 ## License
 
