@@ -31,7 +31,7 @@ This project runs on a simulated measurements of the data. To run this stream, e
 python data_stream.py
 ```
 
-### Launch the model as a service (MAAS) 
+### Launch the model as a service (MaaS) 
 After setting the data stream, launch the app :
 ```shell 
 python main.py
