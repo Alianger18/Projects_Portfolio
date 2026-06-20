@@ -1,0 +1,6 @@
+/Project - Breast Cancer Detection/venv/
+*.gitignore
+*.xml
+.idea/
+*.ipynb_checkpoints/
+*.iml
