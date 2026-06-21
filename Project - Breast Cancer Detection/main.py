@@ -1,11 +1,12 @@
 # Importing the required libraries
+from scripts.helping_functions import validate_input, predict_diagnosis
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime as dt
-from flask import Flask, request
 from pathlib import Path
 import numpy as np
 import warnings
 import sklearn
+import flask
 
 
 # Ignore the warnings
@@ -14,11 +15,8 @@ warnings.filterwarnings("ignore")
 # Creating the path for the model
 path = Path.cwd()
 
-# Loading the model
-model = sklearn.load_model(f"{path}/models/core_model.pkl")
-
 # Initiating the flask app
-app = Flask(__name__)
+app = flask.Flask(__name__)
 
 # Configuring the database and its models
 # Setting our storage with SQLite
@@ -29,19 +27,51 @@ db = SQLAlchemy(app)
 # Creating Storage class, the default database
 class Storage(db.Model):
     __tablename__ = 'RECORDS'
-    id = db.Column(db.Integer, primary_key=True)
-    timestamp = db.Column(db.DateTime, default=dt.utcnow())
-    sound = db.Column(db.Integer)
-    temperature = db.Column(db.Integer)
-    humidity = db.Column(db.Integer)
-    score = db.Column(db.Float)
 
-    def __init__(self, sound, temperature, humidity, score):
-        self.timestamp = dt.utcnow()
-        self.sound = sound
-        self.temperature = temperature
-        self.humidity = humidity
-        self.score = score
+    # Primary Key & Timestamp
+    id = db.Column(db.Integer, primary_key=True)
+    created_at = db.Column(db.DateTime, default=dt.now)
+
+    # --- Mean Features ---
+    radius_mean = db.Column(db.Float)
+    texture_mean = db.Column(db.Float)
+    perimeter_mean = db.Column(db.Float)
+    area_mean = db.Column(db.Float)
+    smoothness_mean = db.Column(db.Float)
+    compactness_mean = db.Column(db.Float)
+    concavity_mean = db.Column(db.Float)
+    concave_points_mean = db.Column(db.Float)
+    symmetry_mean = db.Column(db.Float)
+    fractal_dimension_mean = db.Column(db.Float)
+
+    # --- Standard Error (SE) Features ---
+    radius_se = db.Column(db.Float)
+    texture_se = db.Column(db.Float)
+    perimeter_se = db.Column(db.Float)
+    area_se = db.Column(db.Float)
+    smoothness_se = db.Column(db.Float)
+    compactness_se = db.Column(db.Float)
+    concavity_se = db.Column(db.Float)
+    concave_points_se = db.Column(db.Float)
+    symmetry_se = db.Column(db.Float)
+    fractal_dimension_se = db.Column(db.Float)
+
+    # --- Worst Features ---
+    radius_worst = db.Column(db.Float)
+    texture_worst = db.Column(db.Float)
+    perimeter_worst = db.Column(db.Float)
+    area_worst = db.Column(db.Float)
+    smoothness_worst = db.Column(db.Float)
+    compactness_worst = db.Column(db.Float)
+    concavity_worst = db.Column(db.Float)
+    concave_points_worst = db.Column(db.Float)
+    symmetry_worst = db.Column(db.Float)
+    fractal_dimension_worst = db.Column(db.Float)
+
+    # --- Output/Score ---
+    diagnosis = db.Column(db.String(10))
+    prediction_confidence = db.Column(db.Float)
+
 
 # Setting the API routes
 # The index route
@@ -52,37 +82,22 @@ def index():
 # The PREDICT route
 @app.route('/predict', methods=['POST'])
 def predict():
-    # Getting the actual data
-    input_data = pre_processing(request.get_json())
+    # Getting the data
+    input_data = flask.request.get_json()
 
-    # Validating the data
-    if validation(input_data):
-        # Set the experiment as the default experiment
-        mlflow.set_experiment(f"{experiment_name}")
+    # Validating the data, in case invalid, return an error message
+    if not validate_input(input_data):
+        flask.raise_error(500, "Invalid input data. Please check the documentation.")
 
-        # Starting a new run
-        with mlflow.start_run():
-            # Getting model predictions
-            output_data = model.predict(input_data)
+    # Predicting the output
+    output = predict_diagnosis(input_data)
 
-            # Logging inputs
-            mlflow.log_params({"Sound": input_data[0][0]})
-            mlflow.log_params({"Temperature": input_data[0][1]})
-            mlflow.log_params({"Humidity": input_data[0][2]})
+    # Storing the data in the database
 
-            # Logging output
-            mlflow.log_params({"Score": np.round(output_data[0], decimals=2)})
 
-        # Storing the data
-        store_data(db, Storage, input_data, output_data)
+    # Returning the output
+    return output
 
-        # Returning the values
-        response = f'The predicted value for these measures is : {np.round(output_data[0], decimals=2)}'
-
-        return response
-
-    else:
-        return "The input data is not valid"
 
 
 # Launching the flask app
