@@ -1,0 +1,42 @@
+# Building docker image for the Breast Cancer Detection Flask API
+# Base Image
+FROM python:3.10-slim
+
+# Install necessary system dependencies
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        build-essential \
+        libblas3 \
+        liblapack3 \
+        libopenblas-dev \
+        liblapack-dev \
+        libatlas-base-dev \
+        gfortran \
+    && rm -rf /var/lib/apt/lists/*
+
+# Set the working directory
+WORKDIR /app
+
+# Install Python dependencies first (layer caching)
+COPY requirements.txt /app/requirements.txt
+RUN pip install --no-cache-dir --upgrade pip \
+    && pip install --no-cache-dir -r requirements.txt \
+    && rm -rf /root/.cache/pip
+
+# Copy the application entry point
+COPY main.py /app/main.py
+
+# Copy the helper scripts
+COPY scripts/ /app/scripts/
+
+# Copy the trained model
+COPY models/ /app/models/
+
+# Copy the dataset
+COPY data/ /app/data/
+
+# Expose Flask's default port
+EXPOSE 5000
+
+# Run the Flask application
+CMD ["python", "main.py"]

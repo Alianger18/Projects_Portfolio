@@ -1,0 +1,31 @@
+# Virtual environment
+.venv/
+
+# IDE settings
+.idea/
+
+# Jupyter notebooks (not needed at runtime)
+notebooks/
+
+# Documentation and assets (not needed at runtime)
+docs/
+assets/
+
+# Python bytecode
+__pycache__/
+*.pyc
+*.pyo
+
+# SQLite databases
+*.db
+
+# Git
+.git/
+.gitignore
+
+# Docker
+DockerFile
+.dockerignore
+
+# Agents config
+.agents/
