@@ -74,7 +74,7 @@ class Record(db.Model):
     is_confirmed = db.Column(db.Boolean, nullable=True, default=None)
 
 
-# Setting the API routes
+# Setting the API routes -----------------------------------------------
 # The index route
 @app.route('/', methods=['GET'])
 def index():
@@ -140,7 +140,7 @@ def confirm(record_id):
         "is_confirmed": record.is_confirmed,
         "message": "Diagnosis confirmed." if record.is_confirmed else "Diagnosis flagged for review."
     })
-
+# ---------------------------------------------------------------------
 
 
 # Launching the flask app

@@ -5,10 +5,10 @@ import time
 
 # Realistic value ranges for each feature (min, max) from data_v1.0.0.csv
 FEATURE_RANGES = {
-    "radius_mean": (6.981, 28.11),
-    "texture_mean": (9.71, 39.28),
-    "perimeter_mean": (43.79, 188.5),
-    "area_mean": (143.5, 2501.0),
+    "radius_mean": (7, 28),
+    "texture_mean": (10, 39),
+    "perimeter_mean": (44, 188),
+    "area_mean": (145, 2501),
     "smoothness_mean": (0.05263, 0.1634),
     "compactness_mean": (0.01938, 0.3454),
     "concavity_mean": (0.0, 0.4268),
@@ -38,7 +38,7 @@ FEATURE_RANGES = {
 }
 
 # 5-minute interval between data stream requests
-INTERVAL_SECONDS = 300
+INTERVAL_SECONDS = 60
 
 def generate_sample() -> dict:
     """Generate a random sample with realistic feature values."""
@@ -49,7 +49,6 @@ def generate_sample() -> dict:
 
 
 if __name__ == "__main__":
-    print("Starting breast cancer data stream (5-minute intervals)...")
 
     while True:
         # Generate a random sample within realistic ranges
