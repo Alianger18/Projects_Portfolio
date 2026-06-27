@@ -1,30 +1,23 @@
 # Import the required libraries
-from sklearn.preprocessing import StandardScaler
-from sklearn.pipeline import Pipeline
-from datetime import datetime as dt
 from pathlib import Path
 import numpy as np
-import sklearn
+import joblib
 
 # Creating the path for the model
 path = Path.cwd()
 
 # Loading the model
-model = sklearn.load_model(f"{path}/models/main_model_v1.joblib")
+model = joblib.load(f"{path}/models/main_model_v1.joblib")
 
-# Creating the pipeline
-pipeline = Pipeline([
-    ('Scaler', StandardScaler()),
-    ('Diagnosis', model)
-])
-
-# Defining the features
-features = [
-    "id", "radius_mean", "texture_mean", "perimeter_mean", "area_mean", "radius_se", "concave points_mean", "area_worst",
-    "concavity_mean", "symmetry_mean", "fractal_dimension_mean", "perimeter_worst", "compactness_mean", "smoothness_mean",
-    "perimeter_se", "area_se", "smoothness_se", "compactness_se", "concavity_se", "concave points_se", "symmetry_worst",
-    "symmetry_se", "fractal_dimension_se", "radius_worst", "texture_worst",  "texture_se", "smoothness_worst",
-    "compactness_worst", "concavity_worst", "concave points_worst", "fractal_dimension_worst"
+# Defining the input features
+FEATURES = [
+    "radius_mean", "texture_mean", "perimeter_mean", "area_mean", "smoothness_mean", "compactness_mean",
+    "concavity_mean", "concave points_mean", "symmetry_mean", "fractal_dimension_mean", "radius_se",
+    "texture_se", "perimeter_se", "area_se", "smoothness_se", "compactness_se", "concavity_se",
+    "concave points_se", "symmetry_se", "fractal_dimension_se", "radius_worst",
+    "texture_worst", "perimeter_worst", "area_worst", "smoothness_worst",
+    "compactness_worst", "concavity_worst", "concave points_worst",
+    "symmetry_worst", "fractal_dimension_worst"
 ]
 
 
@@ -39,17 +32,15 @@ def validate_input(input_data: dict) -> bool:
     """
 
     # Check if all required keys are present in the JSON data
-    if not all(key in input_data for key in features):
+    if not all(key in input_data for key in FEATURES):
         return False
 
-    # Check if the values are of the correct type
-    for key in features:
-        if not isinstance(input_data[key], float):
+    # Check if the values are numeric (int or float) and not null
+    for key in FEATURES:
+        value = input_data[key]
+        if value is None:
             return False
-
-    # check for null values
-    for key in features:
-        if input_data[key] is None:
+        if not isinstance(value, (int, float)):
             return False
 
     # Return True if the data is valid
@@ -63,22 +54,23 @@ def predict_diagnosis(validated_data: dict) -> dict:
     :param validated_data: Dictionary containing validated data.
     :return: Dictionary containing the predicted diagnosis and confidence score.
     """
-    # Remove the id key from the validated data
-    validated_data.pop("id")
+    # Extract feature values in the correct order (without mutating the input)
+    feature_values = [validated_data[key] for key in FEATURES]
+
+    # Reshape into a 2D array for sklearn (1 sample, 30 features)
+    input_array = np.array(feature_values).reshape(1, -1)
 
     # Get the hard prediction
-    prediction = pipeline.predict([validated_data])
+    prediction = model.predict(input_array)[0]
 
-    # Get the raw probability scores (Outputs: [[0.119, 0.881]])
-    confidence_score = pipeline.predict_proba(validated_data)[0][1] * 100
+    # Get the raw probability scores (Outputs: [[prob_benign, prob_malignant]])
+    confidence_score = model.predict_proba(input_array)[0][1] * 100
 
     # Construct the dictionary with the prediction and confidence score
     prediction_result = {
         "diagnosis": "Malignant" if prediction == 1 else "Benign",
-        "confidence": confidence_score,
+        "confidence": round(confidence_score, 2),
     }
 
     # Return the prediction result
     return prediction_result
-
-

@@ -1,11 +1,9 @@
 # Importing the required libraries
-from scripts.helping_functions import validate_input, predict_diagnosis
+from scripts.helping_functions import validate_input, predict_diagnosis, FEATURES
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime as dt
 from pathlib import Path
-import numpy as np
 import warnings
-import sklearn
 import flask
 
 
@@ -19,13 +17,12 @@ path = Path.cwd()
 app = flask.Flask(__name__)
 
 # Configuring the database and its models
-# Setting our storage with SQLite
 app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{path}/main.db'
 db = SQLAlchemy(app)
 
 
 # Creating Storage class, the default database
-class Storage(db.Model):
+class Record(db.Model):
     __tablename__ = 'RECORDS'
 
     # Primary Key & Timestamp
@@ -72,6 +69,10 @@ class Storage(db.Model):
     diagnosis = db.Column(db.String(10))
     prediction_confidence = db.Column(db.Float)
 
+    # --- Human-in-the-Loop ---
+    # None = pending review, True = confirmed, False = flagged for review
+    is_confirmed = db.Column(db.Boolean, nullable=True, default=None)
+
 
 # Setting the API routes
 # The index route
@@ -87,16 +88,58 @@ def predict():
 
     # Validating the data, in case invalid, return an error message
     if not validate_input(input_data):
-        flask.raise_error(500, "Invalid input data. Please check the documentation.")
+        flask.abort(400, description="Invalid input data. Please check the documentation.")
 
     # Predicting the output
-    output = predict_diagnosis(input_data)
+    result = predict_diagnosis(input_data)
 
     # Storing the data in the database
+    # Map feature names with spaces to underscored column names
+    record_data = {}
+    for feature in FEATURES:
+        column_name = feature.replace(" ", "_")
+        record_data[column_name] = input_data[feature]
 
+    # Get the predictions
+    record_data["diagnosis"] = result["diagnosis"]
+    record_data["prediction_confidence"] = result["confidence"]
+
+    # Add and Commit to the database
+    record = Record(**record_data)
+    db.session.add(record)
+    db.session.commit()
 
     # Returning the output
-    return output
+    return flask.jsonify(result)
+
+# The CONFIRMATION route — oncologist confirms or rejects a diagnosis
+@app.route('/confirm/<int:record_id>', methods=['POST'])
+def confirm(record_id):
+    # Getting the confirmation data
+    confirmation_data = flask.request.get_json()
+
+    # Validate the payload
+    if "is_confirmed" not in confirmation_data:
+        flask.abort(400, description="Missing 'is_confirmed' field. Must be true or false.")
+
+    if not isinstance(confirmation_data["is_confirmed"], bool):
+        flask.abort(400, description="'is_confirmed' must be a boolean (true or false).")
+
+    # Fetch the record from the database
+    record = db.session.get(Record, record_id)
+    if record is None:
+        flask.abort(404, description=f"Record with id {record_id} not found.")
+
+    # Update the confirmation status
+    record.is_confirmed = confirmation_data["is_confirmed"]
+    db.session.commit()
+
+    return flask.jsonify({
+        "record_id": record.id,
+        "diagnosis": record.diagnosis,
+        "is_confirmed": record.is_confirmed,
+        "message": "Diagnosis confirmed." if record.is_confirmed else "Diagnosis flagged for review."
+    })
 
 
 
