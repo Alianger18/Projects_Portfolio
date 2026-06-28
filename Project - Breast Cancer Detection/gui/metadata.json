@@ -1,0 +1,6 @@
+{
+  "name": "OncoAI Diagnostic Dashboard",
+  "description": "An advanced AI-powered oncology platform for clinical decision-making, genomic profiling, longitudinal tumor regression indexing, and predictive breast cancer triage.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
