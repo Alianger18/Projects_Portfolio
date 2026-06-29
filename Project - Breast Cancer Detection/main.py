@@ -36,37 +36,6 @@ def generate_patient_id() -> str:
 # -------------------------------------------------------------------------
 
 
-# --- Centroid profiles for controlled sample generation ------------------
-# Mean feature values for benign cases in the Wisconsin Breast Cancer Dataset
-BENIGN_CENTROID = {
-    "radius_mean": 12.15, "texture_mean": 17.91, "perimeter_mean": 78.08,
-    "area_mean": 462.79, "smoothness_mean": 0.0925, "compactness_mean": 0.0801,
-    "concavity_mean": 0.0461, "concave points_mean": 0.0257, "symmetry_mean": 0.1742,
-    "fractal_dimension_mean": 0.0629, "radius_se": 0.2840, "texture_se": 1.2200,
-    "perimeter_se": 2.0000, "area_se": 21.14, "smoothness_se": 0.0071,
-    "compactness_se": 0.0213, "concavity_se": 0.0260, "concave points_se": 0.0091,
-    "symmetry_se": 0.0206, "fractal_dimension_se": 0.0037, "radius_worst": 13.38,
-    "texture_worst": 23.52, "perimeter_worst": 87.01, "area_worst": 558.90,
-    "smoothness_worst": 0.1250, "compactness_worst": 0.1827, "concavity_worst": 0.1663,
-    "concave points_worst": 0.0742, "symmetry_worst": 0.2701, "fractal_dimension_worst": 0.0795
-}
-
-# Mean feature values for malignant cases in the Wisconsin Breast Cancer Dataset
-MALIGNANT_CENTROID = {
-    "radius_mean": 17.46, "texture_mean": 21.60, "perimeter_mean": 115.37,
-    "area_mean": 978.38, "smoothness_mean": 0.1029, "compactness_mean": 0.1454,
-    "concavity_mean": 0.1607, "concave points_mean": 0.0880, "symmetry_mean": 0.1929,
-    "fractal_dimension_mean": 0.0627, "radius_se": 0.6090, "texture_se": 1.2100,
-    "perimeter_se": 4.3200, "area_se": 72.67, "smoothness_se": 0.0071,
-    "compactness_se": 0.0321, "concavity_se": 0.0418, "concave points_se": 0.0152,
-    "symmetry_se": 0.0206, "fractal_dimension_se": 0.0040, "radius_worst": 21.13,
-    "texture_worst": 29.32, "perimeter_worst": 141.37, "area_worst": 1422.29,
-    "smoothness_worst": 0.1449, "compactness_worst": 0.3749, "concavity_worst": 0.4506,
-    "concave points_worst": 0.1822, "symmetry_worst": 0.3234, "fractal_dimension_worst": 0.0916
-}
-# -------------------------------------------------------------------------
-
-
 # Creating Storage class, the default database
 class Record(db.Model):
     __tablename__ = 'RECORDS'
@@ -260,54 +229,6 @@ def reject(record_id):
         "is_confirmed": record.is_confirmed,
         "feedback_body": feedback_body.strip(),
         "message": "Diagnosis rejected. Feedback recorded."
-    })
-
-
-# The GENERATE route — produce controlled sample feature sets
-@app.route('/generate', methods=['POST'])
-def generate():
-    """
-    Generate a realistic set of 30 features by interpolating between
-    known benign and malignant centroids. Accepts an optional
-    'target_confidence' (50-99) to control the malignancy level.
-    """
-    request_data = flask.request.get_json() or {}
-
-    # Get or randomize the target confidence
-    target_confidence = request_data.get("target_confidence")
-    if target_confidence is None:
-        target_confidence = random.choice([55, 65, 72, 78, 85, 91, 95])
-    else:
-        target_confidence = max(50, min(99, int(target_confidence)))
-
-    # Compute the mixing ratio (0 = fully benign, 1 = fully malignant)
-    t = target_confidence / 100.0
-
-    # Interpolate features between centroids with controlled Gaussian noise
-    generated_features = {}
-    for feature in FEATURES:
-        benign_val = BENIGN_CENTROID[feature]
-        malignant_val = MALIGNANT_CENTROID[feature]
-
-        # Linear interpolation
-        interpolated = benign_val * (1 - t) + malignant_val * t
-
-        # Add small Gaussian noise (5% of the feature range) for realism
-        feature_range = abs(malignant_val - benign_val)
-        noise = random.gauss(0, feature_range * 0.05)
-        value = interpolated + noise
-
-        # Ensure non-negative values
-        generated_features[feature] = round(max(0.0, value), 6)
-
-    # Run through the actual sklearn model to get the real prediction
-    result = predict_diagnosis(generated_features)
-
-    return flask.jsonify({
-        "features": generated_features,
-        "diagnosis": result["diagnosis"],
-        "confidence": result["confidence"],
-        "target_confidence": target_confidence,
     })
 
 

@@ -56,31 +56,7 @@ How can I assist you with clinical, pharmacological, or staging evaluations for 
     setIsDisconnected(false);
 
     try {
-      const chatHistory = [...messages, userMessage];
-      const res = await fetch('/api/gemini/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          messages: chatHistory,
-          patient
-        })
-      });
-
-      if (!res.ok) {
-        throw new Error('Fallback required due to local state configuration.');
-      }
-
-      const data = await res.json();
-      if (data.text) {
-        setMessages(prev => [...prev, {
-          id: `m-ai-${Date.now()}`,
-          sender: 'ai',
-          text: data.text,
-          timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-        }]);
-      } else {
-        throw new Error('Empty AI response.');
-      }
+      throw new Error('Fallback required due to local state configuration.');
     } catch (err) {
       console.warn('Chat assistant fallback activated:', err);
       // Heuristic diagnostic response fallback matching oncological queries

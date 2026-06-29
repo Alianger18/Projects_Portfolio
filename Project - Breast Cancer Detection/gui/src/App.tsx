@@ -10,8 +10,7 @@ import Header from './components/Header';
 import DiagnosisPane from './components/DiagnosisPane';
 import PatientSearchPane from './components/PatientSearchPane';
 import ClinicalAssistant from './components/ClinicalAssistant';
-import NewCaseModal from './components/NewCaseModal';
-import { ShieldCheck, Server, ToggleLeft, ToggleRight, Radio, HelpCircle, Plus, RefreshCw, AlertCircle } from 'lucide-react';
+import { ShieldCheck, Server, ToggleLeft, ToggleRight, Radio, HelpCircle, RefreshCw, AlertCircle } from 'lucide-react';
 
 type SideTab = 'patient-search' | 'diagnostic-queue' | 'settings';
 
@@ -20,7 +19,7 @@ export default function App() {
   const [activePatient, setActivePatient] = useState<Patient | null>(null);
   const [currentTab, setCurrentTab] = useState<SideTab>('diagnostic-queue');
   const [searchQuery, setSearchQuery] = useState('');
-  const [isNewCaseOpen, setIsNewCaseOpen] = useState(false);
+
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
   const [apiError, setApiError] = useState<string | null>(null);
@@ -104,12 +103,7 @@ export default function App() {
     }
   };
 
-  // After adding a new patient via the modal, refresh from DB
-  const handleAddPatient = (newPatient: Patient) => {
-    setIsNewCaseOpen(false);
-    setCurrentTab('diagnostic-queue');
-    fetchPatients();
-  };
+
 
   const handlePrint = () => {
     window.print();
@@ -144,22 +138,15 @@ export default function App() {
           onToggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)}
         />
 
-        {/* Action bar with New Case button */}
+        {/* Action bar */}
         <div className="px-6 pt-4 flex justify-between items-center shrink-0">
           <div className="flex items-center gap-3">
             <button
-              onClick={() => setIsNewCaseOpen(true)}
+              onClick={fetchPatients}
               className="flex items-center gap-2 px-4 py-2 bg-zinc-900 text-white rounded-lg text-xs font-bold hover:bg-zinc-800 transition-all cursor-pointer shadow-sm"
             >
-              <Plus className="w-3.5 h-3.5" />
-              New Patient Case
-            </button>
-            <button
-              onClick={fetchPatients}
-              className="flex items-center gap-2 px-3 py-2 border border-zinc-200 rounded-lg text-xs font-bold text-zinc-600 hover:bg-zinc-50 transition-all cursor-pointer"
-            >
               <RefreshCw className="w-3.5 h-3.5" />
-              Refresh
+              Refresh Queue
             </button>
           </div>
           <span className="text-[10px] font-mono text-zinc-400">
@@ -201,15 +188,15 @@ export default function App() {
           {!isLoading && !apiError && patients.length === 0 && (
             <div className="flex flex-col items-center justify-center py-24 text-center">
               <div className="w-16 h-16 bg-zinc-100 rounded-full flex items-center justify-center mb-4">
-                <Plus className="w-8 h-8 text-zinc-400" />
+                <RefreshCw className="w-8 h-8 text-zinc-400" />
               </div>
-              <p className="text-sm text-zinc-800 font-bold">No Patient Records</p>
-              <p className="text-xs text-zinc-500 mt-1">Create a new patient case to get started.</p>
+              <p className="text-sm text-zinc-800 font-bold">No Patient Records Yet</p>
+              <p className="text-xs text-zinc-500 mt-1">Patient data arrives via the diagnostic data stream. Refresh to check for new records.</p>
               <button
-                onClick={() => setIsNewCaseOpen(true)}
+                onClick={fetchPatients}
                 className="mt-4 px-4 py-2 bg-zinc-900 text-white rounded-lg text-xs font-bold hover:bg-zinc-800 transition-all cursor-pointer"
               >
-                Initialize First Case
+                Refresh Queue
               </button>
             </div>
           )}
@@ -290,8 +277,8 @@ export default function App() {
                             <span className="text-zinc-100">3000 (Secured Proxy)</span>
                           </div>
                           <div className="py-2 flex justify-between">
-                            <span className="text-zinc-400">Gemini Reasoning SDK Model:</span>
-                            <span className="text-zinc-100">gemini-3.5-flash</span>
+                            <span className="text-zinc-400">Heuristics Engine:</span>
+                            <span className="text-zinc-100">Local Fallback</span>
                           </div>
                           <div className="py-2 flex justify-between">
                             <span className="text-zinc-400">Flask Backend:</span>
@@ -309,14 +296,7 @@ export default function App() {
         </main>
       </div>
 
-      {/* 3. Drawer Modal for New Case entries */}
-      {isNewCaseOpen && (
-        <NewCaseModal 
-          onClose={() => setIsNewCaseOpen(false)} 
-          onAddPatient={handleAddPatient}
-          onRefresh={fetchPatients}
-        />
-      )}
+
 
     </div>
   );

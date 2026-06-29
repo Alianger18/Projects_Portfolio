@@ -20,40 +20,40 @@ interface FeatureDefinition {
 
 const FEATURE_DEFINITIONS: FeatureDefinition[] = [
   // First 3 prominent values as requested:
-  { id: 'texture_worst', label: 'texture_worst', min: 12.02, max: 41.78, key: 'worstTexture' },
-  { id: 'radius_worst', label: 'radius_worst', min: 7.93, max: 19.82, key: 'worstRadius' },
-  { id: 'concave_points_worst', label: 'concave points_worst', min: 0.0000, max: 0.1750, key: 'worstConcavePoints', fallbackKey: 'concavePoints', multiplier: 1.25 },
+  { id: 'texture_worst', label: 'texture_worst', min: 12.5272, max: 34.5030, key: 'worstTexture' },
+  { id: 'radius_worst', label: 'radius_worst', min: 9.4171, max: 17.3425, key: 'worstRadius' },
+  { id: 'concave_points_worst', label: 'concave points_worst', min: 0.0029, max: 0.1460, key: 'worstConcavePoints', fallbackKey: 'concavePoints', multiplier: 1.25 },
 
-  // Remaining features:
-  { id: 'radius_mean', label: 'radius_mean', min: 6.9810, max: 17.8500, key: 'meanRadius' },
-  { id: 'texture_mean', label: 'texture_mean', min: 9.7100, max: 33.8100, key: 'texture' },
-  { id: 'perimeter_mean', label: 'perimeter_mean', min: 43.7900, max: 114.6000, key: 'perimeter' },
-  { id: 'area_mean', label: 'area_mean', min: 143.5000, max: 992.1000, key: 'meanArea', fallbackKey: 'meanRadius', multiplier: 50 },
-  { id: 'smoothness_mean', label: 'smoothness_mean', min: 0.05263, max: 0.1634, key: 'smoothness', defaultValue: 0.096 },
-  { id: 'compactness_mean', label: 'compactness_mean', min: 0.01938, max: 0.2239, key: 'compactness', defaultValue: 0.104 },
-  { id: 'concavity_mean', label: 'concavity_mean', min: 0.0000, max: 0.4108, key: 'concavity' },
-  { id: 'concave_points_mean', label: 'concave points_mean', min: 0.0000, max: 0.08534, key: 'concavePoints', defaultValue: 0.049 },
-  { id: 'symmetry_mean', label: 'symmetry_mean', min: 0.1060, max: 0.2743, key: 'symmetry' },
-  { id: 'fractal_dimension_mean', label: 'fractal_dimension_mean', min: 0.05185, max: 0.09575, key: 'fractalDimension', defaultValue: 0.062 },
+  // Remaining features (benign-only: mean ± 2σ):
+  { id: 'radius_mean', label: 'radius_mean', min: 8.5855, max: 15.7075, key: 'meanRadius' },
+  { id: 'texture_mean', label: 'texture_mean', min: 9.9245, max: 25.9050, key: 'texture' },
+  { id: 'perimeter_mean', label: 'perimeter_mean', min: 54.4605, max: 101.6903, key: 'perimeter' },
+  { id: 'area_mean', label: 'area_mean', min: 194.2160, max: 731.3644, key: 'meanArea', fallbackKey: 'meanRadius', multiplier: 50 },
+  { id: 'smoothness_mean', label: 'smoothness_mean', min: 0.0656, max: 0.1194, key: 'smoothness', defaultValue: 0.096 },
+  { id: 'compactness_mean', label: 'compactness_mean', min: 0.0126, max: 0.1476, key: 'compactness', defaultValue: 0.104 },
+  { id: 'concavity_mean', label: 'concavity_mean', min: 0.0000, max: 0.1329, key: 'concavity' },
+  { id: 'concave_points_mean', label: 'concave points_mean', min: 0.0000, max: 0.0575, key: 'concavePoints', defaultValue: 0.049 },
+  { id: 'symmetry_mean', label: 'symmetry_mean', min: 0.1246, max: 0.2238, key: 'symmetry' },
+  { id: 'fractal_dimension_mean', label: 'fractal_dimension_mean', min: 0.0494, max: 0.0764, key: 'fractalDimension', defaultValue: 0.062 },
   
-  { id: 'radius_se', label: 'radius_se', min: 0.1115, max: 0.8811, key: 'radiusSE', defaultValue: 0.405 },
-  { id: 'texture_se', label: 'texture_se', min: 0.3602, max: 4.885, key: 'textureSE', defaultValue: 1.216 },
-  { id: 'perimeter_se', label: 'perimeter_se', min: 0.7570, max: 5.1180, key: 'perimeterSE', defaultValue: 2.866 },
-  { id: 'area_se', label: 'area_se', min: 6.8020, max: 77.1100, key: 'areaSE', defaultValue: 40.33 },
-  { id: 'smoothness_se', label: 'smoothness_se', min: 0.001713, max: 0.02177, key: 'smoothnessSE', defaultValue: 0.007 },
-  { id: 'compactness_se', label: 'compactness_se', min: 0.002252, max: 0.1064, key: 'compactnessSE', defaultValue: 0.025 },
-  { id: 'concavity_se', label: 'concavity_se', min: 0.0000, max: 0.3960, key: 'concavitySE', defaultValue: 0.032 },
-  { id: 'concave_points_se', label: 'concave points_se', min: 0.0000, max: 0.05279, key: 'concavePointsSE', defaultValue: 0.011 },
-  { id: 'symmetry_se', label: 'symmetry_se', min: 0.009539, max: 0.06146, key: 'symmetrySE', defaultValue: 0.020 },
-  { id: 'fractal_dimension_se', label: 'fractal_dimension_se', min: 0.000895, max: 0.02984, key: 'fractalDimSE', defaultValue: 0.0037 },
+  { id: 'radius_se', label: 'radius_se', min: 0.0589, max: 0.5092, key: 'radiusSE', defaultValue: 0.405 },
+  { id: 'texture_se', label: 'texture_se', min: 0.0420, max: 2.3987, key: 'textureSE', defaultValue: 1.216 },
+  { id: 'perimeter_se', label: 'perimeter_se', min: 0.4580, max: 3.5427, key: 'perimeterSE', defaultValue: 2.866 },
+  { id: 'area_se', label: 'area_se', min: 3.4482, max: 38.8221, key: 'areaSE', defaultValue: 40.33 },
+  { id: 'smoothness_se', label: 'smoothness_se', min: 0.0011, max: 0.0133, key: 'smoothnessSE', defaultValue: 0.007 },
+  { id: 'compactness_se', label: 'compactness_se', min: 0.0000, max: 0.0541, key: 'compactnessSE', defaultValue: 0.025 },
+  { id: 'concavity_se', label: 'concavity_se', min: 0.0000, max: 0.0918, key: 'concavitySE', defaultValue: 0.032 },
+  { id: 'concave_points_se', label: 'concave points_se', min: 0.0000, max: 0.0213, key: 'concavePointsSE', defaultValue: 0.011 },
+  { id: 'symmetry_se', label: 'symmetry_se', min: 0.0066, max: 0.0346, key: 'symmetrySE', defaultValue: 0.020 },
+  { id: 'fractal_dimension_se', label: 'fractal_dimension_se', min: 0.0000, max: 0.0095, key: 'fractalDimSE', defaultValue: 0.0037 },
   
-  { id: 'perimeter_worst', label: 'perimeter_worst', min: 50.4100, max: 127.1000, key: 'worstPerimeter', fallbackKey: 'perimeter', multiplier: 1.3 },
-  { id: 'area_worst', label: 'area_worst', min: 185.2000, max: 1210.0000, key: 'worstArea', fallbackKey: 'meanArea', multiplier: 1.5 },
-  { id: 'smoothness_worst', label: 'smoothness_worst', min: 0.07117, max: 0.2006, key: 'worstSmoothness', fallbackKey: 'smoothness', multiplier: 1.2 },
-  { id: 'compactness_worst', label: 'compactness_worst', min: 0.02729, max: 0.5849, key: 'worstCompactness', fallbackKey: 'compactness', multiplier: 1.3 },
-  { id: 'concavity_worst', label: 'concavity_worst', min: 0.0000, max: 1.2520, key: 'worstConcavity', fallbackKey: 'concavity', multiplier: 1.25 },
-  { id: 'symmetry_worst', label: 'symmetry_worst', min: 0.1566, max: 0.4228, key: 'worstSymmetry', fallbackKey: 'symmetry', multiplier: 1.25 },
-  { id: 'fractal_dimension_worst', label: 'fractal_dimension_worst', min: 0.05521, max: 0.1486, key: 'worstFractalDim', fallbackKey: 'fractalDimension', multiplier: 1.2 }
+  { id: 'perimeter_worst', label: 'perimeter_worst', min: 59.9518, max: 114.0601, key: 'worstPerimeter', fallbackKey: 'perimeter', multiplier: 1.3 },
+  { id: 'area_worst', label: 'area_worst', min: 231.6966, max: 886.1023, key: 'worstArea', fallbackKey: 'meanArea', multiplier: 1.5 },
+  { id: 'smoothness_worst', label: 'smoothness_worst', min: 0.0849, max: 0.1650, key: 'worstSmoothness', fallbackKey: 'smoothness', multiplier: 1.2 },
+  { id: 'compactness_worst', label: 'compactness_worst', min: 0.0000, max: 0.3670, key: 'worstCompactness', fallbackKey: 'compactness', multiplier: 1.3 },
+  { id: 'concavity_worst', label: 'concavity_worst', min: 0.0000, max: 0.4470, key: 'worstConcavity', fallbackKey: 'concavity', multiplier: 1.25 },
+  { id: 'symmetry_worst', label: 'symmetry_worst', min: 0.1868, max: 0.3537, key: 'worstSymmetry', fallbackKey: 'symmetry', multiplier: 1.25 },
+  { id: 'fractal_dimension_worst', label: 'fractal_dimension_worst', min: 0.0518, max: 0.1071, key: 'worstFractalDim', fallbackKey: 'fractalDimension', multiplier: 1.2 }
 ];
 
 const formatFeatureLabel = (id: string): string => {
@@ -142,23 +142,11 @@ export default function DiagnosisPane({ patient, onUpdatePatient }: DiagnosisPan
   };
 
 
-  // Compile detailed clinical oncologist report using Gemini
+  // Compile detailed clinical oncologist report using local heuristics
   const triggerReportCompilation = async () => {
     setIsReportGenerating(true);
     setReportMarkdown(null);
     try {
-      const res = await fetch('/api/gemini/report', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ patient }),
-      });
-      const data = await res.json();
-      if (data.report) {
-        setReportMarkdown(data.report);
-      } else {
-        throw new Error("No report contents found.");
-      }
-    } catch (err) {
       // Offline fallback report markdown
       setReportMarkdown(`
 # CLINICAL PATHOLOGY DECISION STUDY & CONCORDANCE SUMMARY
@@ -330,12 +318,12 @@ HER2 expression is recorded as **${patient.genomicProfile?.her2Status || 'N/A'}*
                     <Activity className="w-3.5 h-3.5 text-zinc-500" />
                     Key Biopsy Metrics
                   </h3>
-                  <p className="text-[11px] text-zinc-500 font-medium">Recorded cytological markers vs. standard clinical ranges</p>
+                  <p className="text-[11px] text-zinc-500 font-medium">Recorded cytological markers vs. benign reference intervals</p>
                 </div>
                 <div className="flex items-center gap-4 text-[10px] font-sans font-extrabold text-zinc-400 uppercase tracking-wider">
                   <div className="flex items-center gap-1.5">
                     <span className="w-2.5 h-2.5 bg-emerald-100 border border-emerald-300 rounded-xs inline-block"></span>
-                    <span>Sanity Area (Normal)</span>
+                    <span>Benign Reference Range</span>
                   </div>
                 </div>
               </div>
@@ -546,7 +534,7 @@ HER2 expression is recorded as **${patient.genomicProfile?.her2Status || 'N/A'}*
               <div className="flex items-center gap-4 text-[10px] font-sans font-extrabold text-zinc-400 uppercase tracking-wider bg-zinc-50 p-2 rounded-lg border border-zinc-150">
                 <div className="flex items-center gap-1.5">
                   <span className="w-2.5 h-2.5 bg-emerald-100 border border-emerald-300 rounded-xs inline-block"></span>
-                  <span>Normal Interval</span>
+                  <span>Benign Reference Range</span>
                 </div>
               </div>
             </div>

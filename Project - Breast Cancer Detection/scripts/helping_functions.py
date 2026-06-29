@@ -64,7 +64,10 @@ def predict_diagnosis(validated_data: dict) -> dict:
     prediction = model.predict(input_array)[0]
 
     # Get the raw probability scores (Outputs: [[prob_benign, prob_malignant]])
-    confidence_score = model.predict_proba(input_array)[0][1] * 100
+    probabilities = model.predict_proba(input_array)[0]
+
+    # Confidence = probability of the predicted class (not always malignant)
+    confidence_score = probabilities[prediction] * 100
 
     # Construct the dictionary with the prediction and confidence score
     prediction_result = {
