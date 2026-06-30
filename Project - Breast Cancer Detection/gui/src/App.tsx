@@ -10,9 +10,9 @@ import Header from './components/Header';
 import DiagnosisPane from './components/DiagnosisPane';
 import PatientSearchPane from './components/PatientSearchPane';
 import ClinicalAssistant from './components/ClinicalAssistant';
-import { ShieldCheck, Server, ToggleLeft, ToggleRight, Radio, HelpCircle, RefreshCw, AlertCircle } from 'lucide-react';
+import { ShieldCheck, Server, Radio, HelpCircle, RefreshCw, AlertCircle } from 'lucide-react';
 
-type SideTab = 'patient-search' | 'diagnostic-queue' | 'settings';
+type SideTab = 'patient-search' | 'diagnostic-queue' | 'about';
 
 export default function App() {
   const [patients, setPatients] = useState<Patient[]>([]);
@@ -23,10 +23,6 @@ export default function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
   const [apiError, setApiError] = useState<string | null>(null);
-  
-  // Settings tab variables
-  const [strictAiTriage, setStrictAiTriage] = useState(true);
-  const [simulateDelayedAntigens, setSimulateDelayedAntigens] = useState(true);
 
   // Fetch patients from Flask API
   const fetchPatients = async () => {
@@ -224,42 +220,19 @@ export default function App() {
                   />
                 )}
 
-                {currentTab === 'settings' && (
+                {currentTab === 'about' && (
                   <div className="bg-white border border-zinc-200 rounded-xl p-6 shadow-xs space-y-6">
                     <div className="border-b border-zinc-100 pb-4">
-                      <h2 className="font-heading font-black text-xl text-zinc-900 tracking-tight">OncoAI Clinical Preferences</h2>
-                      <p className="text-zinc-500 text-xs">Configure local prognostic math benchmarks and AI diagnostic sensitivities.</p>
+                      <h2 className="font-heading font-black text-xl text-zinc-900 tracking-tight">About OncoAI</h2>
+                      <p className="text-zinc-500 text-xs">Breast Cancer Detection AI anomaly detection and clinical diagnostic system.</p>
                     </div>
 
                     <div className="space-y-4">
-                      <div className="flex justify-between items-center bg-zinc-50 p-4 border border-zinc-100 rounded-lg">
-                        <div className="space-y-1">
-                          <span className="text-xs font-bold text-zinc-800 tracking-wide uppercase block">High-Stakes AI Strict Mode</span>
-                          <p className="text-[11px] text-zinc-500 leading-normal max-w-lg">
-                            Under Strict mode, classification criteria is adjusted conservatively in line with the European Society for Medical Oncology (ESMO) protocols.
-                          </p>
-                        </div>
-                        <button 
-                          onClick={() => setStrictAiTriage(!strictAiTriage)}
-                          className="text-zinc-800 cursor-pointer"
-                        >
-                          {strictAiTriage ? <ToggleRight className="w-10 h-10 text-black" /> : <ToggleLeft className="w-10 h-10 text-zinc-300" />}
-                        </button>
-                      </div>
-
-                      <div className="flex justify-between items-center bg-zinc-50 p-4 border border-zinc-100 rounded-lg">
-                        <div className="space-y-1">
-                          <span className="text-xs font-bold text-zinc-800 tracking-wide uppercase block">Simulate Delayed CA15-3 Antigens</span>
-                          <p className="text-[11px] text-zinc-500 leading-normal max-w-lg">
-                            Models antigen decay curves to offset clinical response markers against actual mechanical tumor volume shrinkage rates.
-                          </p>
-                        </div>
-                        <button 
-                          onClick={() => setSimulateDelayedAntigens(!simulateDelayedAntigens)}
-                          className="text-zinc-800 cursor-pointer"
-                        >
-                          {simulateDelayedAntigens ? <ToggleRight className="w-10 h-10 text-black" /> : <ToggleLeft className="w-10 h-10 text-zinc-300" />}
-                        </button>
+                      <div className="bg-zinc-50 p-5 rounded-lg space-y-3 border border-zinc-100">
+                        <h3 className="text-sm font-bold text-zinc-800 tracking-wide uppercase">AI Model Architecture</h3>
+                        <p className="text-xs text-zinc-600 leading-relaxed font-medium">
+                          OncoAI utilizes a high-precision classification model trained on the Wisconsin Breast Cancer Dataset. It analyzes 30 distinct fine-needle aspirate (FNA) cytological features to predict malignant or benign outcomes with associated confidence scores.
+                        </p>
                       </div>
 
                       <div className="bg-zinc-950 text-zinc-100 p-5 rounded-lg space-y-3">

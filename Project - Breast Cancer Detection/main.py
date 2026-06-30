@@ -130,7 +130,173 @@ class Feedback(db.Model):
 # The index route
 @app.route('/', methods=['GET'])
 def index():
-    return "Provide Documentation here!"
+    return """
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>OncoAI API Documentation</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="bg-zinc-50 text-zinc-800 font-sans min-h-screen">
+        <div class="max-w-4xl mx-auto px-6 py-12">
+            <!-- Header -->
+            <header class="border-b border-zinc-200 pb-6 mb-8">
+                <div class="flex items-center gap-3 mb-2">
+                    <div class="w-8 h-8 rounded bg-black flex items-center justify-center text-white font-black text-lg">Ω</div>
+                    <h1 class="text-3xl font-black tracking-tight text-zinc-950">OncoAI API</h1>
+                </div>
+                <p class="text-zinc-500 text-sm font-medium">Breast Cancer Detection Model-as-a-Service & Human-in-the-Loop Workflow Engine</p>
+            </header>
+
+            <!-- Endpoints Section -->
+            <section class="space-y-8">
+                <h2 class="text-xl font-bold tracking-tight text-zinc-900 border-b border-zinc-150 pb-2">API Endpoints</h2>
+
+                <!-- GET / -->
+                <div class="bg-white border border-zinc-200 rounded-xl p-6 shadow-sm">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded uppercase">GET</span>
+                        <code class="font-mono text-zinc-900 font-bold text-sm">/</code>
+                    </div>
+                    <p class="text-xs text-zinc-655 font-medium mb-4">Serves this interactive API documentation page.</p>
+                </div>
+
+                <!-- GET /patients -->
+                <div class="bg-white border border-zinc-200 rounded-xl p-6 shadow-sm">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded uppercase">GET</span>
+                        <code class="font-mono text-zinc-900 font-bold text-sm">/patients</code>
+                    </div>
+                    <p class="text-xs text-zinc-655 font-medium mb-4">Returns a list of all patient diagnostic records ordered by newest first.</p>
+                    <div class="bg-zinc-950 text-zinc-250 p-4 rounded-lg text-xs font-mono overflow-x-auto">
+                        <span class="text-zinc-400">// Response format:</span>
+                        <pre class="text-emerald-400">[
+  {
+    "id": 1,
+    "patient_id": "882-XJ",
+    "patient_name": "Catherine Dupont",
+    "patient_age": 54,
+    "diagnosis": "Malignant",
+    "prediction_confidence": 99.78,
+    "is_confirmed": null,
+    "feedbacks": []
+  }
+]</pre>
+                    </div>
+                </div>
+
+                <!-- POST /predict -->
+                <div class="bg-white border border-zinc-200 rounded-xl p-6 shadow-sm">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="bg-blue-100 text-blue-800 text-[10px] font-bold px-2 py-0.5 rounded uppercase">POST</span>
+                        <code class="font-mono text-zinc-900 font-bold text-sm">/predict</code>
+                    </div>
+                    <p class="text-xs text-zinc-655 font-medium mb-4">Submits 30 cytological measurements for real-time model prediction. Stores the record in the SQLite database.</p>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <span class="text-[10px] uppercase font-bold tracking-wider text-zinc-400 block mb-1">Payload Sample</span>
+                            <div class="bg-zinc-950 text-zinc-250 p-4 rounded-lg text-xs font-mono overflow-x-auto">
+                                <pre class="text-blue-400">{
+  "radius_mean": 17.99,
+  "texture_mean": 10.38,
+  "perimeter_mean": 122.8,
+  "area_mean": 1001.0,
+  "smoothness_mean": 0.1184,
+  ...
+  "patient_name": "Catherine Dupont",
+  "patient_age": 54
+}</pre>
+                            </div>
+                        </div>
+
+                        <div>
+                            <span class="text-[10px] uppercase font-bold tracking-wider text-zinc-400 block mb-1">Response Sample</span>
+                            <div class="bg-zinc-950 text-zinc-250 p-4 rounded-lg text-xs font-mono overflow-x-auto">
+                                <pre class="text-emerald-400">{
+  "diagnosis": "Malignant",
+  "confidence": 99.78,
+  "record_id": 1,
+  "patient_id": "882-XJ"
+}</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- POST /confirm/<record_id> -->
+                <div class="bg-white border border-zinc-200 rounded-xl p-6 shadow-sm">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="bg-blue-100 text-blue-800 text-[10px] font-bold px-2 py-0.5 rounded uppercase">POST</span>
+                        <code class="font-mono text-zinc-900 font-bold text-sm">/confirm/&lt;record_id&gt;</code>
+                    </div>
+                    <p class="text-xs text-zinc-655 font-medium mb-4">Records the oncologist's confirmation of the diagnosis.</p>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <span class="text-[10px] uppercase font-bold tracking-wider text-zinc-400 block mb-1">Payload</span>
+                            <div class="bg-zinc-950 text-zinc-250 p-4 rounded-lg text-xs font-mono overflow-x-auto">
+                                <pre class="text-blue-400">{
+  "is_confirmed": true
+}</pre>
+                            </div>
+                        </div>
+
+                        <div>
+                            <span class="text-[10px] uppercase font-bold tracking-wider text-zinc-400 block mb-1">Response</span>
+                            <div class="bg-zinc-950 text-zinc-250 p-4 rounded-lg text-xs font-mono overflow-x-auto">
+                                <pre class="text-emerald-400">{
+  "record_id": 1,
+  "diagnosis": "Malignant",
+  "is_confirmed": true,
+  "message": "Diagnosis confirmed."
+}</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- POST /reject/<record_id> -->
+                <div class="bg-white border border-zinc-200 rounded-xl p-6 shadow-sm">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="bg-blue-100 text-blue-800 text-[10px] font-bold px-2 py-0.5 rounded uppercase">POST</span>
+                        <code class="font-mono text-zinc-900 font-bold text-sm">/reject/&lt;record_id&gt;</code>
+                    </div>
+                    <p class="text-xs text-zinc-655 font-medium mb-4">Rejects a prediction and records mandatory clinical feedback notes.</p>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <span class="text-[10px] uppercase font-bold tracking-wider text-zinc-400 block mb-1">Payload</span>
+                            <div class="bg-zinc-950 text-zinc-250 p-4 rounded-lg text-xs font-mono overflow-x-auto">
+                                <pre class="text-blue-400">{
+  "feedback_body": "Biopsy morphology indicates a benign fibroadenoma."
+}</pre>
+                            </div>
+                        </div>
+
+                        <div>
+                            <span class="text-[10px] uppercase font-bold tracking-wider text-zinc-400 block mb-1">Response</span>
+                            <div class="bg-zinc-950 text-zinc-250 p-4 rounded-lg text-xs font-mono overflow-x-auto">
+                                <pre class="text-emerald-400">{
+  "record_id": 1,
+  "patient_id": "882-XJ",
+  "diagnosis": "Malignant",
+  "is_confirmed": false,
+  "feedback_body": "Biopsy morphology indicates a benign fibroadenoma.",
+  "message": "Diagnosis rejected. Feedback recorded."
+}</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+    </body>
+    </html>
+    """
 
 
 # The GET PATIENTS route — serve all records to the GUI

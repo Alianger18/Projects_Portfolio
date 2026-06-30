@@ -4,9 +4,9 @@
  */
 
 import React from 'react';
-import { Users, Activity, Dna, LineChart, Settings, Plus } from 'lucide-react';
+import { Users, Activity, Dna, LineChart, Settings, Plus, Info } from 'lucide-react';
 
-type SideTab = 'patient-search' | 'diagnostic-queue' | 'settings';
+type SideTab = 'patient-search' | 'diagnostic-queue' | 'about';
 
 interface SidebarProps {
   currentTab: SideTab;
@@ -29,9 +29,9 @@ export default function Sidebar({ currentTab, setCurrentTab, isOpen }: SidebarPr
       icon: Activity,
     },
     {
-      id: 'settings' as SideTab,
-      label: 'Settings',
-      icon: Settings,
+      id: 'about' as SideTab,
+      label: 'About',
+      icon: Info,
     }
   ];
 

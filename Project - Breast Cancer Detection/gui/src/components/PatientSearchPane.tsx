@@ -81,16 +81,17 @@ export default function PatientSearchPane({ patients, onSelectPatient, activePat
       {/* Patients spreadsheet/list */}
       <div className="bg-white border border-zinc-200 rounded-xl overflow-hidden shadow-xs">
         <div className="hidden sm:grid grid-cols-12 gap-4 px-6 py-4 bg-zinc-50 border-b border-zinc-200 text-xs font-extrabold text-zinc-400 uppercase tracking-widest">
-          <div className="col-span-5">Patient Name</div>
-          <div className="col-span-4">Diagnosis</div>
+          <div className="col-span-4">Patient Name</div>
+          <div className="col-span-3">Diagnosis</div>
+          <div className="col-span-2">Verification</div>
           <div className="col-span-3 text-right">Last Visit</div>
         </div>
 
         <div className="divide-y divide-zinc-150">
           {filteredPatients.map((patient) => {
             const isActive = activePatient ? activePatient.id === patient.id : false;
-            const isMalignant = patient.predictedClass === 'Malignant';
-            const isBorderline = patient.predictedClass === 'Borderline';
+            const isBorderline = patient.predictedClass === 'Borderline' || (patient.confidence >= 35 && patient.confidence <= 65);
+            const isMalignant = patient.predictedClass === 'Malignant' && !isBorderline;
 
             return (
               <div
@@ -100,11 +101,11 @@ export default function PatientSearchPane({ patients, onSelectPatient, activePat
                   isActive ? 'bg-zinc-50/80 border-l-4 border-black pl-5' : ''
                 }`}
               >
-                <div className="col-span-5">
+                <div className="col-span-4">
                   <h4 className="font-heading font-black text-sm text-zinc-900">{patient.name}</h4>
                 </div>
 
-                <div className="col-span-4">
+                <div className="col-span-3">
                   <span className={`font-sans font-extrabold text-xs inline-flex items-center px-2.5 py-1 rounded-full ${
                     isMalignant 
                       ? 'text-rose-700 bg-rose-50' 
@@ -113,6 +114,22 @@ export default function PatientSearchPane({ patients, onSelectPatient, activePat
                         : 'text-emerald-700 bg-emerald-50'
                   }`}>
                     {patient.predictedClass} ({patient.confidence}%)
+                  </span>
+                </div>
+
+                <div className="col-span-2">
+                  <span className={`font-sans font-bold text-[10px] inline-flex items-center px-2 py-0.5 rounded uppercase tracking-wider ${
+                    patient.oncologistVerification?.status === 'Confirmed'
+                      ? 'text-emerald-700 bg-emerald-50 border border-emerald-200'
+                      : patient.oncologistVerification?.status === 'Rejected'
+                        ? 'text-rose-700 bg-rose-50 border border-rose-200'
+                        : 'text-zinc-500 bg-zinc-100 border border-zinc-200'
+                  }`}>
+                    {patient.oncologistVerification?.status === 'Confirmed'
+                      ? 'Confirmed'
+                      : patient.oncologistVerification?.status === 'Rejected'
+                        ? 'Rejected'
+                        : 'Pending Review'}
                   </span>
                 </div>
 

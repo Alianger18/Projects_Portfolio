@@ -1,12 +1,14 @@
 # Data Science in Health Care: Breast Cancer Detection
 
-
 ## Overview
 
-This project is an __anomaly detection__ system designed to provide real-time diagnostic scoring for breast cancer
-detection. A classification model is trained on the __Wisconsin Breast Cancer Dataset__ to predict whether a tumour is
-**Malignant** or **Benign**, along with a confidence score. The model is deployed as a **Flask REST API** (Model-as-a-Service)
-and includes a human-in-the-loop confirmation workflow so oncologists can verify or flag each prediction.
+This project is an **anomaly detection** system designed to provide real-time diagnostic scoring for breast cancer
+detection. A classification model is trained on the **Wisconsin Breast Cancer Dataset** to predict whether a tumor is
+**Malignant** or **Benign**, along with a confidence score. The system consists of three integrated parts:
+
+1. **Flask REST API** — Serves the trained ML model as a prediction service with a human-in-the-loop confirmation workflow.
+2. **Data Stream Client** — Simulates real-time FNA biopsy data ingestion by sending patient samples to the API on a timed interval.
+3. **React Clinical Dashboard** — A modern diagnostic interface where oncologists review predictions, inspect biopsy features, and confirm or reject AI diagnoses.
 
 ### Aim
 
@@ -25,23 +27,41 @@ characteristics of the cell nuclei present in the image. The target variable is 
 ## Project Structure
 
 ```
-├── main.py                  # Flask API entry point
+├── main.py                       # Flask API entry point (port 5000)
 ├── scripts/
-│   ├── helping_functions.py # Input validation & prediction logic
-│   ├── data_stream.py       # Simulated real-time data stream client
-│   └── dashboard.py         # Dash monitoring dashboard
+│   ├── helping_functions.py      # Input validation, prediction logic & patient ID generation
+│   └── data_stream.py            # Simulated real-time data stream client
+├── gui/                          # React clinical dashboard (port 3000)
+│   ├── server.ts                 # Express dev server with Flask API proxy
+│   ├── vite.config.ts            # Vite + Tailwind CSS v4 configuration
+│   ├── package.json              # Node.js dependencies
+│   ├── index.html                # HTML entry point
+│   └── src/
+│       ├── main.tsx              # React entry point
+│       ├── App.tsx               # Root application component
+│       ├── types.ts              # TypeScript type definitions
+│       ├── index.css             # Tailwind CSS import
+│       └── components/
+│           ├── Header.tsx              # Top navigation bar
+│           ├── Sidebar.tsx             # Left navigation rail
+│           ├── DiagnosisPane.tsx        # Primary diagnostic workspace
+│           ├── DiagnosisResultCard.tsx  # Reusable AI diagnosis result card
+│           ├── PatientSearchPane.tsx    # Patient list with search & filters
+│           ├── GenomicRecordPane.tsx    # Genomic profiling panel
+│           ├── LongitudinalPane.tsx     # Treatment response timeline chart
+│           └── ClinicalAssistant.tsx    # AI clinical consultation chat
 ├── models/
-│   └── main_model_v1.joblib # Trained classification model
-├── data/                    # Dataset versions (CSV)
+│   └── main_model_v1.joblib      # Trained scikit-learn classification model
+├── data/                         # Dataset versions (CSV)
 ├── notebooks/
 │   ├── model_dev_notebook.ipynb  # Model development & evaluation
 │   └── model_dep_notebook.ipynb  # Model deployment notebook
-├── assets/                  # Figures & metrics
-├── docs/                    # Project documentation / task briefs
-├── DockerFile               # Container image definition
-├── .dockerignore            # Files excluded from the Docker build
-├── requirements.txt         # Python dependencies
-├── LICENSE                  # MIT License
+├── assets/                       # Figures & metrics
+├── docs/                         # Project documentation / task briefs
+├── DockerFile                    # Container image definition (Flask API)
+├── .dockerignore                 # Files excluded from the Docker build
+├── requirements.txt              # Python dependencies
+├── LICENSE                       # MIT License
 └── ReadMe.md
 ```
 
@@ -50,58 +70,97 @@ characteristics of the cell nuclei present in the image. The target variable is 
 
 ### Prerequisites
 
-- Python 3.10+
-- pip
+| Component          | Requirement           |
+|--------------------|-----------------------|
+| Python             | 3.10+                 |
+| Node.js            | 18+                   |
+| pip                | Latest recommended    |
+| npm                | Bundled with Node.js  |
 
-### Installation
+### 1. Clone the Repository
+
+```shell
+git clone https://github.com/Alianger18/Projects_Portfolio.git
+cd "Project - Breast Cancer Detection"
+```
+
+### 2. Install Python Dependencies
 
 ```shell
 pip install -r requirements.txt
 ```
 
-### Launch the API (Model-as-a-Service)
+### 3. Install Node.js Dependencies
+
+```shell
+cd gui
+npm install
+cd ..
+```
+
+
+## Running the Full System
+
+The system requires **three terminals** running simultaneously. Launch them in the order below.
+
+### Terminal 1 — Start the Flask API
 
 ```shell
 python main.py
 ```
 
-The Flask server starts on `http://127.0.0.1:5000`.
+The Flask server starts on **`http://127.0.0.1:5000`**. It initialises the SQLite database (`main.db`) on first run and
+exposes the prediction, confirmation, and rejection endpoints.
 
-### Start the Data Stream
+### Terminal 2 — Start the Data Stream
 
-In a **separate terminal**, run the simulated data stream client. It sends a randomly generated sample to the
-`/predict` endpoint every 60 seconds:
+In a **separate terminal**, launch the simulated data stream client. It generates a realistic patient sample (using
+centroid interpolation between benign and malignant feature profiles) and sends it to the `/predict` endpoint every
+60 seconds:
 
 ```shell
 python scripts/data_stream.py
 ```
 
-### View the Dashboard
+Each request creates a new patient record in the database with a random name, age, 30 FNA features, and the model's
+predicted diagnosis and confidence score. The data stream runs indefinitely until manually stopped (`Ctrl+C`).
 
-After launching the API and the data stream, start the monitoring dashboard:
+### Terminal 3 — Start the React Dashboard
 
-```shell
-python scripts/dashboard.py
-```
-
-### Explore the Notebooks
-
-To inspect model training, evaluation, and selection:
+In a **third terminal**, start the clinical dashboard:
 
 ```shell
-jupyter notebook notebooks/model_dev_notebook.ipynb
+cd gui
+npm run dev
 ```
+
+The Express + Vite dev server starts on **`http://localhost:3000`**. It proxies all `/api/flask/*` requests to the Flask
+backend on port 5000, so both services must be running for the dashboard to load patient data.
+
+> **Open `http://localhost:3000` in your browser** to access the OncoAI Diagnostic Dashboard.
+
+### Quick Start Summary
+
+| Terminal | Command                         | Port | Purpose                        |
+|----------|---------------------------------|------|--------------------------------|
+| 1        | `python main.py`                | 5000 | Flask API (model serving)      |
+| 2        | `python scripts/data_stream.py` | —    | Simulated patient data stream  |
+| 3        | `cd gui && npm run dev`         | 3000 | React clinical dashboard       |
 
 
 ## API Endpoints
 
 ### `GET /`
 
-Health-check / documentation stub.
+Health-check endpoint. Returns a status string confirming the API is running.
+
+### `GET /patients`
+
+Returns all patient records ordered by newest first. Used by the React dashboard to populate the patient queue.
 
 ### `POST /predict`
 
-Submit a JSON payload with 30 numeric features and receive a diagnosis.
+Submit a JSON payload with 30 numeric FNA features (and optional patient metadata) to receive a diagnosis.
 
 **Request:**
 ```json
@@ -135,7 +194,9 @@ Submit a JSON payload with 30 numeric features and receive a diagnosis.
   "concavity_worst": 0.7119,
   "concave points_worst": 0.2654,
   "symmetry_worst": 0.4601,
-  "fractal_dimension_worst": 0.1189
+  "fractal_dimension_worst": 0.1189,
+  "patient_name": "Catherine Dupont",
+  "patient_age": 54
 }
 ```
 
@@ -143,7 +204,9 @@ Submit a JSON payload with 30 numeric features and receive a diagnosis.
 ```json
 {
   "diagnosis": "Malignant",
-  "confidence": 99.78
+  "confidence": 99.78,
+  "record_id": 1,
+  "patient_id": "882-XJ"
 }
 ```
 
@@ -168,10 +231,33 @@ Oncologist confirmation endpoint — confirm or flag a previous prediction for r
 }
 ```
 
+### `POST /reject/<record_id>`
+
+Reject a diagnosis with mandatory clinical feedback notes.
+
+**Request:**
+```json
+{
+  "feedback_body": "Histological review shows benign fibroadenoma morphology inconsistent with malignant classification."
+}
+```
+
+**Response:**
+```json
+{
+  "record_id": 1,
+  "patient_id": "882-XJ",
+  "diagnosis": "Malignant",
+  "is_confirmed": false,
+  "feedback_body": "Histological review shows benign fibroadenoma morphology inconsistent with malignant classification.",
+  "message": "Diagnosis rejected. Feedback recorded."
+}
+```
+
 
 ## Docker
 
-The project is fully containerised. Build and run with:
+The Flask API is fully containerized. Build and run with:
 
 ```shell
 docker build -t breast-cancer-detection -f DockerFile .
@@ -181,20 +267,38 @@ docker build -t breast-cancer-detection -f DockerFile .
 docker run -p 5000:5000 breast-cancer-detection
 ```
 
-The API will be available at `http://localhost:5000`.
+The API will be available at `http://localhost:5000`. Note that the Docker image only packages the Flask API — the React
+dashboard should be run separately via `npm run dev` in the `gui/` directory.
+
+
+## Explore the Notebooks
+
+To inspect model training, evaluation, and feature engineering:
+
+```shell
+jupyter notebook notebooks/model_dev_notebook.ipynb
+```
+
+To review the model deployment pipeline:
+
+```shell
+jupyter notebook notebooks/model_dep_notebook.ipynb
+```
 
 
 ## Tech Stack
 
-| Component       | Technology                    |
-|-----------------|-------------------------------|
-| Language        | Python 3.10                   |
-| Web Framework   | Flask                         |
-| ML Library      | scikit-learn                  |
-| Database        | SQLite (via Flask-SQLAlchemy) |
-| Serialisation   | joblib                        |
-| Visualisation   | Plotly, Matplotlib, Seaborn   |
-| Containerisation| Docker                        |
+| Component        | Technology                                  |
+|------------------|---------------------------------------------|
+| Language         | Python 3.10, TypeScript                     |
+| ML Framework     | scikit-learn                                |
+| Backend API      | Flask + Flask-SQLAlchemy                    |
+| Database         | SQLite                                      |
+| Frontend         | React 19 + Vite + Tailwind CSS v4           |
+| Dev Server       | Express (proxies Flask API)                 |
+| Serialisation    | joblib                                      |
+| Visualisation    | Plotly, Matplotlib, Seaborn                 |
+| Containerisation | Docker                                      |
 
 
 ## Contributing

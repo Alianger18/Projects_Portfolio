@@ -6,6 +6,7 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, Info, AlertCircle, RefreshCw, FileText, Calendar, Compass, ShieldAlert, Check, Star, Search, Activity, Filter } from 'lucide-react';
 import { Patient, LabFeatures } from '../types';
+import DiagnosisResultCard from './DiagnosisResultCard';
 
 interface FeatureDefinition {
   id: string;
@@ -236,76 +237,20 @@ HER2 expression is recorded as **${patient.genomicProfile?.her2Status || 'N/A'}*
       <div className="bg-white border border-zinc-200 rounded-xl p-6 shadow-xs">
         <div className="grid grid-cols-12 gap-6 items-stretch">
           
-          {/* Card 1: Diagnosis Prediction (Left) */}
-          <div className={`col-span-12 md:col-span-6 lg:col-span-3 bg-zinc-50 border border-zinc-200 border-l-[6px] ${classColors.border} rounded-xl p-5 flex flex-col justify-between relative overflow-hidden`}>
-            <div>
-              <div className="flex justify-between items-start">
-                <h3 className="font-sans font-extrabold text-[10px] uppercase tracking-widest text-zinc-400">
-                  AI Diagnosis
-                </h3>
-                <div className="text-[9px] font-mono bg-zinc-200 text-zinc-700 px-1.5 py-0.5 rounded uppercase font-bold">
-                  Tissue Model
-                </div>
-              </div>
-              
-              <div className="space-y-2 mt-4">
-                <div className={`${classColors.text} font-sans font-black text-4xl tracking-tighter leading-none`}>
-                  {patient.predictedClass}
-                </div>
-                <p className="text-zinc-500 text-[11px] leading-relaxed font-sans font-medium">
-                  {patient.predictedClass === 'Malignant' 
-                    ? 'FNA biopsy values surpass threshold criteria. Prompt multi-disciplinary pathology assessment recommended.' 
-                    : patient.predictedClass === 'Benign' 
-                      ? 'Fine-needle metrics correlate fully with healthy hyperplastic states. Regular radiological intervals approved.'
-                      : 'Atypical epithelial elements of indeterminate origin. Fine-needle aspiration should be correlated with MRI margins.'
-                  }
-                </p>
-              </div>
-            </div>
-
-            <div className="mt-4 pt-3 border-t border-zinc-200 text-[10px] text-zinc-400 font-sans font-medium flex items-center justify-between">
-              <span>Category</span>
-              <strong className="text-zinc-700 uppercase">{patient.predictedClass}</strong>
-            </div>
-          </div>
-
-          {/* Card 2: Confidence Score (Middle) */}
-          <div className="col-span-12 md:col-span-6 lg:col-span-3 bg-zinc-50 border border-zinc-200 rounded-xl p-5 flex flex-col justify-between items-center text-center">
-            <div className="w-full flex justify-between items-start">
-              <h3 className="font-sans font-extrabold text-[10px] uppercase tracking-widest text-zinc-400 text-left">
-                Model Confidence
-              </h3>
-              <span className="text-[9px] font-mono bg-emerald-100 text-emerald-800 px-1.5 py-0.5 rounded font-bold uppercase">
-                98.4% Acc
-              </span>
-            </div>
-
-            <div className="relative inline-block my-2">
-              <svg className="w-24 h-24 transform -rotate-90">
-                {/* Background Track */}
-                <circle className="text-zinc-200" cx="48" cy="48" fill="none" r="40" stroke="currentColor" strokeWidth="5"></circle>
-                {/* Confidence Bar */}
-                <circle 
-                  className={`${classColors.text} transition-all duration-700`}
-                  cx="48" 
-                  cy="48" 
-                  fill="none" 
-                  r="40" 
-                  stroke="currentColor" 
-                  strokeWidth="5"
-                  strokeDasharray="251.2"
-                  strokeDashoffset={251.2 - (251.2 * patient.confidence) / 100}
-                ></circle>
-              </svg>
-              <div className="absolute inset-0 flex flex-col items-center justify-center">
-                <span className="font-sans font-black text-2xl text-zinc-900 leading-none">{patient.confidence}%</span>
-                <span className="text-[7px] font-extrabold text-zinc-400 uppercase tracking-widest mt-0.5">CONFIDENCE</span>
-              </div>
-            </div>
-
-            <p className="text-[11px] text-zinc-800 font-bold font-sans">
-              {patient.predictedClass === 'Malignant' ? 'High Severity Case' : patient.predictedClass === 'Borderline' ? 'Borderline Case' : 'Negative Case'}
-            </p>
+          {/* Card 1+2: Unified Diagnosis Result Card (Left – full height) */}
+          <div className="col-span-12 lg:col-span-6 flex">
+            <DiagnosisResultCard
+              diagnosis={patient.predictedClass === 'Malignant' ? 'Malignant' : 'Benign'}
+              description={
+                patient.predictedClass === 'Malignant'
+                  ? 'FNA biopsy values surpass threshold criteria. Prompt multi-disciplinary pathology assessment recommended.'
+                  : patient.predictedClass === 'Benign'
+                    ? 'Fine-needle metrics correlate fully with healthy hyperplastic states. Regular radiological intervals approved.'
+                    : 'Atypical epithelial elements of indeterminate origin. Fine-needle aspiration should be correlated with MRI margins.'
+              }
+              confidenceScore={patient.confidence}
+              severity={patient.predictedClass === 'Malignant' ? 'High Risk' : 'Low Risk'}
+            />
           </div>
 
           {/* Card 3: Key Biopsy Metrics (Right) */}
@@ -481,13 +426,13 @@ HER2 expression is recorded as **${patient.genomicProfile?.her2Status || 'N/A'}*
                               hour: '2-digit',
                               minute: '2-digit'
                             }),
-                            oncologistName: 'Dr. Abdelali Barir',
+                            oncologistName: 'Dr. Richardson',
                           };
                           onUpdatePatient({
                             ...patient,
                             oncologistVerification: verification,
                             history: [
-                              `Diagnosis Confirmed: Signed by Dr. Abdelali Barir.`,
+                              `Diagnosis Confirmed: Signed by Dr. Richardson.`,
                               ...patient.history,
                             ]
                           });
@@ -697,7 +642,7 @@ HER2 expression is recorded as **${patient.genomicProfile?.her2Status || 'N/A'}*
             </div>
 
             <div className="p-4 border-t border-zinc-100 flex justify-between items-center bg-zinc-50 rounded-b-xl">
-              <span className="text-[10px] text-zinc-400 font-medium font-sans">Signed: Dr. Abdelali Barir</span>
+              <span className="text-[10px] text-zinc-400 font-medium font-sans">Signed: Dr. Richardson</span>
               <div className="flex gap-2 shrink-0">
                 <button 
                   onClick={() => setShowRejectModal(false)}
@@ -740,13 +685,13 @@ HER2 expression is recorded as **${patient.genomicProfile?.her2Status || 'N/A'}*
                         hour: '2-digit',
                         minute: '2-digit'
                       }),
-                      oncologistName: 'Dr. Abdelali Barir',
+                      oncologistName: 'Dr. Richardson',
                     };
                     onUpdatePatient({
                       ...patient,
                       oncologistVerification: verification,
                       history: [
-                        `Diagnosis Rejected: Signed by Dr. Abdelali Barir. Notes: "${rejectFeedback.trim()}"`,
+                        `Diagnosis Rejected: Signed by Dr. Richardson. Notes: "${rejectFeedback.trim()}"`,
                         ...(patient.history || []),
                       ]
                     });
