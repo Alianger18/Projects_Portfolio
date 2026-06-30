@@ -1,12 +1,10 @@
 # Importing the required libraries
-from scripts.helping_functions import validate_input, predict_diagnosis, FEATURES
+from scripts.helping_functions import validate_input, predict_diagnosis, FEATURES, generate_patient_id
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime as dt
 from flask_cors import CORS
 from pathlib import Path
 import warnings
-import random
-import string
 import flask
 
 
@@ -25,15 +23,6 @@ db = SQLAlchemy(app)
 
 # Enable CORS for the GUI running on port 3000
 CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
-
-
-# --- Helper Functions ---------------------------------------------------
-def generate_patient_id() -> str:
-    """Generate a unique patient ID in the format '###-XX' (e.g. '882-XJ')."""
-    num = random.randint(100, 999)
-    letters = ''.join(random.choices(string.ascii_uppercase, k=2))
-    return f"{num}-{letters}"
-# -------------------------------------------------------------------------
 
 
 # Creating Storage class, the default database
@@ -143,6 +132,15 @@ class Feedback(db.Model):
 def index():
     return "Provide Documentation here!"
 
+
+# The GET PATIENTS route — serve all records to the GUI
+@app.route('/patients', methods=['GET'])
+def get_patients():
+    """Return all patient records ordered by newest first."""
+    records = Record.query.order_by(Record.created_at.desc()).all()
+    return flask.jsonify([record.to_dict() for record in records])
+
+
 # The PREDICT route
 @app.route('/predict', methods=['POST'])
 def predict():
@@ -181,14 +179,6 @@ def predict():
     result["record_id"] = record.id
     result["patient_id"] = record.patient_id
     return flask.jsonify(result)
-
-
-# The GET PATIENTS route — serve all records to the GUI
-@app.route('/patients', methods=['GET'])
-def get_patients():
-    """Return all patient records ordered by newest first."""
-    records = Record.query.order_by(Record.created_at.desc()).all()
-    return flask.jsonify([record.to_dict() for record in records])
 
 
 # The REJECT route — reject a diagnosis with mandatory clinical feedback
@@ -260,7 +250,6 @@ def confirm(record_id):
         "is_confirmed": record.is_confirmed,
         "message": "Diagnosis confirmed." if record.is_confirmed else "Diagnosis flagged for review."
     })
-# ---------------------------------------------------------------------
 
 
 # Launching the flask app

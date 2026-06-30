@@ -1,6 +1,8 @@
 # Import the required libraries
 from pathlib import Path
 import numpy as np
+import random
+import string
 import joblib
 
 # Creating the path for the model
@@ -77,3 +79,11 @@ def predict_diagnosis(validated_data: dict) -> dict:
 
     # Return the prediction result
     return prediction_result
+
+
+# Generate Patient ID
+def generate_patient_id() -> str:
+    """Generate a unique patient ID in the format '###-XX' (e.g. '882-XJ')."""
+    num = random.randint(100, 999)
+    letters = ''.join(random.choices(string.ascii_uppercase, k=2))
+    return f"{num}-{letters}"
