@@ -1,34 +1,24 @@
-"""
-FastAPI application for Emotion Classification.
-
-Usage:
-    cd gui
-    uvicorn app:app --reload --port 8000
-
-Then open http://localhost:8000 in your browser.
-"""
-import io
-import sys
-from pathlib import Path
-from contextlib import asynccontextmanager
-
-# Add parent directory of app.py to sys.path so model_utils can be imported cleanly
-sys.path.append(str(Path(__file__).resolve().parent))
-
-import torch
+# Import the required libraries
+from model_utils import load_model, predict, generate_attribution, CLASS_NAMES, EMOTION_EMOJIS
 from fastapi import FastAPI, UploadFile, File, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
-from fastapi.middleware.cors import CORSMiddleware
+from contextlib import asynccontextmanager
+from pathlib import Path
 from PIL import Image
+import torch
+import sys
+import io
 
-from model_utils import load_model, predict, CLASS_NAMES, EMOTION_EMOJIS
+# Add parent directory of main.py to sys.path so model_utils can be imported cleanly
+sys.path.append(str(Path(__file__).resolve().parent))
 
 # ============================================================================
 # CONFIGURATION
 # ============================================================================
-MODEL_DIR = Path(__file__).resolve().parent.parent / 'models'
-STATIC_DIR = Path(__file__).resolve().parent / 'static'
+MODEL_DIR = Path(__file__).resolve().parent / 'models'
+STATIC_DIR = Path(__file__).resolve().parent / 'gui'
 
 # Model selection — change these to switch between CNN and ResNet
 MODEL_TYPE = 'cnn'                     # 'cnn' or 'resnet'
@@ -86,7 +76,7 @@ app.add_middleware(
     allow_headers=['*'],
 )
 
-# Serve static files (CSS, JS, images)
+# Serve static files (CSS, JS, images) from gui/ at the /static prefix
 app.mount('/static', StaticFiles(directory=str(STATIC_DIR)), name='static')
 
 
@@ -148,25 +138,24 @@ async def predict_emotion(file: UploadFile = File(...)):
             
             # Distribute remaining probability among other classes
             remaining = 1.0 - top_conf
-            raw_weights = [random.uniform(0.1, 1.0) if c != top_class else 0.0 for c in CLASS_NAMES]
+            others = [c for c in CLASS_NAMES if c != top_class]
+            raw_weights = [random.uniform(0.1, 1.0) for _ in others]
             sum_weights = sum(raw_weights)
             
-            probs = {}
-            for i, c in enumerate(CLASS_NAMES):
-                if c == top_class:
-                    probs[c] = top_conf
-                else:
-                    probs[c] = round((raw_weights[i] / sum_weights) * remaining, 4)
+            probs = {top_class: top_conf}
+            for i, c in enumerate(others):
+                probs[c] = round((raw_weights[i] / sum_weights) * remaining, 4)
             
             # Adjust rounding errors so it sums to exactly 1.0
             diff = round(1.0 - sum(probs.values()), 4)
-            non_top = [c for c in CLASS_NAMES if c != top_class]
-            probs[non_top[0]] = round(probs[non_top[0]] + diff, 4)
+            probs[others[0]] = round(probs[others[0]] + diff, 4)
 
             result = {
                 'prediction': top_class,
                 'confidence': top_conf,
                 'probabilities': probs,
+                'face_detected': True,
+                'face_box': None,
                 'is_demo': True
             }
 
@@ -183,8 +172,55 @@ async def predict_emotion(file: UploadFile = File(...)):
 
 
 # ============================================================================
+# INTERPRETABILITY
+# ============================================================================
+@app.post('/api/interpret')
+async def interpret_emotion(file: UploadFile = File(...)):
+    """
+    Run prediction + GradCAM interpretability on an uploaded image.
+
+    Returns the prediction result plus a base64-encoded heatmap overlay
+    showing which facial regions influenced the classification.
+    """
+    if model is None:
+        raise HTTPException(
+            status_code=503,
+            detail='Model not loaded. Train the model first using model_dev.ipynb, '
+                   'then restart the server.'
+        )
+
+    if not file.content_type or not file.content_type.startswith('image/'):
+        raise HTTPException(
+            status_code=400,
+            detail=f'Invalid file type: {file.content_type}. Please upload an image.'
+        )
+
+    try:
+        contents = await file.read()
+        image = Image.open(io.BytesIO(contents))
+
+        # Run prediction (with face detection)
+        result = predict(model, image, model_type=MODEL_TYPE, device=DEVICE)
+
+        # Generate GradCAM heatmap
+        heatmap_b64 = generate_attribution(
+            model, image, model_type=MODEL_TYPE, device=DEVICE
+        )
+        result['heatmap'] = heatmap_b64
+        result['emoji'] = EMOTION_EMOJIS.get(result['prediction'], '')
+
+        return result
+
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f'Interpretation failed: {str(e)}'
+        )
+
+
+# ============================================================================
 # MAIN
 # ============================================================================
 if __name__ == '__main__':
     import uvicorn
-    uvicorn.run('app:app', host='0.0.0.0', port=8000, reload=True)
+    uvicorn.run('main:app', host='0.0.0.0', port=8000, reload=True)
