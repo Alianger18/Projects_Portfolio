@@ -2,18 +2,18 @@
 Model utilities for Emotion Classification inference.
 Contains the model architecture definition, loading, and prediction logic.
 """
-import io
-import base64
-
-import torch
+from facenet_pytorch import MTCNN as FaceDetector
+from torchvision import transforms, models
+from captum.attr import LayerGradCam
+import matplotlib.cm as cm
+from pathlib import Path
+from PIL import Image
 import torch.nn as nn
 import numpy as np
-import matplotlib.cm as cm
-from torchvision import transforms, models
-from PIL import Image
-from pathlib import Path
-from facenet_pytorch import MTCNN as FaceDetector
-from captum.attr import LayerGradCam
+import base64
+import torch
+import io
+
 
 # ============================================================================
 # CONSTANTS
