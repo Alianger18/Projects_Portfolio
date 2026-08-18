@@ -21,8 +21,8 @@ MODEL_DIR = Path(__file__).resolve().parent / 'models'
 STATIC_DIR = Path(__file__).resolve().parent / 'gui'
 
 # Model selection — change these to switch between CNN and ResNet
-MODEL_TYPE = 'cnn'                     # 'cnn' or 'resnet'
-MODEL_FILE = 'best_cnn.pth'           # 'best_cnn.pth' or 'best_resnet18.pth'
+MODEL_TYPE = 'resnet'                          # 'cnn' or 'resnet'
+MODEL_FILE = 'resnet18_affectnet.pth'          # ResNet-18 trained on AffectNet (5 classes)
 
 DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 

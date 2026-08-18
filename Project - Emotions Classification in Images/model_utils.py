@@ -19,10 +19,10 @@ import io
 # CONSTANTS
 # ============================================================================
 # Internal model output classes
-_INTERNAL_CLASSES = ['anger', 'happy', 'neutral', 'surprise']
+_INTERNAL_CLASSES = ['anger', 'happy', 'neutral', 'sad', 'surprise']
 
-# Public-facing class names (4 classes)
-CLASS_NAMES = ['anger', 'joy', 'neutral', 'surprise']
+# Public-facing class names (5 classes)
+CLASS_NAMES = ['anger', 'joy', 'neutral', 'sad', 'surprise']
 NUM_CLASSES = len(CLASS_NAMES)
 
 # Mapping from internal to display names
@@ -30,6 +30,7 @@ _INTERNAL_TO_DISPLAY = {
     'anger': 'anger',
     'happy': 'joy',
     'neutral': 'neutral',
+    'sad': 'sad',
     'surprise': 'surprise',
 }
 
@@ -50,6 +51,7 @@ EMOTION_EMOJIS = {
     'anger':    '😠',
     'joy':      '😊',
     'neutral':  '😐',
+    'sad':      '😢',
     'surprise': '😲',
 }
 

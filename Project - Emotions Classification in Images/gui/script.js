@@ -6,6 +6,7 @@ const EMOJIS = {
     anger:    '😠',
     joy:      '😊',
     neutral:  '😐',
+    sad:      '😢',
     surprise: '😲',
 };
 
