@@ -1,6 +1,6 @@
 # 🎭 Facial Emotion Classifier with MTCNN & Captum
 
-A deep learning application that classifies facial expressions into **five emotion categories**: **Anger 😠, Joy 😊, Neutral 😐, Sad 😢, and Surprise 😲**.
+A deep learning application that classifies facial expressions into **five emotion categories**: **Anger 😠, Happy 😊, Neutral 😐, Sad 😢, and Surprise 😲**.
 
 The project features a **FastAPI** backend running inference on a **ResNet-18** model (transfer-learned on AffectNet), combined with **MTCNN** face detection and an interactive web GUI displaying real-time confidence scores and **GradCAM interpretability heatmaps** via **Captum**.
 
@@ -31,7 +31,7 @@ This project uses the **AffectNet** dataset (available on [Kaggle](https://www.k
 
 | Property | Detail |
 |---|---|
-| **Target Classes** | 5 emotions: `anger`, `happy` (joy), `neutral`, `sad`, `surprise` |
+| **Target Classes** | 5 emotions: `anger`, `happy`, `neutral`, `sad`, `surprise` |
 | **Native Resolution** | 96×96 px RGB images |
 | **Directory Structure** | `Train/` and `Test/` with folder-based emotion labels |
 | **Train/Val Split** | 80/20 stratified split from `Train/` |
@@ -145,7 +145,7 @@ The built-in health check endpoint at `http://localhost:8000/api/health` automat
   "probabilities": {
     "surprise": 0.932,
     "neutral": 0.037,
-    "joy": 0.014,
+    "happy": 0.014,
     "anger": 0.012,
     "sad": 0.005
   },
