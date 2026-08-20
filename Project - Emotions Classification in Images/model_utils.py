@@ -1,9 +1,14 @@
 """
-Model utilities for Emotion Classification inference.
-Contains the model architecture definition, loading, and prediction logic.
+Model utilities for Facial Emotion Classification inference.
+Contains the model architecture definitions, checkpoint loading, face detection,
+and Captum-based Grad-CAM interpretability routines.
 """
+from __future__ import annotations
+
+# Importing the required libraries
+from typing import Any, Dict, List, Optional, Tuple, Union
 from facenet_pytorch import MTCNN as FaceDetector
-from torchvision import transforms, models
+from torchvision import models, transforms
 from captum.attr import LayerGradCam
 import matplotlib.cm as cm
 from pathlib import Path
@@ -14,96 +19,97 @@ import base64
 import torch
 import io
 
-
 # ============================================================================
-# CONSTANTS
+# CONSTANTS & CONFIGURATION
 # ============================================================================
-# Internal model output classes
-_INTERNAL_CLASSES = ['anger', 'happy', 'neutral', 'sad', 'surprise']
 
-# Public-facing class names (5 classes)
-CLASS_NAMES = ['anger', 'joy', 'neutral', 'sad', 'surprise']
-NUM_CLASSES = len(CLASS_NAMES)
-
-# Mapping from internal to display names
-_INTERNAL_TO_DISPLAY = {
-    'anger': 'anger',
-    'happy': 'joy',
-    'neutral': 'neutral',
-    'sad': 'sad',
-    'surprise': 'surprise',
-}
+# Model output classes (alphabetical order as standard in PyTorch ImageFolder)
+CLASS_NAMES: List[str] = ['anger', 'happy', 'neutral', 'sad', 'surprise']
+NUM_CLASSES: int = len(CLASS_NAMES)
 
 # Normalization statistics
-# ImageNet hardcoded weights used for ResNet-18 transfer learning
-IMAGENET_MEAN = [0.485, 0.456, 0.406]
-IMAGENET_STD  = [0.229, 0.224, 0.225]
+# ImageNet weights used for ResNet transfer learning
+IMAGENET_MEAN: List[float] = [0.485, 0.456, 0.406]
+IMAGENET_STD: List[float] = [0.229, 0.224, 0.225]
 
-# Computed AffectNet dataset statistics used for Baseline CNN
-DATASET_MEAN  = [0.5410, 0.4332, 0.3833]
-DATASET_STD   = [0.2918, 0.2655, 0.2614]
+# AffectNet dataset statistics used for custom Baseline CNN
+DATASET_MEAN: List[float] = [0.5410, 0.4332, 0.3833]
+DATASET_STD: List[float] = [0.2918, 0.2655, 0.2614]
 
-CHANNEL_MEAN  = IMAGENET_MEAN
-CHANNEL_STD   = IMAGENET_STD
-
-# Emoji mapping for display
-EMOTION_EMOJIS = {
-    'anger':    '😠',
-    'joy':      '😊',
-    'neutral':  '😐',
-    'sad':      '😢',
+# Emotion emoji mappings for UI representation
+EMOTION_EMOJIS: Dict[str, str] = {
+    'anger': '😠',
+    'happy': '😊',
+    'neutral': '😐',
+    'sad': '😢',
     'surprise': '😲',
 }
 
 
 # ============================================================================
-# FACE DETECTION — MTCNN singleton
+# DEVICE RESOLUTION
 # ============================================================================
-_mtcnn = None
+
+def _resolve_device(device: Optional[Union[str, torch.device]] = None) -> torch.device:
+    """Helper to resolve a torch device cleanly."""
+    if device is None:
+        return torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    return torch.device(device) if isinstance(device, str) else device
 
 
-def get_face_detector(device=None):
-    """Lazy-initialize and return the MTCNN face detector."""
-    global _mtcnn
-    if _mtcnn is None:
-        if device is None:
-            device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-        _mtcnn = FaceDetector(
+# ============================================================================
+# FACE DETECTION (MTCNN Singleton)
+# ============================================================================
+
+_mtcnn_instance: Optional[FaceDetector] = None
+
+
+def get_face_detector(device: Optional[Union[str, torch.device]] = None) -> FaceDetector:
+    """Lazy-initialize and return a singleton MTCNN face detector."""
+    global _mtcnn_instance
+    if _mtcnn_instance is None:
+        target_device = _resolve_device(device)
+        _mtcnn_instance = FaceDetector(
             keep_all=False,
-            device=device,
+            device=target_device,
             select_largest=True,
             post_process=False,
         )
-    return _mtcnn
+    return _mtcnn_instance
 
 
-def detect_and_crop_face(image, device=None):
+def detect_and_crop_face(
+    image: Image.Image,
+    device: Optional[Union[str, torch.device]] = None,
+    margin_ratio: float = 0.15
+) -> Tuple[Image.Image, bool, Optional[List[int]]]:
     """
     Detect and crop the largest face from an image using MTCNN.
 
     Args:
-        image: PIL Image (any mode).
-        device: Torch device.
+        image: Input PIL Image.
+        device: Torch execution device.
+        margin_ratio: Margin to add around the detected bounding box.
 
     Returns:
-        face_crop (PIL.Image): Cropped face, or original image if none found.
-        face_detected (bool): Whether a face was successfully detected.
-        face_box (list or None): [x1, y1, x2, y2] bounding box coordinates.
+        face_crop: Cropped face PIL Image (or original if no face detected).
+        face_detected: Boolean flag indicating detection success.
+        face_box: [x1, y1, x2, y2] bounding box coordinates.
     """
     if image.mode != 'RGB':
         image = image.convert('RGB')
 
     detector = get_face_detector(device)
-    boxes, probs = detector.detect(image)
+    boxes, _ = detector.detect(image)
 
     if boxes is not None and len(boxes) > 0:
         box = boxes[0]
         x1, y1, x2, y2 = [int(b) for b in box]
 
-        # Add 15% margin around the detected face
+        # Apply boundary margin
         w, h = x2 - x1, y2 - y1
-        margin_x = int(w * 0.15)
-        margin_y = int(h * 0.15)
+        margin_x = int(w * margin_ratio)
+        margin_y = int(h * margin_ratio)
 
         img_w, img_h = image.size
         x1 = max(0, x1 - margin_x)
@@ -113,22 +119,23 @@ def detect_and_crop_face(image, device=None):
 
         face_crop = image.crop((x1, y1, x2, y2))
         return face_crop, True, [x1, y1, x2, y2]
-    else:
-        return image, False, None
+
+    return image, False, None
 
 
 # ============================================================================
-# MODEL ARCHITECTURE — must match the notebook definition exactly
+# MODEL ARCHITECTURES
 # ============================================================================
+
 class EmotionCNN(nn.Module):
     """
-    Custom CNN for 224x224 facial emotion classification.
-    Architecture: 4 conv blocks + AdaptiveAvgPool2d + FC layers → 4 classes.
+    Custom 4-Block Convolutional Neural Network for Facial Emotion Classification.
+    Input: [B, 3, 224, 224] -> Output: [B, num_classes]
     """
-    def __init__(self, num_classes=4):
-        super(EmotionCNN, self).__init__()
+    def __init__(self, num_classes: int = NUM_CLASSES):
+        super().__init__()
 
-        # Block 1: 3 → 64 channels, 224×224 → 112×112
+        # Block 1: 3 -> 64 channels, 224x224 -> 112x112
         self.block1 = nn.Sequential(
             nn.Conv2d(3, 64, kernel_size=3, padding=1),
             nn.BatchNorm2d(64),
@@ -136,11 +143,11 @@ class EmotionCNN(nn.Module):
             nn.Conv2d(64, 64, kernel_size=3, padding=1),
             nn.BatchNorm2d(64),
             nn.ReLU(inplace=True),
-            nn.MaxPool2d(2, 2),
+            nn.MaxPool2d(kernel_size=2, stride=2),
             nn.Dropout(0.25)
         )
 
-        # Block 2: 64 → 128 channels, 112×112 → 56×56
+        # Block 2: 64 -> 128 channels, 112x112 -> 56x56
         self.block2 = nn.Sequential(
             nn.Conv2d(64, 128, kernel_size=3, padding=1),
             nn.BatchNorm2d(128),
@@ -148,11 +155,11 @@ class EmotionCNN(nn.Module):
             nn.Conv2d(128, 128, kernel_size=3, padding=1),
             nn.BatchNorm2d(128),
             nn.ReLU(inplace=True),
-            nn.MaxPool2d(2, 2),
+            nn.MaxPool2d(kernel_size=2, stride=2),
             nn.Dropout(0.25)
         )
 
-        # Block 3: 128 → 256 channels, 56×56 → 28×28
+        # Block 3: 128 -> 256 channels, 56x56 -> 28x28
         self.block3 = nn.Sequential(
             nn.Conv2d(128, 256, kernel_size=3, padding=1),
             nn.BatchNorm2d(256),
@@ -160,11 +167,11 @@ class EmotionCNN(nn.Module):
             nn.Conv2d(256, 256, kernel_size=3, padding=1),
             nn.BatchNorm2d(256),
             nn.ReLU(inplace=True),
-            nn.MaxPool2d(2, 2),
+            nn.MaxPool2d(kernel_size=2, stride=2),
             nn.Dropout(0.25)
         )
 
-        # Block 4: 256 → 512 channels, 28×28 → 14×14
+        # Block 4: 256 -> 512 channels, 28x28 -> 14x14
         self.block4 = nn.Sequential(
             nn.Conv2d(256, 512, kernel_size=3, padding=1),
             nn.BatchNorm2d(512),
@@ -172,13 +179,13 @@ class EmotionCNN(nn.Module):
             nn.Conv2d(512, 512, kernel_size=3, padding=1),
             nn.BatchNorm2d(512),
             nn.ReLU(inplace=True),
-            nn.MaxPool2d(2, 2),
+            nn.MaxPool2d(kernel_size=2, stride=2),
             nn.Dropout(0.25)
         )
 
-        # Classifier head
+        # Classifier Head
         self.classifier = nn.Sequential(
-            nn.AdaptiveAvgPool2d(1),
+            nn.AdaptiveAvgPool2d((1, 1)),
             nn.Flatten(),
             nn.Linear(512, 256),
             nn.BatchNorm1d(256),
@@ -187,7 +194,7 @@ class EmotionCNN(nn.Module):
             nn.Linear(256, num_classes)
         )
 
-    def forward(self, x):
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
         x = self.block1(x)
         x = self.block2(x)
         x = self.block3(x)
@@ -196,11 +203,8 @@ class EmotionCNN(nn.Module):
         return x
 
 
-# ============================================================================
-# RESNET-18 BUILDER
-# ============================================================================
-def build_resnet18(num_classes=4):
-    """Build a ResNet-18 model with the same architecture as the notebook."""
+def build_resnet18(num_classes: int = NUM_CLASSES) -> nn.Module:
+    """Build a ResNet-18 model with a custom classification head."""
     model = models.resnet18(weights=None)
     num_features = model.fc.in_features
     model.fc = nn.Sequential(
@@ -211,17 +215,17 @@ def build_resnet18(num_classes=4):
 
 
 # ============================================================================
-# INFERENCE TRANSFORMS
+# TRANSFORMS & MODEL LOADING
 # ============================================================================
-def get_transform(model_type='cnn'):
+
+def get_transform(model_type: str = 'cnn') -> transforms.Compose:
     """
-    Get the inference transform pipeline matching the training transforms.
-    Baseline CNN uses dataset-computed statistics; ResNet-18 uses ImageNet statistics.
+    Get the standardized inference image transformation pipeline.
+
+    Args:
+        model_type: 'cnn' uses dataset statistics; 'resnet' uses ImageNet statistics.
     """
-    if model_type == 'cnn':
-        mean, std = DATASET_MEAN, DATASET_STD
-    else:
-        mean, std = IMAGENET_MEAN, IMAGENET_STD
+    mean, std = (DATASET_MEAN, DATASET_STD) if model_type == 'cnn' else (IMAGENET_MEAN, IMAGENET_STD)
 
     return transforms.Compose([
         transforms.Resize(256),
@@ -231,173 +235,175 @@ def get_transform(model_type='cnn'):
     ])
 
 
-# ============================================================================
-# MODEL LOADING
-# ============================================================================
-def load_model(model_path: Path, model_type: str = 'cnn', device: torch.device = None):
+def load_model(
+    model_path: Union[str, Path],
+    model_type: str = 'resnet',
+    device: Optional[Union[str, torch.device]] = None
+) -> nn.Module:
     """
-    Load a trained model from a checkpoint file.
+    Load trained weights into the appropriate model architecture.
 
     Args:
-        model_path: Path to the .pth weights file.
+        model_path: Path to the .pth state dictionary.
         model_type: 'cnn' for EmotionCNN, 'resnet' for ResNet-18.
-        device: Torch device to load the model onto.
+        device: Torch execution device.
 
     Returns:
-        The model in eval mode on the specified device.
+        Evaluated PyTorch model instance.
     """
-    if device is None:
-        device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    target_device = _resolve_device(device)
 
     if model_type == 'cnn':
-        model = EmotionCNN(NUM_CLASSES)
+        model = EmotionCNN(num_classes=NUM_CLASSES)
     elif model_type == 'resnet':
-        model = build_resnet18(NUM_CLASSES)
+        model = build_resnet18(num_classes=NUM_CLASSES)
     else:
-        raise ValueError(f"Unknown model_type: {model_type}. Use 'cnn' or 'resnet'.")
+        raise ValueError(f"Unsupported model_type: '{model_type}'. Choose 'cnn' or 'resnet'.")
 
-    model.load_state_dict(torch.load(model_path, map_location=device))
-    model.to(device)
+    state_dict = torch.load(model_path, map_location=target_device, weights_only=True)
+    model.load_state_dict(state_dict)
+    model.to(target_device)
     model.eval()
     return model
 
 
 # ============================================================================
-# PREDICTION
+# INFERENCE PIPELINE
 # ============================================================================
-def predict(model, image: Image.Image, model_type: str = 'cnn',
-            device: torch.device = None, use_face_detection: bool = True):
-    """
-    Run inference on a single PIL Image.
 
-    Optionally detects and crops the face via MTCNN before classifying.
+def predict(
+    model: nn.Module,
+    image: Image.Image,
+    model_type: str = 'resnet',
+    device: Optional[Union[str, torch.device]] = None,
+    use_face_detection: bool = True
+) -> Dict[str, Any]:
+    """
+    Run full end-to-end emotion inference on an input image.
 
     Args:
-        model: The loaded PyTorch model (in eval mode).
-        image: A PIL Image (any size/mode — will be converted to RGB).
-        model_type: 'cnn' or 'resnet' — determines the transform pipeline.
-        device: Torch device.
-        use_face_detection: If True, run MTCNN face detection first.
+        model: Loaded PyTorch model in eval mode.
+        image: Raw PIL Image.
+        model_type: 'cnn' or 'resnet'.
+        device: Torch execution device.
+        use_face_detection: Whether to run MTCNN face localization first.
 
     Returns:
-        dict with prediction, confidence, probabilities, and face metadata.
+        Structured prediction dictionary with classes, probabilities, and bbox info.
     """
-    if device is None:
-        device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    target_device = _resolve_device(device)
 
-    # Ensure RGB
     if image.mode != 'RGB':
         image = image.convert('RGB')
 
-    # Face detection & alignment (MTCNN)
+    # Step 1: Face Localization
     face_detected, face_box = False, None
     if use_face_detection:
-        image, face_detected, face_box = detect_and_crop_face(image, device)
+        image, face_detected, face_box = detect_and_crop_face(image, target_device)
 
-    # Transform and add batch dimension
+    # Step 2: Tensor Preprocessing & Batching: (3, 224, 224) -> (1, 3, 224, 224)
     transform = get_transform(model_type)
-    tensor = transform(image).unsqueeze(0).to(device)
+    tensor = transform(image).unsqueeze(0).to(target_device)
 
-    # Inference
+    # Step 3: Forward Pass
+    model.eval()
     with torch.no_grad():
-        outputs = model(tensor)
-        probabilities = torch.softmax(outputs, dim=1)[0]
+        logits = model(tensor)
+        probabilities = torch.softmax(logits, dim=1).squeeze(0).cpu().numpy()
 
-    # Map output probabilities to display classes
-    probs_dict = {}
-    for i, int_cls in enumerate(_INTERNAL_CLASSES):
-        disp_name = _INTERNAL_TO_DISPLAY[int_cls]
-        probs_dict[disp_name] = round(float(probabilities[i]), 4)
+    # Step 4: Map probabilities strictly to raw class names
+    probs_dict = {
+        class_name: round(float(prob), 4)
+        for class_name, prob in zip(CLASS_NAMES, probabilities)
+    }
 
-    top_class = max(probs_dict, key=probs_dict.get)
-    top_conf = probs_dict[top_class]
+    top_class = max(probs_dict, key=lambda k: probs_dict[k])
 
     return {
         'prediction': top_class,
-        'confidence': round(top_conf, 4),
+        'emoji': EMOTION_EMOJIS.get(top_class, ''),
+        'confidence': probs_dict[top_class],
         'probabilities': probs_dict,
         'face_detected': face_detected,
-        'face_box': [int(c) for c in face_box] if face_box else None,
+        'face_box': face_box,
     }
 
 
 # ============================================================================
-# CAPTUM INTERPRETABILITY — GradCAM Attribution
+# CAPTUM INTERPRETABILITY (Grad-CAM)
 # ============================================================================
-def generate_attribution(model, image: Image.Image, model_type: str = 'cnn',
-                         device: torch.device = None):
-    """
-    Generate a GradCAM attribution heatmap for the predicted class.
 
-    The image is first face-cropped via MTCNN, then the attribution is
-    computed against the last convolutional layer and blended with the
-    original face crop.
+def generate_attribution(
+    model: nn.Module,
+    image: Image.Image,
+    model_type: str = 'resnet',
+    device: Optional[Union[str, torch.device]] = None
+) -> str:
+    """
+    Generate an interpretable Grad-CAM attribution heatmap encoded as Base64.
 
     Args:
-        model: Loaded PyTorch model in eval mode.
-        image: PIL Image (will be face-cropped automatically).
+        model: Loaded PyTorch model.
+        image: PIL Image.
         model_type: 'cnn' or 'resnet'.
-        device: Torch device.
+        device: Torch execution device.
 
     Returns:
-        heatmap_b64 (str): data:image/png;base64,... encoded overlay.
+        Base64 Data URI string of the blended saliency map.
     """
-    if device is None:
-        device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    target_device = _resolve_device(device)
 
     if image.mode != 'RGB':
         image = image.convert('RGB')
 
-    # Detect and crop face first
-    face_image, _, _ = detect_and_crop_face(image, device)
+    # Detect face region to focus interpretability strictly on facial geometry
+    face_image, _, _ = detect_and_crop_face(image, target_device)
 
-    # Select the target convolutional layer for GradCAM
+    # Select target convolutional feature layer
     if model_type == 'cnn':
-        target_layer = model.block4[3]   # Last Conv2d in block4
+        target_layer = model.block4[3]       # Last Conv2d in custom block 4
     else:
-        target_layer = model.layer4[-1].conv2  # Standard ResNet target
+        target_layer = model.layer4[-1].conv2  # Last Conv2d in ResNet-18 residual layer 4
 
-    # Prepare input tensor
     transform = get_transform(model_type)
-    input_tensor = transform(face_image).unsqueeze(0).to(device)
+    input_tensor = transform(face_image).unsqueeze(0).to(target_device)
 
-    # Get predicted class index
+    # Get target class for attribution
     model.eval()
     with torch.no_grad():
         output = model(input_tensor)
-    pred_class = int(output.argmax(dim=1))
+    pred_class_idx = int(output.argmax(dim=1).item())
 
-    # Run LayerGradCam
+    # Compute LayerGradCam
     grad_cam = LayerGradCam(model, target_layer)
-    attribution = grad_cam.attribute(input_tensor, target=pred_class)
+    attribution = grad_cam.attribute(input_tensor, target=pred_class_idx)
 
-    # Process: squeeze, average channels, ReLU, normalize to [0, 1]
+    # Squeeze to 2D activation map & apply ReLU normalization
     attr = attribution.squeeze().cpu().detach().numpy()
     if attr.ndim > 2:
         attr = attr.mean(axis=0)
-    attr = np.maximum(attr, 0)                       # ReLU
+    attr = np.maximum(attr, 0)
     if attr.max() > 0:
-        attr = attr / attr.max()                     # normalize
+        attr = attr / attr.max()
 
-    # Resize heatmap to match face image dimensions
+    # Resize heatmap to match cropped face dimensions
     attr_pil = Image.fromarray((attr * 255).astype(np.uint8))
     attr_resized = np.array(
-        attr_pil.resize(face_image.size, Image.BILINEAR)
+        attr_pil.resize(face_image.size, resample=Image.Resampling.BILINEAR)
     ) / 255.0
 
-    # Apply jet colormap
-    heatmap_colored = cm.jet(attr_resized)[:, :, :3]        # drop alpha
-    heatmap_colored = (heatmap_colored * 255).astype(np.uint8)
+    # Apply Jet color mapping
+    heatmap_colored = (cm.jet(attr_resized)[:, :, :3] * 255).astype(np.uint8)
 
-    # Blend heatmap with original face image (55% original, 45% heatmap)
+    # Alpha-blend (55% original facial features, 45% heatmap attribution)
     original_arr = np.array(face_image)
     blended = (0.55 * original_arr + 0.45 * heatmap_colored).astype(np.uint8)
 
-    # Encode as base64 PNG
-    blended_img = Image.fromarray(blended)
+    # Encode as Base64 Data URI
+    blended_pil = Image.fromarray(blended)
     buffer = io.BytesIO()
-    blended_img.save(buffer, format='PNG')
+    blended_pil.save(buffer, format='PNG')
     buffer.seek(0)
     b64_str = base64.b64encode(buffer.getvalue()).decode('utf-8')
 
-    return f'data:image/png;base64,{b64_str}'
+    return f"data:image/png;base64,{b64_str}"
