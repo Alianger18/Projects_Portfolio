@@ -4,7 +4,7 @@
 
 const EMOJIS = {
     anger:    '😠',
-    joy:      '😊',
+    happy:    '😊',
     neutral:  '😐',
     sad:      '😢',
     surprise: '😲',
@@ -118,13 +118,15 @@ async function uploadAndPredict(file) {
 
 
 // ---------- DISPLAY RESULTS ----------
+function capitalize(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
+
 function displayResults(result) {
     // Hide loading
     loadingState.style.display = 'none';
 
     // Top prediction
     topEmoji.textContent      = EMOJIS[result.prediction] || '🤔';
-    topLabel.textContent      = result.prediction;
+    topLabel.textContent      = capitalize(result.prediction);
     topConfidence.textContent = `${(result.confidence * 100).toFixed(1)}% confidence`;
 
     // Build per-class bars
@@ -142,7 +144,7 @@ function displayResults(result) {
 
         row.innerHTML = `
             <span class="pred-emoji">${EMOJIS[emotion] || ''}</span>
-            <span class="pred-label">${emotion}</span>
+            <span class="pred-label">${capitalize(emotion)}</span>
             <div class="pred-bar-track">
                 <div class="pred-bar-fill" data-emotion="${emotion}"></div>
             </div>

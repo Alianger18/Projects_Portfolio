@@ -20,7 +20,7 @@
     --text-muted:     #5a576e;
 
     --bar-anger:      #ef4444;
-    --bar-joy:        #facc15;
+    --bar-happy:      #facc15;
     --bar-neutral:    #94a3b8;
     --bar-sad:        #3b82f6;
     --bar-surprise:   #f97316;
@@ -439,7 +439,7 @@ body {
 
 /* Emotion-specific bar colors */
 .pred-bar-fill[data-emotion="anger"]    { background: var(--bar-anger); }
-.pred-bar-fill[data-emotion="joy"]      { background: var(--bar-joy); }
+.pred-bar-fill[data-emotion="happy"]    { background: var(--bar-happy); }
 .pred-bar-fill[data-emotion="neutral"]  { background: var(--bar-neutral); }
 .pred-bar-fill[data-emotion="sad"]      { background: var(--bar-sad); }
 .pred-bar-fill[data-emotion="surprise"] { background: var(--bar-surprise); }
