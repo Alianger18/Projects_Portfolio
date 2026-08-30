@@ -94,20 +94,26 @@ This project uses the **AffectNet** dataset (available on [Kaggle](https://www.k
 ### Prerequisites
 - Python 3.11+
 
-### 1. Clone & Install Dependencies
+### 1. Clone the repository
 ```bash
 git clone https://github.com/Alianger18/Projects_Portfolio.git
 cd "Project - Emotions Classification in Images"
+```
+
+### 2. Set up the environment and install dependencies
+```bash
+python -m venv venv
+source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### 2. Start the Server
+### 3. Start the Server
 ```bash
 python main.py
 ```
 The server starts on **port 8000** with hot-reload enabled.
 
-### 3. Open the GUI
+### 4. Open the GUI
 Navigate to **[http://localhost:8000](http://localhost:8000)** in your browser.
 
 > **Note**: If model weights are not found in `models/`, the app automatically runs in **Demo Mode** with simulated predictions.
